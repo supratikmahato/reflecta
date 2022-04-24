@@ -2,7 +2,7 @@
   <div
     class="min-h-screen flex flex-col gap-y-6 justify-center items-center p-5"
   >
-    <h1 class="text-9xl">Mood.</h1>
+    <h1 class="text-6xl sm:text-7xl md:text-8xl lg:text-9xl">Mood.</h1>
     <div
       v-if="errors.length"
       class="flex flex-col gap-y-1 h-auto text-sm pr-3 pl-3"
@@ -49,10 +49,16 @@
           class="textarea resize-none textarea-primary"
           placeholder="How are you feeling today?"
         />
-        <button type="submit" class="btn btn-accent text-lg">
+        <button
+          type="submit"
+          class="btn btn-accent text-md sm:text-lg md:text-lg"
+        >
           <i class="bx bx-coffee-togo mr-1 text-2xl"></i>Brew
         </button>
-        <NuxtLink to="/posts" class="btn btn-primary text-lg">
+        <NuxtLink
+          to="/posts"
+          class="btn btn-primary text-md sm:text-lg md:text-lg"
+        >
           <i class="bx bxs-coffee mr-1 text-2xl"></i>View Your Posts
         </NuxtLink>
       </div>

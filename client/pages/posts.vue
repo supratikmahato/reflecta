@@ -1,28 +1,31 @@
 <template>
-  <div class="min-h-screen text-center p-5">
-    <h1 class="text-5xl mb-5">Your Posts</h1>
-    <div class="grid grid-cols-3 gap-4">
-      <div
-        v-for="post in posts"
-        :key="post"
-        class="card bg-accent p-2 flex flex-col gap-2 justify-center items-center overflow-visible"
-      >
+  <div>
+    <div v-if="loading"><Loading /></div>
+    <div v-else class="min-h-screen text-center p-5">
+      <h1 class="text-3xl mb-5 md:text-4xl lg:text-5xl">Your Posts</h1>
+      <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
         <div
-          class="tooltip tooltip-right tooltip-primary hover:z-50"
-          data-tip="Coffee"
+          v-for="post in posts"
+          :key="post"
+          class="card bg-accent p-2 flex flex-col gap-2 justify-center items-center overflow-visible"
         >
-          <h1 class="font-extrabold">
-            <i class="bx bx-coffee-togo mr-1 text-xl"></i
-            >{{ post["coffee-type"] }}
-          </h1>
-        </div>
-        <div class="tooltip tooltip-primary hover:z-50" data-tip="Your Mood">
-          <h1 class="font-bold">{{ post.content }}</h1>
-        </div>
-        <div class="tooltip tooltip-primary hover:z-50" data-tip="Created On">
-          <h1 class="font-code text-xs bg-secondary p-1 rounded">
-            {{ date(post["created-at"]) }}
-          </h1>
+          <div
+            class="tooltip tooltip-right tooltip-primary hover:z-50"
+            data-tip="Coffee"
+          >
+            <h1 class="font-extrabold">
+              <i class="bx bx-coffee-togo mr-1 text-xl"></i
+              >{{ post["coffee-type"] }}
+            </h1>
+          </div>
+          <div class="tooltip tooltip-primary hover:z-50" data-tip="Your Mood">
+            <h1 class="font-bold">{{ post.content }}</h1>
+          </div>
+          <div class="tooltip tooltip-primary hover:z-50" data-tip="Created On">
+            <h1 class="font-code text-xs bg-secondary p-1 rounded">
+              {{ date(post["created-at"]) }}
+            </h1>
+          </div>
         </div>
       </div>
     </div>
@@ -36,6 +39,7 @@ export default {
   middleware: "ifNotAuth",
   data() {
     return {
+      loading: "",
       posts: [],
       errors: [],
     };
@@ -45,6 +49,7 @@ export default {
   },
   methods: {
     async fetchPosts() {
+      this.loading = true;
       await fetch(`${process.env.baseUrl}/coffee`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("access-token")}`,
@@ -98,6 +103,7 @@ export default {
               }
             }
             this.posts = data.mood;
+            this.loading = false;
           }
         });
     },
