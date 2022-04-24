@@ -45,7 +45,7 @@ export default {
   },
   methods: {
     async fetchPosts() {
-      await fetch("http://localhost:8000/coffee", {
+      await fetch("https://coffee-backend.techgenius7777.tech/coffee", {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("access-token")}`,
         },

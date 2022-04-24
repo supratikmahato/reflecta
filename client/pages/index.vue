@@ -116,7 +116,7 @@ export default {
         this.errors = error.details.map((e) => e.message);
       } else {
         this.errors = [];
-        await fetch("http://localhost:8000/coffee", {
+        await fetch("https://coffee-backend.techgenius7777.tech/coffee", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

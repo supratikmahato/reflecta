@@ -92,13 +92,16 @@ export default {
         this.errors = error.details.map((e) => e.message);
       } else {
         this.errors = [];
-        await fetch("http://localhost:8000/auth/register", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(this.form),
-        })
+        await fetch(
+          "https://coffee-backend.techgenius7777.tech/auth/register",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(this.form),
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             if (data.error && data.success === false) {
