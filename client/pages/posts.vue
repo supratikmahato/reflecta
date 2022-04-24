@@ -11,13 +11,13 @@
           class="tooltip tooltip-right tooltip-primary hover:z-50"
           data-tip="Coffee"
         >
-          <h1 class="font-bold">
+          <h1 class="font-extrabold">
             <i class="bx bx-coffee-togo mr-1 text-xl"></i
             >{{ post["coffee-type"] }}
           </h1>
         </div>
         <div class="tooltip tooltip-primary hover:z-50" data-tip="Your Mood">
-          <h1>{{ post.content }}</h1>
+          <h1 class="font-bold">{{ post.content }}</h1>
         </div>
         <div class="tooltip tooltip-primary hover:z-50" data-tip="Created On">
           <h1 class="font-code text-xs bg-secondary p-1 rounded">
@@ -45,7 +45,7 @@ export default {
   },
   methods: {
     async fetchPosts() {
-      await fetch("https://coffee-backend.techgenius7777.tech/coffee", {
+      await fetch(`${process.env.baseUrl}/coffee`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("access-token")}`,
         },

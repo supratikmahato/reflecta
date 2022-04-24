@@ -1,10 +1,17 @@
 <template>
   <div class="hero min-h-screen bg-base-200 p-5">
     <div class="hero-content flex-col lg:flex-row-reverse">
-      <div v-if="errors.length">
-        <div>
-          <li v-for="error in errors" :key="error">{{ error }}</li>
-        </div>
+      <div
+        v-if="errors.length"
+        class="flex flex-col gap-y-1 h-auto text-sm pr-3 pl-3"
+      >
+        <h1
+          v-for="error in errors"
+          :key="error"
+          class="alert alert-error p-2 shadow-md"
+        >
+          {{ error }}
+        </h1>
       </div>
       <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
         <div class="card-body">
@@ -92,16 +99,13 @@ export default {
         this.errors = error.details.map((e) => e.message);
       } else {
         this.errors = [];
-        await fetch(
-          "https://coffee-backend.techgenius7777.tech/auth/register",
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(this.form),
-          }
-        )
+        await fetch(`${process.env.baseUrl}/auth/register`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(this.form),
+        })
           .then((res) => res.json())
           .then((data) => {
             if (data.error && data.success === false) {
