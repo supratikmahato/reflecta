@@ -17,7 +17,7 @@
     </div>
     <div v-else-if="success">
       <div class="alert alert-success">
-        <h1>You have successfully brewed your coffee</h1>
+        <h1>Successfully brewed your coffee</h1>
       </div>
     </div>
     <form @submit.prevent="submit">

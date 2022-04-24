@@ -99,7 +99,6 @@ export default {
             } else {
               localStorage.setItem("access-token", data["access-token"]);
               this.$cookies.set("is-authenticated", true, {
-                path: "/",
                 maxAge: 60 * 60 * 24 * 60,
               });
               this.$router.push("/");
