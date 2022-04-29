@@ -61,7 +61,9 @@ export default {
         .then((data) => {
           if (data.error && data.success === false) {
             if (data.code === 401) {
-              this.$cookies.set("is-authenticated", false);
+              this.$cookies.set("is-authenticated", false, {
+                path: "/",
+              });
               this.$router.push("/login");
             }
           } else {
