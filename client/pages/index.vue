@@ -51,13 +51,13 @@
         />
         <button
           type="submit"
-          class="btn btn-accent text-md sm:text-lg md:text-lg"
+          class="btn btn-accent text-md sm:text-lg md:text-lg normal-case"
         >
           <i class="bx bx-coffee-togo mr-1 text-2xl"></i>Brew
         </button>
         <NuxtLink
           to="/posts"
-          class="btn btn-primary text-md sm:text-lg md:text-lg"
+          class="btn btn-primary text-md sm:text-lg md:text-lg normal-case"
         >
           <i class="bx bxs-coffee mr-1 text-2xl"></i>View Your Posts
         </NuxtLink>
@@ -137,7 +137,9 @@ export default {
           .then((data) => {
             if (data.error && data.success === false) {
               if (data.code === 401) {
-                this.$cookies.set("is-authenticated", false);
+                this.$cookies.set("is-authenticated", false, {
+                  path: "/",
+                });
                 this.$router.push("/login");
               } else {
                 this.errors = [data.error];

@@ -39,7 +39,9 @@
               />
             </div>
             <div class="form-control mt-6">
-              <button type="submit" class="btn btn-primary">Login</button>
+              <button type="submit" class="btn btn-primary normal-case">
+                Login
+              </button>
             </div>
           </form>
         </div>
