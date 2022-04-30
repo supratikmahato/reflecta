@@ -3,7 +3,7 @@ export default {
   target: "static",
   ssr: false,
   head: {
-    title: "client",
+    title: "Coffee",
     htmlAttrs: {
       lang: "en",
     },
