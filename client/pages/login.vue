@@ -1,5 +1,8 @@
 <template>
-  <div class="hero min-h-screen bg-base-200 p-5">
+  <div
+    class="hero min-h-screen flex flex-col gap-y-6 justify-center items-center bg-base-200 p-5"
+  >
+    <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl">Login.</h1>
     <div class="hero-content flex-col lg:flex-row-reverse">
       <div
         v-if="errors.length"
@@ -43,6 +46,12 @@
                 Login
               </button>
             </div>
+            <h1 class="mt-6">
+              Don't have an account? Create one
+              <NuxtLink class="text-accent underline" to="/register"
+                >here</NuxtLink
+              >.
+            </h1>
           </form>
         </div>
       </div>

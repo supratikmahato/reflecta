@@ -8,9 +8,6 @@ module.exports = {
   ],
   theme: {
     extend: {
-      colors: {
-        coffee: "#876445",
-      },
       fontFamily: {
         code: ["M PLUS Code Latin", "sans-serif"],
       },
