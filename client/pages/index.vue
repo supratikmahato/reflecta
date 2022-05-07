@@ -21,7 +21,7 @@
       </div>
     </div>
     <form @submit.prevent="submit">
-      <div class="flex flex-col gap-y-5 w-auto">
+      <div class="flex flex-col gap-y-5 w-full">
         <select v-model="send['coffee-type']" class="select select-primary">
           <option disabled selected value="">
             Select one coffee according to your mood
