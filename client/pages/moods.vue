@@ -2,12 +2,12 @@
   <div>
     <div v-if="loading"><Loading /></div>
     <div v-else class="min-h-screen text-center p-5">
-      <h1 class="text-3xl mb-5 md:text-4xl lg:text-5xl">Your Posts</h1>
+      <h1 class="text-3xl mb-5 md:text-4xl lg:text-5xl">Your Moods</h1>
       <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
         <div
-          v-for="post in posts"
-          :key="post"
-          class="card bg-accent p-2 flex flex-col gap-2 justify-center items-center overflow-visible"
+          v-for="mood in moods"
+          :key="mood"
+          class="card bg-accent p-2 flex flex-col gap-2 justify-center items-center overflow-visible shadow-xl"
         >
           <div
             class="tooltip tooltip-right tooltip-primary hover:z-50"
@@ -15,18 +15,23 @@
           >
             <h1 class="font-extrabold">
               <i class="bx bx-coffee-togo mr-1 text-xl"></i
-              >{{ post["coffee-type"] }}
+              >{{ mood["coffee-type"] }}
             </h1>
           </div>
           <div class="tooltip tooltip-primary hover:z-50" data-tip="Your Mood">
-            <h1 class="font-bold">{{ post.content }}</h1>
+            <h1 class="font-bold">{{ mood.content }}</h1>
           </div>
           <div class="tooltip tooltip-primary hover:z-50" data-tip="Created On">
             <h1 class="font-code text-xs bg-secondary p-1 rounded">
-              {{ date(post["created-at"]) }}
+              {{ date(mood["created-at"]) }}
             </h1>
           </div>
         </div>
+        <NuxtLink
+          to="/"
+          class="btn btn-primary text-md sm:text-lg md:text-lg normal-case col-span-1 md:col-span-2 lg:col-span-3 mt-4"
+          >Create More Moods</NuxtLink
+        >
       </div>
     </div>
   </div>
@@ -40,7 +45,7 @@ export default {
   data() {
     return {
       loading: "",
-      posts: [],
+      moods: [],
       errors: [],
     };
   },
@@ -104,7 +109,7 @@ export default {
                 data.mood[x]["coffee-type"] = "Irish";
               }
             }
-            this.posts = data.mood;
+            this.moods = data.mood;
             this.loading = false;
           }
         });
