@@ -22,7 +22,7 @@
     </div>
     <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-200">
       <form @submit.prevent="submit">
-        <div class="card-body">
+        <div class="card-body gap-y-3">
           <div class="form-control">
             <select v-model="send['coffee-type']" class="select select-primary">
               <option disabled selected value="">
