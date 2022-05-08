@@ -21,7 +21,7 @@
           <div class="tooltip tooltip-primary hover:z-50" data-tip="Your Mood">
             <h1 class="font-bold">{{ mood.content }}</h1>
           </div>
-          <div class="tooltip tooltip-primary hover:z-50" data-tip="Created On">
+          <div class="tooltip tooltip-primary hover:z-50" data-tip="Brewed On">
             <h1 class="font-code text-xs bg-secondary p-1 rounded">
               {{ date(mood["created-at"]) }}
             </h1>
