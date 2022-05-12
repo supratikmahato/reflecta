@@ -24,7 +24,11 @@
       <form @submit.prevent="submit">
         <div class="card-body gap-y-3">
           <div class="form-control">
-            <select v-model="send['coffee-type']" class="select select-primary">
+            <select
+              v-model="send['coffee-type']"
+              class="select select-primary"
+              required
+            >
               <option disabled selected value="">
                 Express your mood in coffee
               </option>
@@ -52,6 +56,7 @@
               v-model="send.content"
               class="textarea resize-none textarea-primary"
               placeholder="How are you feeling today?"
+              required
             />
           </div>
           <div class="form-control mt-6">

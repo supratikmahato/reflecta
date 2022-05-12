@@ -28,6 +28,7 @@
                 type="text"
                 placeholder="email"
                 class="input input-bordered"
+                required
               />
             </div>
             <div class="form-control">
@@ -39,6 +40,7 @@
                 type="password"
                 placeholder="password"
                 class="input input-bordered"
+                required
               />
             </div>
             <div class="form-control mt-6">
@@ -66,8 +68,9 @@ const schema = Joi.object().keys({
   email: Joi.string()
     .email({ tlds: { allow: false } })
     .required()
+    .trim()
     .label("Email"),
-  password: Joi.string().required().min(6).label("Password"),
+  password: Joi.string().required().min(6).trim().label("Password"),
 });
 
 export default {
@@ -101,7 +104,10 @@ export default {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify(this.form),
+          body: JSON.stringify({
+            email: this.form.email.trim(),
+            password: this.form.password.trim(),
+          }),
         })
           .then((res) => res.json())
           .then((data) => {
