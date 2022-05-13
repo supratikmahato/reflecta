@@ -33,6 +33,7 @@
           >Create More Moods</NuxtLink
         >
       </div>
+      <Logout class="mt-4" />
     </div>
   </div>
 </template>

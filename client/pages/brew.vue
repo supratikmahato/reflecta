@@ -78,6 +78,7 @@
         </div>
       </form>
     </div>
+    <Logout />
   </div>
 </template>
 

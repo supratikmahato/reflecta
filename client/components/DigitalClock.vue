@@ -50,7 +50,7 @@ const getHour = (twelveHour) => {
   return padZero(hours);
 };
 
-const getAmPm = () => (getDate().getHours() > 12 ? "PM" : "AM");
+const getAmPm = () => (getDate().getHours() >= 12 ? "PM" : "AM");
 
 export default {
   name: "vue-digital-clock",

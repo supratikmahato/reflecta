@@ -17,8 +17,7 @@
     "daisyui": "^2.13.6",
     "human-date": "^1.4.0",
     "joi": "^17.6.0",
-    "nuxt": "^2.15.7",
-    "vue-digital-clock": "^2.0.0"
+    "nuxt": "^2.15.7"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.14.7",
