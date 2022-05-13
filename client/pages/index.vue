@@ -1,170 +1,53 @@
 <template>
-  <div
-    class="min-h-screen flex flex-col gap-y-6 justify-center items-center p-5"
-  >
-    <h1 class="text-6xl sm:text-7xl md:text-8xl lg:text-9xl">Mood.</h1>
-    <div
-      v-if="errors.length"
-      class="flex flex-col gap-y-1 h-auto text-sm pr-3 pl-3"
+  <div class="min-h-screen min-w-full bg-black">
+    <video
+      autoplay
+      muted
+      loop
+      class="fixed top-0 right-0 min-h-full min-w-full"
     >
-      <h1
-        v-for="error in errors"
-        :key="error"
-        class="alert alert-error p-2 shadow-md"
+      <source src="/videos/chill.mp4" type="video/mp4" />
+    </video>
+    <div
+      class="fixed flex flex-col gap-y-1 top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 font-gilroy font-extrabold text-3xl p-6 glassmorphism rounded-3xl text-center"
+    >
+      <i class="bx bxs-coffee text-5xl"></i>
+      <digital-clock :blink="false" :twelveHour="true" />
+      <h1 class="font-medium text-base">{{ location }}</h1>
+      <NuxtLink to="/brew" class="btn btn-accent normal-case"
+        >How are you feeling today?</NuxtLink
       >
-        {{ error }}
-      </h1>
-    </div>
-    <div v-else-if="success">
-      <div class="alert alert-success">
-        <h1>Successfully brewed your mood</h1>
-      </div>
-    </div>
-    <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-200">
-      <form @submit.prevent="submit">
-        <div class="card-body gap-y-3">
-          <div class="form-control">
-            <select
-              v-model="send['coffee-type']"
-              class="select select-primary"
-              required
-            >
-              <option disabled selected value="">
-                Express your mood in coffee
-              </option>
-              <option value="black">Black</option>
-              <option value="americano">Americano</option>
-              <option value="latte">Latte</option>
-              <option value="cappuccino">Cappuccino</option>
-              <option value="espresso">Espresso</option>
-              <option value="doppio">Doppio</option>
-              <option value="cortado">Cortado</option>
-              <option value="red-eye">Red Eye</option>
-              <option value="galao">Galão</option>
-              <option value="lungo">Lungo</option>
-              <option value="macchiato">Macchiato</option>
-              <option value="mocha">Mocha</option>
-              <option value="ristretto">Ristretto</option>
-              <option value="flat-white">Flat White</option>
-              <option value="affogato">Affogato</option>
-              <option value="cafe-au-lait">Café Au Lait</option>
-              <option value="irish">Irish</option>
-            </select>
-          </div>
-          <div class="form-control">
-            <input
-              v-model="send.content"
-              class="textarea resize-none textarea-primary"
-              placeholder="How are you feeling today?"
-              required
-            />
-          </div>
-          <div class="form-control mt-6">
-            <button
-              type="submit"
-              class="btn btn-accent text-md sm:text-lg md:text-lg normal-case"
-            >
-              <i class="bx bx-coffee-togo mr-1 text-2xl"></i>Brew Your Mood
-            </button>
-          </div>
-          <div class="form-control">
-            <NuxtLink
-              to="/moods"
-              class="btn btn-primary text-md sm:text-lg md:text-lg normal-case"
-            >
-              <i class="bx bxs-coffee mr-1 text-2xl"></i>View Your Moods
-            </NuxtLink>
-          </div>
-        </div>
-      </form>
     </div>
   </div>
 </template>
 
 <script>
-import Joi from "joi";
-
-const schema = Joi.object().keys({
-  "coffee-type": Joi.string()
-    .valid(
-      "black",
-      "americano",
-      "latte",
-      "cappuccino",
-      "espresso",
-      "doppio",
-      "cortado",
-      "red-eye",
-      "galao",
-      "lungo",
-      "macchiato",
-      "mocha",
-      "ristretto",
-      "flat-white",
-      "affogato",
-      "cafe-au-lait",
-      "irish"
-    )
-    .required()
-    .label("Coffee Type"),
-  content: Joi.string().required().trim().min(1).max(100).label("Content"),
-});
-
 export default {
-  middleware: "ifNotAuth",
   data() {
     return {
-      send: {
-        "coffee-type": "",
-        content: "",
-      },
-      errors: [],
-      success: "",
+      location: "",
     };
   },
-  methods: {
-    async submit() {
-      const { error } = schema.validate(
-        {
-          "coffee-type": this.send["coffee-type"],
-          content: this.send.content,
-        },
-        {
-          abortEarly: false,
-        }
-      );
-      if (error) {
-        this.errors = error.details.map((e) => e.message);
-      } else {
-        this.errors = [];
-        await fetch(`${process.env.baseUrl}/coffee`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${localStorage.getItem("access-token")}`,
-          },
-          body: JSON.stringify({
-            "coffee-type": this.send["coffee-type"],
-            content: this.send.content.trim(),
-          }),
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            if (data.error && data.success === false) {
-              if (data.code === 401) {
-                this.$cookies.set("is-authenticated", false, {
-                  path: "/",
-                });
-                this.$router.push("/login");
-              } else {
-                this.errors = [data.error];
-              }
-            } else {
-              this.success = true;
-            }
-          });
-      }
-    },
+  async created() {
+    await fetch("https://geolocation-db.com/json/")
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        this.location = `${data.city ? data.city : ""}${
+          data.city && data.country_code ? ", " : ""
+        }${data.country_code ? data.country_code : ""}`;
+      });
   },
 };
 </script>
+
+<style scoped>
+.glassmorphism {
+  backdrop-filter: blur(5px);
+  background-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 35px 35px 68px 0 rgba(145, 192, 255, 0.5),
+    inset -8px -8px 16px 0 rgba(145, 192, 255, 0.6),
+    inset 0 11px 28px 0 rgb(255, 255, 255);
+}
+</style>

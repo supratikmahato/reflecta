@@ -28,7 +28,7 @@
           </div>
         </div>
         <NuxtLink
-          to="/"
+          to="/brew"
           class="btn btn-primary text-md sm:text-lg md:text-lg normal-case col-span-1 md:col-span-2 lg:col-span-3 mt-4"
           >Create More Moods</NuxtLink
         >
