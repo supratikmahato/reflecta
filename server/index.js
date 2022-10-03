@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const { rootRoute, authRoute, coffeeRoute } = require("./routes/routesExport");
+const { rootRoute, authRoute, coffeeRoute } = require("./routes");
 const mongoose = require("mongoose");
 require("dotenv").config();
 const PORT = process.env.PORT;

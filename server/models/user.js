@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const { v4: uuidv4 } = require("uuid");
-const randomId = require("../utils/utils");
+const { randomId } = require("../utils");
 
 const userSchema = new mongoose.Schema({
   token: {

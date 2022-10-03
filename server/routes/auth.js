@@ -4,8 +4,8 @@ const jwt = require("jsonwebtoken");
 const {
   userRegisterValidation,
   userLoginValidation,
-} = require("../validation/validationExport");
-const { userModel } = require("../models/modelsExport");
+} = require("../validation");
+const { userModel } = require("../models");
 require("dotenv").config();
 
 router.post("/register", (req, res) => {

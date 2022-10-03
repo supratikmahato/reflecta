@@ -1,6 +1,6 @@
 const router = require("express").Router();
-const { coffeePostValidation } = require("../validation/validationExport");
-const { userModel } = require("../models/modelsExport");
+const { coffeePostValidation } = require("../validation");
+const { userModel } = require("../models");
 const authenticate = require("../middlewares/authenticate");
 require("dotenv").config();
 
