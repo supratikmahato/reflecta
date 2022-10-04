@@ -146,6 +146,10 @@ async function submit() {
         })
           .then(() => {
             errors.value = [];
+            send.value = {
+              "coffee-type": "",
+              content: "",
+            };
           })
           .catch((e: IError) => {
             if (e.data.error && e.data.success === false) {
