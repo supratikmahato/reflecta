@@ -30,7 +30,7 @@ export default defineNuxtConfig({
       link: [
         { rel: "icon", type: "image/x-icon", href: "/favicon.svg" },
         {
-          href: "https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css",
+          href: "https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css",
           rel: "stylesheet",
         },
       ],
