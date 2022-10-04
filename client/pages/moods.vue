@@ -22,7 +22,7 @@
             data-tip="Coffee"
           >
             <h1 class="font-extrabold">
-              <i class="bx bx-coffee-togo mr-1 text-xl"></i
+              <i class="bx bxs-coffee-bean mr-1 text-xl"></i
               >{{ mood["coffee-type"] }}
             </h1>
           </div>
