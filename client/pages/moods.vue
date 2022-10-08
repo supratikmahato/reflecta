@@ -120,6 +120,7 @@ onBeforeMount(async () => {
             }
           }
           moods.value = res.mood.reverse();
+          loading.value = false;
         })
         .catch((e: IError) => {
           if (e.data.error && e.data.success === false && e.data.code === 401) {
@@ -133,7 +134,6 @@ onBeforeMount(async () => {
       initialCache: false,
     }
   );
-  loading.value = false;
 });
 
 function date(date) {
