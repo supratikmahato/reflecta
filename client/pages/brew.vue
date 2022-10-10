@@ -22,7 +22,7 @@
         <div class="card-body gap-y-3">
           <div class="form-control">
             <select
-              v-model.trim="send['coffee-type']"
+              v-model.trim="send.coffeeType"
               class="select select-primary"
               required
             >
@@ -95,7 +95,7 @@ interface IError extends FetchError {
 }
 
 const schema = Joi.object().keys({
-  "coffee-type": Joi.string()
+  coffeeType: Joi.string()
     .valid(
       "black",
       "americano",
@@ -127,7 +127,7 @@ definePageMeta({
 const config = useRuntimeConfig();
 
 const send = ref({
-  "coffee-type": "",
+  coffeeType: "",
   content: "",
 });
 const errors = ref([]);
@@ -147,7 +147,7 @@ async function submit() {
           .then(() => {
             errors.value = [];
             send.value = {
-              "coffee-type": "",
+              coffeeType: "",
               content: "",
             };
           })

@@ -10,7 +10,6 @@
 
 <script setup lang="ts">
 function logout() {
-  localStorage.removeItem("access-token");
   useCookie("is-authenticated", {
     path: "/",
   }).value = "false";

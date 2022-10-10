@@ -1,7 +1,7 @@
-const Joi = require("joi");
+import Joi from "joi";
 
 const coffeePostValidation = Joi.object().keys({
-  "coffee-type": Joi.string()
+  coffeeType: Joi.string()
     .valid(
       "black",
       "americano",
@@ -22,7 +22,7 @@ const coffeePostValidation = Joi.object().keys({
       "irish"
     )
     .required(),
-  content: Joi.string().required().min(1).max(100),
+  content: Joi.string().required().trim().min(1).max(100),
 });
 
-module.exports = coffeePostValidation;
+export default coffeePostValidation;

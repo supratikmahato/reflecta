@@ -23,7 +23,7 @@
           >
             <h1 class="font-extrabold">
               <i class="bx bxs-coffee-bean mr-1 text-xl"></i
-              >{{ mood["coffee-type"] }}
+              >{{ mood.coffeeType }}
             </h1>
           </div>
           <div class="tooltip tooltip-primary hover:z-50" data-tip="Your Mood">
@@ -31,7 +31,7 @@
           </div>
           <div class="tooltip tooltip-primary hover:z-50" data-tip="Brewed On">
             <h1 class="font-code text-xs bg-secondary p-1 rounded">
-              {{ date(mood["created-at"]) }}
+              {{ date(mood.createdAt) }}
             </h1>
           </div>
         </div>
@@ -46,15 +46,14 @@ import { FetchError } from "ohmyfetch";
 
 interface IRes {
   success: boolean;
-  mood: Mood[];
+  moods: Mood[];
 }
 
 interface Mood {
-  "coffee-type": string;
-  content: string;
-  _id: string;
   id: string;
-  "created-at": Date;
+  coffeeType: string;
+  content: string;
+  createdAt: Date;
 }
 
 interface IError extends FetchError {
@@ -82,44 +81,45 @@ onBeforeMount(async () => {
         credentials: "include",
       })
         .then((res) => {
-          for (const x in res.mood) {
-            if (res.mood[x]["coffee-type"] === "black") {
-              res.mood[x]["coffee-type"] = "Black";
-            } else if (res.mood[x]["coffee-type"] === "americano") {
-              res.mood[x]["coffee-type"] = "Americano";
-            } else if (res.mood[x]["coffee-type"] === "latte") {
-              res.mood[x]["coffee-type"] = "Latte";
-            } else if (res.mood[x]["coffee-type"] === "cappuccino") {
-              res.mood[x]["coffee-type"] = "Cappuccino";
-            } else if (res.mood[x]["coffee-type"] === "espresso") {
-              res.mood[x]["coffee-type"] = "Espresso";
-            } else if (res.mood[x]["coffee-type"] === "doppio") {
-              res.mood[x]["coffee-type"] = "Doppio";
-            } else if (res.mood[x]["coffee-type"] === "cortado") {
-              res.mood[x]["coffee-type"] = "Cortado";
-            } else if (res.mood[x]["coffee-type"] === "red-eye") {
-              res.mood[x]["coffee-type"] = "Red Eye";
-            } else if (res.mood[x]["coffee-type"] === "galao") {
-              res.mood[x]["coffee-type"] = "Galão";
-            } else if (res.mood[x]["coffee-type"] === "lungo") {
-              res.mood[x]["coffee-type"] = "Lungo";
-            } else if (res.mood[x]["coffee-type"] === "macchiato") {
-              res.mood[x]["coffee-type"] = "Macchiato";
-            } else if (res.mood[x]["coffee-type"] === "mocha") {
-              res.mood[x]["coffee-type"] = "Mocha";
-            } else if (res.mood[x]["coffee-type"] === "ristretto") {
-              res.mood[x]["coffee-type"] = "Ristretto";
-            } else if (res.mood[x]["coffee-type"] === "flat-white") {
-              res.mood[x]["coffee-type"] = "Flat White";
-            } else if (res.mood[x]["coffee-type"] === "affogato") {
-              res.mood[x]["coffee-type"] = "Affogato";
-            } else if (res.mood[x]["coffee-type"] === "cafe-au-lait") {
-              res.mood[x]["coffee-type"] = "Café Au Lait";
-            } else if (res.mood[x]["coffee-type"] === "irish") {
-              res.mood[x]["coffee-type"] = "Irish";
+          for (const x in res.moods) {
+            if (res.moods[x].coffeeType === "black") {
+              res.moods[x].coffeeType = "Black";
+            } else if (res.moods[x].coffeeType === "americano") {
+              res.moods[x].coffeeType = "Americano";
+            } else if (res.moods[x].coffeeType === "latte") {
+              res.moods[x].coffeeType = "Latte";
+            } else if (res.moods[x].coffeeType === "cappuccino") {
+              res.moods[x].coffeeType = "Cappuccino";
+            } else if (res.moods[x].coffeeType === "espresso") {
+              res.moods[x].coffeeType = "Espresso";
+            } else if (res.moods[x].coffeeType === "doppio") {
+              res.moods[x].coffeeType = "Doppio";
+            } else if (res.moods[x].coffeeType === "cortado") {
+              res.moods[x].coffeeType = "Cortado";
+            } else if (res.moods[x].coffeeType === "red-eye") {
+              res.moods[x].coffeeType = "Red Eye";
+            } else if (res.moods[x].coffeeType === "galao") {
+              res.moods[x].coffeeType = "Galão";
+            } else if (res.moods[x].coffeeType === "lungo") {
+              res.moods[x].coffeeType = "Lungo";
+            } else if (res.moods[x].coffeeType === "macchiato") {
+              res.moods[x].coffeeType = "Macchiato";
+            } else if (res.moods[x].coffeeType === "mocha") {
+              res.moods[x].coffeeType = "Mocha";
+            } else if (res.moods[x].coffeeType === "ristretto") {
+              res.moods[x].coffeeType = "Ristretto";
+            } else if (res.moods[x].coffeeType === "flat-white") {
+              res.moods[x].coffeeType = "Flat White";
+            } else if (res.moods[x].coffeeType === "affogato") {
+              res.moods[x].coffeeType = "Affogato";
+            } else if (res.moods[x].coffeeType === "cafe-au-lait") {
+              res.moods[x].coffeeType = "Café Au Lait";
+            } else if (res.moods[x].coffeeType === "irish") {
+              res.moods[x].coffeeType = "Irish";
             }
           }
-          moods.value = res.mood.reverse();
+          console.log(res.moods);
+          moods.value = res.moods;
           loading.value = false;
         })
         .catch((e: IError) => {
