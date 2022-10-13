@@ -5,6 +5,7 @@ import { ValidationError } from "joi";
 import authenticate from "../middlewares/authenticate";
 import prisma from "../db/client";
 import { Prisma } from "@prisma/client";
+import { parseCoffeeType } from "../utils";
 
 const router = express.Router();
 
@@ -75,7 +76,7 @@ router.get("/", authenticate, async (req, res) => {
     });
     res.json({
       success: true,
-      moods: user.moods.reverse(),
+      moods: parseCoffeeType(user.moods).reverse(),
     });
   } catch (error) {
     if (error instanceof Prisma.PrismaClientKnownRequestError) {

@@ -12,29 +12,7 @@
           class="card btn-primary p-2 flex flex-col gap-2 justify-center items-center overflow-visible shadow-xl"
           >Didn't See Your Mood Here?<br />Create More Moods</NuxtLink
         >
-        <div
-          v-for="mood in moods"
-          :key="mood"
-          class="card bg-accent p-2 flex flex-col gap-2 justify-center items-center overflow-visible shadow-xl"
-        >
-          <div
-            class="tooltip tooltip-right tooltip-primary hover:z-50"
-            data-tip="Coffee"
-          >
-            <h1 class="font-extrabold">
-              <i class="bx bxs-coffee-bean mr-1 text-xl"></i
-              >{{ mood.coffeeType }}
-            </h1>
-          </div>
-          <div class="tooltip tooltip-primary hover:z-50" data-tip="Your Mood">
-            <h1 class="font-bold">{{ mood.content }}</h1>
-          </div>
-          <div class="tooltip tooltip-primary hover:z-50" data-tip="Brewed On">
-            <h1 class="font-code text-xs bg-secondary p-1 rounded">
-              {{ date(mood.createdAt) }}
-            </h1>
-          </div>
-        </div>
+        <Mood :moods="moods" />
       </div>
     </div>
     <ScrollToTop />
@@ -46,10 +24,10 @@ import { FetchError } from "ohmyfetch";
 
 interface IRes {
   success: boolean;
-  moods: Mood[];
+  moods: IMood[];
 }
 
-interface Mood {
+interface IMood {
   id: string;
   coffeeType: string;
   content: string;
@@ -81,44 +59,6 @@ onBeforeMount(async () => {
         credentials: "include",
       })
         .then((res) => {
-          for (const x in res.moods) {
-            if (res.moods[x].coffeeType === "black") {
-              res.moods[x].coffeeType = "Black";
-            } else if (res.moods[x].coffeeType === "americano") {
-              res.moods[x].coffeeType = "Americano";
-            } else if (res.moods[x].coffeeType === "latte") {
-              res.moods[x].coffeeType = "Latte";
-            } else if (res.moods[x].coffeeType === "cappuccino") {
-              res.moods[x].coffeeType = "Cappuccino";
-            } else if (res.moods[x].coffeeType === "espresso") {
-              res.moods[x].coffeeType = "Espresso";
-            } else if (res.moods[x].coffeeType === "doppio") {
-              res.moods[x].coffeeType = "Doppio";
-            } else if (res.moods[x].coffeeType === "cortado") {
-              res.moods[x].coffeeType = "Cortado";
-            } else if (res.moods[x].coffeeType === "red-eye") {
-              res.moods[x].coffeeType = "Red Eye";
-            } else if (res.moods[x].coffeeType === "galao") {
-              res.moods[x].coffeeType = "Galão";
-            } else if (res.moods[x].coffeeType === "lungo") {
-              res.moods[x].coffeeType = "Lungo";
-            } else if (res.moods[x].coffeeType === "macchiato") {
-              res.moods[x].coffeeType = "Macchiato";
-            } else if (res.moods[x].coffeeType === "mocha") {
-              res.moods[x].coffeeType = "Mocha";
-            } else if (res.moods[x].coffeeType === "ristretto") {
-              res.moods[x].coffeeType = "Ristretto";
-            } else if (res.moods[x].coffeeType === "flat-white") {
-              res.moods[x].coffeeType = "Flat White";
-            } else if (res.moods[x].coffeeType === "affogato") {
-              res.moods[x].coffeeType = "Affogato";
-            } else if (res.moods[x].coffeeType === "cafe-au-lait") {
-              res.moods[x].coffeeType = "Café Au Lait";
-            } else if (res.moods[x].coffeeType === "irish") {
-              res.moods[x].coffeeType = "Irish";
-            }
-          }
-          console.log(res.moods);
           moods.value = res.moods;
           loading.value = false;
         })
@@ -135,12 +75,4 @@ onBeforeMount(async () => {
     }
   );
 });
-
-function date(date) {
-  return new Intl.DateTimeFormat("en-GB", {
-    dateStyle: "full",
-    timeStyle: "short",
-    hour12: true,
-  }).format(new Date(date));
-}
 </script>
