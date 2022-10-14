@@ -114,7 +114,7 @@ async function submit() {
         })
           .then(() => {
             errors.value = [];
-            useCookie("is-authenticated", {
+            useCookie("isAuthenticated", {
               path: "/",
               maxAge: 60 * 60 * 24 * 60,
             }).value = "true";

@@ -1,5 +1,5 @@
 export default defineNuxtRouteMiddleware(() => {
-  if (!useCookie("is-authenticated").value) {
+  if (!useCookie("isAuthenticated").value) {
     return "/login";
   }
 });

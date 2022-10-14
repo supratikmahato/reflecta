@@ -10,8 +10,9 @@
 
 <script setup lang="ts">
 function logout() {
-  useCookie("is-authenticated", {
+  useCookie("isAuthenticated", {
     path: "/",
+    maxAge: -1,
   }).value = "false";
   navigateTo("/login");
 }

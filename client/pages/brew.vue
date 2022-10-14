@@ -154,8 +154,9 @@ async function submit() {
           .catch((e: IError) => {
             if (e.data.error && e.data.success === false) {
               if (e.data.code === 401) {
-                useCookie("is-authenticated", {
+                useCookie("isAuthenticated", {
                   path: "/",
+                  maxAge: -1,
                 }).value = "false";
                 navigateTo("/login");
               } else {
