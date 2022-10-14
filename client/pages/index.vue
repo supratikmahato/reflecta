@@ -35,15 +35,24 @@ interface IRes {
 const location = ref("");
 
 onBeforeMount(async () => {
-  await useAsyncData(() =>
-    $fetch<IRes>("https://geolocation-db.com/json/", {
-      parseResponse: JSON.parse,
-    }).then((res) => {
-      location.value = `${res.city ? res.city : ""}${
-        res.city && res.country_code ? ", " : ""
-      }${res.country_code ? res.country_code : ""}`;
-    })
-  );
+  if (useCookie("locationCache").value) {
+    location.value = useCookie("locationCache").value;
+  } else {
+    await useAsyncData(() =>
+      $fetch<IRes>("https://geolocation-db.com/json/", {
+        parseResponse: JSON.parse,
+      }).then((res) => {
+        location.value = `${res.city ? res.city : ""}${
+          res.city && res.country_code ? ", " : ""
+        }${res.country_code ? res.country_code : ""}`;
+        useCookie("locationCache", {
+          path: "/",
+        }).value = `${res.city ? res.city : ""}${
+          res.city && res.country_code ? ", " : ""
+        }${res.country_code ? res.country_code : ""}`;
+      })
+    );
+  }
 });
 </script>
 

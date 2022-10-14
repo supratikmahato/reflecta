@@ -9,11 +9,20 @@
 </template>
 
 <script setup lang="ts">
-function logout() {
-  useCookie("isAuthenticated", {
-    path: "/",
-    maxAge: -1,
-  }).value = "false";
-  navigateTo("/login");
+const config = useRuntimeConfig();
+
+async function logout() {
+  await useAsyncData(() =>
+    $fetch(`${config.baseUrl}/auth/logout`, {
+      method: "GET",
+      credentials: "include",
+    }).then(() => {
+      useCookie("isAuthenticated", {
+        path: "/",
+        maxAge: -1,
+      }).value = "false";
+      navigateTo("/");
+    })
+  );
 }
 </script>

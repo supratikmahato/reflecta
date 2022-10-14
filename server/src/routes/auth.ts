@@ -128,4 +128,10 @@ router.post("/login", async (req, res) => {
   }
 });
 
+router.get("/logout", (req, res) => {
+  res.clearCookie("accessToken").json({
+    success: true,
+  });
+});
+
 export default router;
