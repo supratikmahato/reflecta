@@ -9,13 +9,44 @@
       v-if="errors.length"
       class="flex flex-col gap-y-1 h-auto text-sm pr-3 pl-3"
     >
-      <h1
+      <div
         v-for="error in errors"
         :key="error"
         class="alert alert-error p-2 shadow-md"
       >
-        {{ error }}
-      </h1>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="stroke-current flex-shrink-0 h-6 w-6"
+          fill="none"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+          />
+        </svg>
+        <span>{{ error }}</span>
+      </div>
+    </div>
+    <div v-if="success" class="flex flex-col gap-y-1 h-auto text-sm pr-3 pl-3">
+      <div class="alert alert-success p-2 shadow-md">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="stroke-current flex-shrink-0 h-6 w-6"
+          fill="none"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+          />
+        </svg>
+        <span>Successfully brewed your mood!</span>
+      </div>
     </div>
     <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
       <form @submit.prevent="submit">
@@ -131,6 +162,7 @@ const send = ref({
   content: "",
 });
 const errors = ref([]);
+const success = ref(false);
 const loading = ref(false);
 
 async function submit() {
@@ -146,12 +178,14 @@ async function submit() {
         })
           .then(() => {
             errors.value = [];
+            success.value = true;
             send.value = {
               coffeeType: "",
               content: "",
             };
           })
           .catch((e: IError) => {
+            success.value = false;
             if (e.data.error && e.data.success === false) {
               if (e.data.code === 401) {
                 useCookie("isAuthenticated", {
@@ -169,6 +203,7 @@ async function submit() {
       }
     );
   } catch (e) {
+    success.value = false;
     errors.value = e.details.map((detail) => detail.message);
   }
   loading.value = false;
