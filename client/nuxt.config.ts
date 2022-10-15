@@ -18,17 +18,13 @@ export default defineNuxtConfig({
   app: {
     head: {
       title: "Coffee",
-      htmlAttrs: {
-        lang: "en",
-      },
-      meta: [
-        { charset: "utf-8" },
-        { name: "viewport", content: "width=device-width, initial-scale=1" },
-        { hid: "description", name: "description", content: "" },
-        { name: "format-detection", content: "telephone=no" },
-      ],
       link: [
-        { rel: "icon", type: "image/x-icon", href: "/favicon.svg" },
+        {
+          rel: "icon",
+          sizes: "any",
+          type: "image/svg+xml",
+          href: "/favicon.svg",
+        },
         {
           href: "https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css",
           rel: "stylesheet",
