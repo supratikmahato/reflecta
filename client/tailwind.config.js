@@ -10,7 +10,6 @@ module.exports = {
     extend: {
       fontFamily: {
         code: ["M PLUS Code Latin", "sans-serif"],
-        montserrat: ["Montserrat", "sans-serif"],
         gilroy: ["Gilroy", "sans-serif"],
       },
     },
