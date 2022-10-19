@@ -24,6 +24,7 @@
     >
   </time>
 </template>
+
 <script>
 function padZero(number) {
   if (number < 10) {

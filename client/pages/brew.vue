@@ -108,6 +108,7 @@
                 <i class="bx bxs-coffee mr-1 text-2xl"></i>View Your Moods
               </NuxtLink>
             </div>
+            <div class="divider"></div>
             <div class="form-control">
               <Logout />
             </div>
