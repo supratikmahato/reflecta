@@ -21,10 +21,12 @@ model User {
 }
 
 model Mood {
-  id         String   @id @default(uuid())
+  id         String    @id @default(uuid())
   coffeeType String
   content    String
-  createdAt  DateTime @default(now())
-  user       User     @relation(fields: [userId], references: [id])
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime? @updatedAt
+  deletedAt  DateTime?
+  user       User      @relation(fields: [userId], references: [id])
   userId     String
 }

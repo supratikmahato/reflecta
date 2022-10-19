@@ -1,82 +1,85 @@
 <template>
-  <div
-    class="hero min-h-screen flex flex-col gap-y-6 justify-center items-center bg-base-200 p-5"
-  >
-    <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold">
-      Login.
-    </h1>
+  <div>
     <div
-      v-if="errors.length"
-      class="flex flex-col gap-y-1 h-auto text-sm pr-3 pl-3"
+      class="hero min-h-screen flex flex-col gap-y-6 justify-center items-center bg-base-200 p-5"
     >
+      <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold">
+        Login.
+      </h1>
       <div
-        v-for="error in errors"
-        :key="error"
-        class="alert alert-error p-2 shadow-md"
+        v-if="errors.length"
+        class="flex flex-col gap-y-1 h-auto text-sm pr-3 pl-3"
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="stroke-current flex-shrink-0 h-6 w-6"
-          fill="none"
-          viewBox="0 0 24 24"
+        <div
+          v-for="error in errors"
+          :key="error"
+          class="alert alert-error p-2 shadow-md"
         >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
-          />
-        </svg>
-        <span>{{ error }}</span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="stroke-current flex-shrink-0 h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+            />
+          </svg>
+          <span>{{ error }}</span>
+        </div>
       </div>
-    </div>
-    <div class="hero-content flex-col lg:flex-row-reverse">
-      <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-        <div class="card-body">
-          <form @submit.prevent="submit">
-            <div class="form-control">
-              <label class="label">
-                <span class="label-text font-bold">Email</span>
-              </label>
-              <input
-                v-model.trim="form.email"
-                type="text"
-                placeholder="email"
-                class="input input-bordered"
-                required
-              />
-            </div>
-            <div class="form-control">
-              <label class="label">
-                <span class="label-text font-bold">Password</span>
-              </label>
-              <input
-                v-model.trim="form.password"
-                type="password"
-                placeholder="password"
-                class="input input-bordered"
-                required
-              />
-            </div>
-            <div class="form-control mt-6">
-              <button
-                type="submit"
-                class="btn btn-primary normal-case"
-                :class="loading ? 'loading' : ''"
-              >
-                Login
-              </button>
-            </div>
-            <h1 class="mt-6 font-bold">
-              Don't have an account? Create one
-              <NuxtLink class="text-accent underline" to="/register"
-                >here</NuxtLink
-              >.
-            </h1>
-          </form>
+      <div class="hero-content flex-col lg:flex-row-reverse">
+        <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+          <div class="card-body">
+            <form @submit.prevent="submit">
+              <div class="form-control">
+                <label class="label">
+                  <span class="label-text font-bold">Email</span>
+                </label>
+                <input
+                  v-model.trim="form.email"
+                  type="text"
+                  placeholder="email"
+                  class="input input-bordered"
+                  required
+                />
+              </div>
+              <div class="form-control">
+                <label class="label">
+                  <span class="label-text font-bold">Password</span>
+                </label>
+                <input
+                  v-model.trim="form.password"
+                  type="password"
+                  placeholder="password"
+                  class="input input-bordered"
+                  required
+                />
+              </div>
+              <div class="form-control mt-6">
+                <button
+                  type="submit"
+                  class="btn btn-primary normal-case"
+                  :class="loading ? 'loading' : ''"
+                >
+                  Login
+                </button>
+              </div>
+              <h1 class="mt-6 font-bold">
+                Don't have an account? Create one
+                <NuxtLink class="text-accent underline" to="/register"
+                  >here</NuxtLink
+                >.
+              </h1>
+            </form>
+          </div>
         </div>
       </div>
     </div>
+    <Footer />
   </div>
 </template>
 

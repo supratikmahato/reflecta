@@ -86,7 +86,7 @@ router.post("/login", async (req, res) => {
       }
       const accessToken = jwt.sign(
         { token: user.token },
-        process.env.ACCESS_TOKEN_SECRET!,
+        process.env.ACCESS_TOKEN_SECRET as string,
         {
           expiresIn: "60d",
         }
@@ -101,6 +101,7 @@ router.post("/login", async (req, res) => {
           success: true,
         });
     });
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {
     if (error instanceof ValidationError) {
       const errors = error.details.map((detail) => detail.message);

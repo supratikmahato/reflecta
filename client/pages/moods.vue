@@ -12,14 +12,71 @@
           class="card btn-primary p-2 flex flex-col gap-2 justify-center items-center overflow-visible shadow-xl"
           >Didn't See Your Mood Here?<br />Create More Moods</NuxtLink
         >
-        <Mood :moods="moods" />
+        <div
+          v-for="mood in moods"
+          :key="mood.id"
+          class="card bg-accent p-2 flex flex-col gap-2 justify-center items-center overflow-visible shadow-xl"
+        >
+          <div
+            class="tooltip tooltip-right tooltip-primary hover:z-50"
+            data-tip="Coffee"
+          >
+            <h1 class="font-extrabold">
+              <i class="bx bxs-coffee-bean mr-1 text-xl"></i
+              >{{ mood.coffeeType }}
+            </h1>
+          </div>
+          <div class="tooltip tooltip-primary hover:z-50" data-tip="Your Mood">
+            <input
+              v-if="editOffset === mood.id"
+              v-model.trim="send.content"
+              class="textarea resize-none textarea-primary"
+              required
+              @keydown.enter="handleEditSubmit(mood.id)"
+              @keydown.esc="handleEditClose"
+              placeholder="What's your mood?"
+            />
+            <h1 v-else class="font-bold">{{ mood.content }}</h1>
+          </div>
+          <div class="grid grid-cols-2 gap-2">
+            <button
+              class="btn"
+              v-if="editOffset === mood.id"
+              @click.prevent="handleEditSubmit(mood.id)"
+            >
+              <i class="bx bx-check text-3xl"></i>
+            </button>
+            <button
+              class="btn"
+              v-if="editOffset === mood.id"
+              @click.prevent="handleEditClose"
+            >
+              <i class="bx bx-x text-3xl"></i>
+            </button>
+            <template v-else>
+              <button class="btn" @click.prevent="handleEditStart(mood.id)">
+                <i class="bx bx-edit-alt text-2xl"></i>
+              </button>
+              <button class="btn" @click.prevent="handleDelete(mood.id)">
+                <i class="bx bx-trash text-2xl"></i>
+              </button>
+            </template>
+          </div>
+          <div class="tooltip tooltip-primary hover:z-50" data-tip="Brewed On">
+            <h1 class="font-code text-xs bg-secondary p-1 rounded">
+              {{ parseDate(mood.createdAt) }}
+            </h1>
+          </div>
+        </div>
       </div>
     </div>
     <ScrollToTop />
+    <Footer />
   </div>
 </template>
 
 <script setup lang="ts">
+import Joi from "joi";
 import { FetchError } from "ohmyfetch";
 
 interface IRes {
@@ -42,6 +99,10 @@ interface IError extends FetchError {
   };
 }
 
+const schema = Joi.object().keys({
+  content: Joi.string().required().trim().min(1).max(100).label("Content"),
+});
+
 definePageMeta({
   middleware: "if-not-auth",
 });
@@ -49,7 +110,11 @@ definePageMeta({
 const config = useRuntimeConfig();
 
 const loading = ref(false);
-const moods = ref([]);
+const moods = ref<IMood[]>([]);
+const editOffset = ref("");
+const send = ref({
+  content: "",
+});
 
 onBeforeMount(async () => {
   loading.value = true;
@@ -76,4 +141,85 @@ onBeforeMount(async () => {
     }
   );
 });
+
+function handleEditStart(moodId: string) {
+  send.value.content = moods.value.find((mood) => mood.id === moodId).content;
+  editOffset.value = moodId;
+}
+
+function handleEditClose() {
+  editOffset.value = "";
+}
+
+async function handleEditSubmit(moodId: string) {
+  try {
+    const value = await schema.validateAsync(send.value);
+    await useAsyncData(
+      () =>
+        $fetch(`${config.baseUrl}/coffee/${moodId}`, {
+          method: "PATCH",
+          credentials: "include",
+          body: value,
+        })
+          .then(() => {
+            moods.value = moods.value.map((mood) => {
+              if (mood.id === moodId) {
+                mood.content = send.value.content;
+              }
+              return mood;
+            });
+            handleEditClose();
+          })
+          .catch((e: IError) => {
+            if (e.data.error && e.data.success === false) {
+              if (e.data.code === 401) {
+                useCookie("isAuthenticated", {
+                  path: "/",
+                  maxAge: -1,
+                }).value = "false";
+                navigateTo("/login");
+              }
+            }
+          }),
+      {
+        initialCache: false,
+      }
+    );
+  } catch (e) {}
+}
+
+async function handleDelete(moodId: string) {
+  await useAsyncData(
+    () =>
+      $fetch(`${config.baseUrl}/coffee/${moodId}`, {
+        method: "DELETE",
+        credentials: "include",
+      })
+        .then(() => {
+          moods.value = moods.value.filter((mood) => mood.id !== moodId);
+        })
+        .catch((e: IError) => {
+          if (e.data.error && e.data.success === false) {
+            if (e.data.code === 401) {
+              useCookie("isAuthenticated", {
+                path: "/",
+                maxAge: -1,
+              }).value = "false";
+              navigateTo("/login");
+            }
+          }
+        }),
+    {
+      initialCache: false,
+    }
+  );
+}
+
+function parseDate(date: Date) {
+  return new Intl.DateTimeFormat("en-GB", {
+    dateStyle: "full",
+    timeStyle: "short",
+    hour12: true,
+  }).format(new Date(date));
+}
 </script>

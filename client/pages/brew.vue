@@ -1,115 +1,121 @@
 <template>
-  <div
-    class="min-h-screen flex flex-col gap-y-6 justify-center items-center p-5"
-  >
-    <h1 class="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold">
-      Mood.
-    </h1>
+  <div>
     <div
-      v-if="errors.length"
-      class="flex flex-col gap-y-1 h-auto text-sm pr-3 pl-3"
+      class="min-h-screen flex flex-col gap-y-6 justify-center items-center p-5"
     >
+      <h1 class="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold">
+        Mood.
+      </h1>
       <div
-        v-for="error in errors"
-        :key="error"
-        class="alert alert-error p-2 shadow-md"
+        v-if="errors.length"
+        class="flex flex-col gap-y-1 h-auto text-sm pr-3 pl-3"
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="stroke-current flex-shrink-0 h-6 w-6"
-          fill="none"
-          viewBox="0 0 24 24"
+        <div
+          v-for="error in errors"
+          :key="error"
+          class="alert alert-error p-2 shadow-md"
         >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
-          />
-        </svg>
-        <span>{{ error }}</span>
-      </div>
-    </div>
-    <div v-if="success" class="flex flex-col gap-y-1 h-auto text-sm pr-3 pl-3">
-      <div class="alert alert-success p-2 shadow-md">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="stroke-current flex-shrink-0 h-6 w-6"
-          fill="none"
-          viewBox="0 0 24 24"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-          />
-        </svg>
-        <span>Successfully brewed your mood!</span>
-      </div>
-    </div>
-    <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-      <form @submit.prevent="submit">
-        <div class="card-body gap-y-3">
-          <div class="form-control">
-            <select
-              v-model.trim="send.coffeeType"
-              class="select select-primary"
-              required
-            >
-              <option disabled selected value="">
-                Express your mood in coffee
-              </option>
-              <option value="black">Black</option>
-              <option value="americano">Americano</option>
-              <option value="latte">Latte</option>
-              <option value="cappuccino">Cappuccino</option>
-              <option value="espresso">Espresso</option>
-              <option value="doppio">Doppio</option>
-              <option value="cortado">Cortado</option>
-              <option value="red-eye">Red Eye</option>
-              <option value="galao">Galão</option>
-              <option value="lungo">Lungo</option>
-              <option value="macchiato">Macchiato</option>
-              <option value="mocha">Mocha</option>
-              <option value="ristretto">Ristretto</option>
-              <option value="flat-white">Flat White</option>
-              <option value="affogato">Affogato</option>
-              <option value="cafe-au-lait">Café Au Lait</option>
-              <option value="irish">Irish</option>
-            </select>
-          </div>
-          <div class="form-control">
-            <input
-              v-model.trim="send.content"
-              class="textarea resize-none textarea-primary"
-              placeholder="How are you feeling today?"
-              required
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="stroke-current flex-shrink-0 h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
             />
-          </div>
-          <div class="form-control mt-6">
-            <button
-              type="submit"
-              class="btn btn-accent text-md sm:text-lg md:text-lg normal-case"
-              :class="loading ? 'loading' : ''"
-            >
-              <i class="bx bx-coffee-togo mr-1 text-2xl"></i>Brew Your Mood
-            </button>
-          </div>
-          <div class="form-control">
-            <NuxtLink
-              to="/moods"
-              class="btn btn-primary text-md sm:text-lg md:text-lg normal-case"
-            >
-              <i class="bx bxs-coffee mr-1 text-2xl"></i>View Your Moods
-            </NuxtLink>
-          </div>
-          <div class="form-control">
-            <Logout />
-          </div>
+          </svg>
+          <span>{{ error }}</span>
         </div>
-      </form>
+      </div>
+      <div
+        v-if="success"
+        class="flex flex-col gap-y-1 h-auto text-sm pr-3 pl-3"
+      >
+        <div class="alert alert-success p-2 shadow-md">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="stroke-current flex-shrink-0 h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+            />
+          </svg>
+          <span>Successfully brewed your mood!</span>
+        </div>
+      </div>
+      <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+        <form @submit.prevent="submit">
+          <div class="card-body gap-y-3">
+            <div class="form-control">
+              <select
+                v-model.trim="send.coffeeType"
+                class="select select-primary"
+                required
+              >
+                <option disabled selected value="">
+                  Express your mood in coffee
+                </option>
+                <option value="black">Black</option>
+                <option value="americano">Americano</option>
+                <option value="latte">Latte</option>
+                <option value="cappuccino">Cappuccino</option>
+                <option value="espresso">Espresso</option>
+                <option value="doppio">Doppio</option>
+                <option value="cortado">Cortado</option>
+                <option value="red-eye">Red Eye</option>
+                <option value="galao">Galão</option>
+                <option value="lungo">Lungo</option>
+                <option value="macchiato">Macchiato</option>
+                <option value="mocha">Mocha</option>
+                <option value="ristretto">Ristretto</option>
+                <option value="flat-white">Flat White</option>
+                <option value="affogato">Affogato</option>
+                <option value="cafe-au-lait">Café Au Lait</option>
+                <option value="irish">Irish</option>
+              </select>
+            </div>
+            <div class="form-control">
+              <input
+                v-model.trim="send.content"
+                class="textarea resize-none textarea-primary"
+                placeholder="How are you feeling today?"
+                required
+              />
+            </div>
+            <div class="form-control mt-6">
+              <button
+                type="submit"
+                class="btn btn-accent text-md sm:text-lg md:text-lg normal-case"
+                :class="loading ? 'loading' : ''"
+              >
+                <i class="bx bx-coffee-togo mr-1 text-2xl"></i>Brew Your Mood
+              </button>
+            </div>
+            <div class="form-control">
+              <NuxtLink
+                to="/moods"
+                class="btn btn-primary text-md sm:text-lg md:text-lg normal-case"
+              >
+                <i class="bx bxs-coffee mr-1 text-2xl"></i>View Your Moods
+              </NuxtLink>
+            </div>
+            <div class="form-control">
+              <Logout />
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
+    <Footer />
   </div>
 </template>
 
