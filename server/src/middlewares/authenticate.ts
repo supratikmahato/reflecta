@@ -37,6 +37,7 @@ const authenticate = (req: Request, res: Response, next: NextFunction) => {
             success: false,
             error: "Unauthorized",
           });
+          console.log(accessToken);
         }
       }
     );
@@ -44,8 +45,8 @@ const authenticate = (req: Request, res: Response, next: NextFunction) => {
     res.status(401).json({
       success: false,
       error: "Unauthorized",
-      accessToken,
     });
+    console.log(accessToken);
   }
 };
 
