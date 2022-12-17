@@ -43,7 +43,6 @@ const authenticate = (req: Request, res: Response, next: NextFunction) => {
   } else {
     res.status(401).json({
       success: false,
-      code: 401,
       error: "Unauthorized",
     });
   }
