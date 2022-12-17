@@ -36,7 +36,7 @@ const location = ref("");
 
 onBeforeMount(async () => {
   if (useCookie("locationCache").value) {
-    location.value = useCookie("locationCache").value;
+    location.value = useCookie("locationCache").value as string;
   } else {
     await useAsyncData(() =>
       $fetch<IRes>("https://geolocation-db.com/json/", {

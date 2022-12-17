@@ -32,7 +32,7 @@
         </div>
       </div>
       <div class="hero-content flex-col lg:flex-row-reverse">
-        <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+        <div class="card flex-shrink-0 w-full max-w-sm clay">
           <div class="card-body">
             <form @submit.prevent="submit">
               <div class="form-control">
@@ -92,7 +92,7 @@
 </template>
 
 <script setup lang="ts">
-import Joi from "joi";
+import Joi, { ValidationError } from "joi";
 import { FetchError } from "ohmyfetch";
 
 interface IError extends FetchError {
@@ -124,35 +124,35 @@ const form = ref({
   email: "",
   password: "",
 });
-const errors = ref([]);
+const errors = ref<string[]>([]);
 const loading = ref(false);
 
 async function submit() {
   loading.value = true;
   try {
     const value = await schema.validateAsync(form.value);
-    await useAsyncData(
-      () =>
-        $fetch(`${config.baseUrl}/auth/register`, {
-          method: "POST",
-          credentials: "include",
-          body: value,
+    await useAsyncData("register", () =>
+      $fetch(`${config.baseUrl}/auth/register`, {
+        method: "POST",
+        credentials: "include",
+        body: value,
+      })
+        .then(() => {
+          errors.value = [];
+          navigateTo("/login");
         })
-          .then(() => {
-            errors.value = [];
-            navigateTo("/login");
-          })
-          .catch((e: IError) => {
-            if (e.data.error && e.data.success === false) {
-              errors.value = [e.data.error];
-            }
-          }),
-      {
-        initialCache: false,
-      }
+        .catch((e: IError) => {
+          if (e.data.error && e.data.success === false) {
+            errors.value = [e.data.error];
+          }
+        })
     );
-  } catch (e) {
-    errors.value = e.details.map((e) => e.message);
+  } catch (error) {
+    if (error instanceof ValidationError) {
+      errors.value = error.details.map((detail) => detail.message);
+    } else {
+      throw error;
+    }
   }
   loading.value = false;
 }

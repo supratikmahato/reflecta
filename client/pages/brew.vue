@@ -52,7 +52,7 @@
           <span>Successfully brewed your mood!</span>
         </div>
       </div>
-      <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+      <div class="card flex-shrink-0 w-full max-w-sm clay">
         <form @submit.prevent="submit">
           <div class="card-body gap-y-3">
             <div class="form-control">
@@ -121,7 +121,7 @@
 </template>
 
 <script setup lang="ts">
-import Joi from "joi";
+import Joi, { ValidationError } from "joi";
 import { FetchError } from "ohmyfetch";
 
 interface IError extends FetchError {
@@ -168,7 +168,7 @@ const send = ref({
   coffeeType: "",
   content: "",
 });
-const errors = ref([]);
+const errors = ref<string[]>([]);
 const success = ref(false);
 const loading = ref(false);
 
@@ -176,43 +176,53 @@ async function submit() {
   loading.value = true;
   try {
     const value = await schema.validateAsync(send.value);
-    await useAsyncData(
-      () =>
-        $fetch(`${config.baseUrl}/coffee`, {
-          method: "POST",
-          credentials: "include",
-          body: value,
+    await useAsyncData("brew", () =>
+      $fetch(`${config.baseUrl}/coffee`, {
+        method: "POST",
+        credentials: "include",
+        body: value,
+      })
+        .then(() => {
+          errors.value = [];
+          success.value = true;
+          send.value = {
+            coffeeType: "",
+            content: "",
+          };
         })
-          .then(() => {
-            errors.value = [];
-            success.value = true;
-            send.value = {
-              coffeeType: "",
-              content: "",
-            };
-          })
-          .catch((e: IError) => {
-            success.value = false;
-            if (e.data.error && e.data.success === false) {
-              if (e.data.code === 401) {
-                useCookie("isAuthenticated", {
-                  path: "/",
-                  maxAge: -1,
-                }).value = "false";
-                navigateTo("/login");
-              } else {
-                errors.value = [e.data.error];
-              }
+        .catch((error: IError) => {
+          success.value = false;
+          if (error.data.error && error.data.success === false) {
+            if (error.data.code === 401) {
+              useCookie("isAuthenticated", {
+                path: "/",
+                maxAge: -1,
+              }).value = "false";
+              navigateTo("/login");
+            } else {
+              errors.value = [error.data.error];
             }
-          }),
-      {
-        initialCache: false,
-      }
+          }
+        })
     );
-  } catch (e) {
+  } catch (error) {
     success.value = false;
-    errors.value = e.details.map((detail) => detail.message);
+    if (error instanceof ValidationError) {
+      errors.value = error.details.map((detail) => detail.message);
+    } else {
+      throw error;
+    }
   }
   loading.value = false;
 }
 </script>
+
+<style scoped>
+.clay {
+  backdrop-filter: blur(5px);
+  background-color: rgba(240, 234, 210, 1);
+  box-shadow: 35px 35px 68px 0px rgba(240, 234, 210, 0.5),
+    inset -12px -12px 16px 0px rgba(240, 234, 210, 0.6),
+    inset 0px 11px 28px 0px rgb(255, 255, 255);
+}
+</style>

@@ -42,23 +42,23 @@
             <button
               class="btn"
               v-if="editOffset === mood.id"
-              @click.prevent="handleEditSubmit(mood.id)"
-            >
-              <i class="bx bx-check text-3xl"></i>
-            </button>
-            <button
-              class="btn"
-              v-if="editOffset === mood.id"
               @click.prevent="handleEditClose"
             >
               <i class="bx bx-x text-3xl"></i>
             </button>
+            <button
+              class="btn"
+              v-if="editOffset === mood.id"
+              @click.prevent="handleEditSubmit(mood.id)"
+            >
+              <i class="bx bx-check text-3xl"></i>
+            </button>
             <template v-else>
-              <button class="btn" @click.prevent="handleEditStart(mood.id)">
-                <i class="bx bx-edit-alt text-2xl"></i>
-              </button>
               <button class="btn" @click.prevent="handleDelete(mood.id)">
                 <i class="bx bx-trash text-2xl"></i>
+              </button>
+              <button class="btn" @click.prevent="handleEditStart(mood.id)">
+                <i class="bx bx-edit-alt text-2xl"></i>
               </button>
             </template>
           </div>
@@ -118,32 +118,32 @@ const send = ref({
 
 onBeforeMount(async () => {
   loading.value = true;
-  await useAsyncData(
-    () =>
-      $fetch<IRes>(`${config.baseUrl}/coffee`, {
-        credentials: "include",
+  await useAsyncData("fetch-moods", () =>
+    $fetch<IRes>(`${config.baseUrl}/coffee`, {
+      credentials: "include",
+    })
+      .then((res) => {
+        moods.value = res.moods;
+        loading.value = false;
       })
-        .then((res) => {
-          moods.value = res.moods;
-          loading.value = false;
-        })
-        .catch((e: IError) => {
-          if (e.data.error && e.data.success === false && e.data.code === 401) {
-            useCookie("isAuthenticated", {
-              path: "/",
-              maxAge: -1,
-            }).value = "false";
-            navigateTo("/login");
-          }
-        }),
-    {
-      initialCache: false,
-    }
+      .catch((error: IError) => {
+        if (
+          error.data.error &&
+          error.data.success === false &&
+          error.data.code === 401
+        ) {
+          useCookie("isAuthenticated", {
+            path: "/",
+            maxAge: -1,
+          }).value = "false";
+          navigateTo("/login");
+        }
+      })
   );
 });
 
 function handleEditStart(moodId: string) {
-  send.value.content = moods.value.find((mood) => mood.id === moodId).content;
+  send.value.content = moods.value.find((mood) => mood.id === moodId)!.content;
   editOffset.value = moodId;
 }
 
@@ -154,53 +154,24 @@ function handleEditClose() {
 async function handleEditSubmit(moodId: string) {
   try {
     const value = await schema.validateAsync(send.value);
-    await useAsyncData(
-      () =>
-        $fetch(`${config.baseUrl}/coffee/${moodId}`, {
-          method: "PATCH",
-          credentials: "include",
-          body: value,
-        })
-          .then(() => {
-            moods.value = moods.value.map((mood) => {
-              if (mood.id === moodId) {
-                mood.content = send.value.content;
-              }
-              return mood;
-            });
-            handleEditClose();
-          })
-          .catch((e: IError) => {
-            if (e.data.error && e.data.success === false) {
-              if (e.data.code === 401) {
-                useCookie("isAuthenticated", {
-                  path: "/",
-                  maxAge: -1,
-                }).value = "false";
-                navigateTo("/login");
-              }
-            }
-          }),
-      {
-        initialCache: false,
-      }
-    );
-  } catch (e) {}
-}
-
-async function handleDelete(moodId: string) {
-  await useAsyncData(
-    () =>
+    await useAsyncData("update-mood", () =>
       $fetch(`${config.baseUrl}/coffee/${moodId}`, {
-        method: "DELETE",
+        method: "PATCH",
         credentials: "include",
+        body: value,
       })
         .then(() => {
-          moods.value = moods.value.filter((mood) => mood.id !== moodId);
+          moods.value = moods.value.map((mood) => {
+            if (mood.id === moodId) {
+              mood.content = send.value.content;
+            }
+            return mood;
+          });
+          handleEditClose();
         })
-        .catch((e: IError) => {
-          if (e.data.error && e.data.success === false) {
-            if (e.data.code === 401) {
+        .catch((error: IError) => {
+          if (error.data.error && error.data.success === false) {
+            if (error.data.code === 401) {
               useCookie("isAuthenticated", {
                 path: "/",
                 maxAge: -1,
@@ -208,10 +179,31 @@ async function handleDelete(moodId: string) {
               navigateTo("/login");
             }
           }
-        }),
-    {
-      initialCache: false,
-    }
+        })
+    );
+  } catch (error) {}
+}
+
+async function handleDelete(moodId: string) {
+  await useAsyncData("delete-mood", () =>
+    $fetch(`${config.baseUrl}/coffee/${moodId}`, {
+      method: "DELETE",
+      credentials: "include",
+    })
+      .then(() => {
+        moods.value = moods.value.filter((mood) => mood.id !== moodId);
+      })
+      .catch((error: IError) => {
+        if (error.data.error && error.data.success === false) {
+          if (error.data.code === 401) {
+            useCookie("isAuthenticated", {
+              path: "/",
+              maxAge: -1,
+            }).value = "false";
+            navigateTo("/login");
+          }
+        }
+      })
   );
 }
 
