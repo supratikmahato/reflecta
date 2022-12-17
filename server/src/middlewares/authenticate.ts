@@ -44,6 +44,7 @@ const authenticate = (req: Request, res: Response, next: NextFunction) => {
     res.status(401).json({
       success: false,
       error: "Unauthorized",
+      accessToken,
     });
   }
 };
