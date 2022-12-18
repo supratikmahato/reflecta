@@ -90,6 +90,7 @@ router.post("/login", async (req, res) => {
             expiresIn: "60d",
           }
         );
+        console.log(accessToken);
         res
           .cookie("accessToken", accessToken, {
             maxAge: 60 * 60 * 24 * 60 * 1000,
