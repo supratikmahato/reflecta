@@ -54,7 +54,10 @@
               <i class="bx bx-check text-3xl"></i>
             </button>
             <template v-else>
-              <button class="btn" @click.prevent="handleDelete(mood.id)">
+              <button
+                class="btn btn-error"
+                @click.prevent="handleDelete(mood.id)"
+              >
                 <i class="bx bx-trash text-2xl"></i>
               </button>
               <button class="btn" @click.prevent="handleEditStart(mood.id)">
