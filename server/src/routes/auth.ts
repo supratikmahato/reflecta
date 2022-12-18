@@ -77,29 +77,29 @@ router.post("/login", async (req, res) => {
           success: false,
           error: "Server error",
         });
-      }
-      if (!result) {
+      } else if (!result) {
         res.status(400).json({
           success: false,
           error: "Wrong password",
         });
+      } else {
+        const accessToken = jwt.sign(
+          { token: user.token },
+          process.env.ACCESS_TOKEN_SECRET as string,
+          {
+            expiresIn: "60d",
+          }
+        );
+        res
+          .cookie("accessToken", accessToken, {
+            maxAge: 60 * 60 * 24 * 60 * 1000,
+            httpOnly: true,
+            sameSite: "strict",
+          })
+          .json({
+            success: true,
+          });
       }
-      const accessToken = jwt.sign(
-        { token: user.token },
-        process.env.ACCESS_TOKEN_SECRET as string,
-        {
-          expiresIn: "60d",
-        }
-      );
-      res
-        .cookie("accessToken", accessToken, {
-          maxAge: 60 * 60 * 24 * 60 * 1000,
-          httpOnly: true,
-          sameSite: "strict",
-        })
-        .json({
-          success: true,
-        });
     });
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {
