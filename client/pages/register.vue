@@ -63,13 +63,34 @@
                 <label class="label">
                   <span class="label-text font-bold">Password</span>
                 </label>
-                <input
-                  v-model.trim="form.password"
-                  type="password"
-                  placeholder="password"
-                  class="input input-bordered"
-                  required
-                />
+                <div class="flex flex-row justify-end gap-x-4">
+                  <input
+                    v-if="!showPassword"
+                    v-model.trim="form.password"
+                    type="password"
+                    placeholder="password"
+                    class="input input-bordered flex-1"
+                    required
+                    ref="password"
+                  />
+                  <input
+                    v-else
+                    v-model.trim="form.password"
+                    type="text"
+                    placeholder="password"
+                    class="input input-bordered flex-1"
+                    required
+                    ref="password"
+                  />
+                  <button
+                    type="button"
+                    class="btn btn-primary"
+                    @click.prevent="togglePassword"
+                  >
+                    <i v-if="!showPassword" class="bx bx-show text-xl"></i>
+                    <i v-else class="bx bx-hide text-xl"></i>
+                  </button>
+                </div>
               </div>
               <div class="form-control mt-6">
                 <button type="submit" class="btn btn-primary normal-case">
@@ -124,6 +145,7 @@ const form = ref({
   email: "",
   password: "",
 });
+const showPassword = ref(false);
 const errors = ref<string[]>([]);
 const loading = ref(false);
 
@@ -155,5 +177,9 @@ async function submit() {
     }
   }
   loading.value = false;
+}
+
+function togglePassword() {
+  showPassword.value = !showPassword.value;
 }
 </script>
