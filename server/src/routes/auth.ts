@@ -95,9 +95,10 @@ router.post("/login", async (req, res) => {
           .cookie("accessToken", accessToken, {
             maxAge: 60 * 60 * 24 * 60 * 1000,
             httpOnly: true,
-            domain: process.env.FRONTEND_URL,
-            path: "/",
-            secure: true,
+            domain:
+              process.env.NODE_ENV === "production"
+                ? ".netlify.app"
+                : undefined,
           })
           .json({
             success: true,
