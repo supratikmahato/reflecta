@@ -57,18 +57,16 @@
                     v-model.trim="form.password"
                     type="password"
                     placeholder="password"
-                    class="input input-bordered flex-1"
+                    class="input input-bordered w-full"
                     required
-                    ref="password"
                   />
                   <input
                     v-else
                     v-model.trim="form.password"
                     type="text"
                     placeholder="password"
-                    class="input input-bordered flex-1"
+                    class="input input-bordered w-full"
                     required
-                    ref="password"
                   />
                   <button
                     type="button"

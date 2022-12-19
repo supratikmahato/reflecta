@@ -12,8 +12,10 @@
     >
       <i class="bx bxs-coffee text-5xl"></i>
       <digital-clock :blink="false" :twelveHour="true" />
-      <h1 class="font-medium text-base">{{ location }}</h1>
-      <NuxtLink to="/brew" class="btn btn-accent normal-case"
+      <p class="font-medium text-base">{{ location }}</p>
+      <div class="divider"></div>
+      <h1 class="font-bold text-xl">{{ welcome }}</h1>
+      <NuxtLink to="/brew" class="btn btn-accent normal-case mt-4"
         >How are you feeling today?</NuxtLink
       >
     </div>
@@ -21,7 +23,7 @@
 </template>
 
 <script setup lang="ts">
-interface IRes {
+interface IGeolocationRes {
   country_code: string;
   country_name: string;
   city: string;
@@ -31,15 +33,21 @@ interface IRes {
   IPv4: string;
   state: string;
 }
+interface IRes {
+  username: string;
+}
+
+const config = useRuntimeConfig();
 
 const location = ref("");
+const welcome = ref("Hello!");
 
 onBeforeMount(async () => {
   if (useCookie("locationCache").value) {
     location.value = useCookie("locationCache").value as string;
   } else {
     await useAsyncData(() =>
-      $fetch<IRes>("https://geolocation-db.com/json/", {
+      $fetch<IGeolocationRes>("https://geolocation-db.com/json/", {
         parseResponse: JSON.parse,
       }).then((res) => {
         location.value = `${res.city ? res.city : ""}${
@@ -53,6 +61,13 @@ onBeforeMount(async () => {
       })
     );
   }
+  await useAsyncData(() =>
+    $fetch<IRes>(`${config.baseUrl}/auth/username`, {
+      credentials: "include",
+    }).then((res) => {
+      welcome.value = `Hello ${res.username}!`;
+    })
+  );
 });
 </script>
 

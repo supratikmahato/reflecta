@@ -6,18 +6,20 @@ import { userRegisterValidation, userLoginValidation } from "../validation";
 import prisma from "../db/client";
 import { ValidationError } from "joi";
 import { Prisma } from "@prisma/client";
+import authenticate from "../middlewares/authenticate";
 
 const router = express.Router();
 
 dotenv.config();
 
 router.post("/register", async (req, res) => {
-  const { email, username, password } = req.body;
+  const { email, username, password, confirmPassword } = req.body;
   try {
     const value = await userRegisterValidation.validateAsync({
       email,
       username,
       password,
+      confirmPassword,
     });
     const saltRounds = 10;
     bcrypt.hash(value.password, saltRounds, async (error, hash) => {
@@ -134,6 +136,36 @@ router.get("/logout", (req, res) => {
   res.clearCookie("accessToken").json({
     success: true,
   });
+});
+
+router.get("/username", authenticate, async (req, res) => {
+  const reqUser = req.user;
+  try {
+    const user = await prisma.user.findUniqueOrThrow({
+      where: {
+        id: reqUser.id,
+      },
+      select: {
+        username: true,
+      },
+    });
+    res.json({
+      success: true,
+      username: user.username,
+    });
+  } catch (error) {
+    if (error instanceof Prisma.PrismaClientKnownRequestError) {
+      res.status(400).json({
+        success: false,
+        error: error.message,
+      });
+    } else {
+      res.status(500).json({
+        success: false,
+      });
+      throw error;
+    }
+  }
 });
 
 export default router;

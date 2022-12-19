@@ -69,18 +69,16 @@
                     v-model.trim="form.password"
                     type="password"
                     placeholder="password"
-                    class="input input-bordered flex-1"
+                    class="input input-bordered w-full"
                     required
-                    ref="password"
                   />
                   <input
                     v-else
                     v-model.trim="form.password"
                     type="text"
                     placeholder="password"
-                    class="input input-bordered flex-1"
+                    class="input input-bordered w-full"
                     required
-                    ref="password"
                   />
                   <button
                     type="button"
@@ -88,6 +86,40 @@
                     @click.prevent="togglePassword"
                   >
                     <i v-if="!showPassword" class="bx bx-show text-xl"></i>
+                    <i v-else class="bx bx-hide text-xl"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="form-control">
+                <label class="label">
+                  <span class="label-text font-bold">Confirm Password</span>
+                </label>
+                <div class="flex flex-row justify-end gap-x-4">
+                  <input
+                    v-if="!showConfirmPassword"
+                    v-model.trim="form.confirmPassword"
+                    type="password"
+                    placeholder="confirm password"
+                    class="input input-bordered w-full"
+                    required
+                  />
+                  <input
+                    v-else
+                    v-model.trim="form.confirmPassword"
+                    type="text"
+                    placeholder="password"
+                    class="input input-bordered w-full"
+                    required
+                  />
+                  <button
+                    type="button"
+                    class="btn btn-primary"
+                    @click.prevent="toggleConfirmPassword"
+                  >
+                    <i
+                      v-if="!showConfirmPassword"
+                      class="bx bx-show text-xl"
+                    ></i>
                     <i v-else class="bx bx-hide text-xl"></i>
                   </button>
                 </div>
@@ -132,6 +164,12 @@ const schema = Joi.object().keys({
     .trim()
     .label("Email"),
   password: Joi.string().required().min(6).trim().label("Password"),
+  confirmPassword: Joi.string()
+    .required()
+    .min(6)
+    .trim()
+    .valid(Joi.ref("password"))
+    .label("Confirm Password"),
 });
 
 definePageMeta({
@@ -144,8 +182,10 @@ const form = ref({
   username: "",
   email: "",
   password: "",
+  confirmPassword: "",
 });
 const showPassword = ref(false);
+const showConfirmPassword = ref(false);
 const errors = ref<string[]>([]);
 const loading = ref(false);
 
@@ -181,5 +221,9 @@ async function submit() {
 
 function togglePassword() {
   showPassword.value = !showPassword.value;
+}
+
+function toggleConfirmPassword() {
+  showConfirmPassword.value = !showConfirmPassword.value;
 }
 </script>
