@@ -54,12 +54,9 @@
               <i class="bx bx-check text-3xl"></i>
             </button>
             <template v-else>
-              <button
-                class="btn btn-error"
-                @click.prevent="handleDelete(mood.id)"
-              >
-                <i class="bx bx-trash text-2xl"></i>
-              </button>
+              <label for="my-modal-6" class="btn btn-error"
+                ><i class="bx bx-trash text-2xl"></i
+              ></label>
               <button class="btn" @click.prevent="handleEditStart(mood.id)">
                 <i class="bx bx-edit-alt text-2xl"></i>
               </button>
@@ -69,6 +66,24 @@
             <h1 class="font-code text-xs bg-secondary p-1 rounded">
               {{ parseDate(mood.createdAt) }}
             </h1>
+          </div>
+
+          <input type="checkbox" id="my-modal-6" class="modal-toggle" />
+          <div class="modal modal-bottom sm:modal-middle">
+            <div class="modal-box">
+              <h3 class="font-bold text-lg text-center">
+                Are you sure you want to delete this mood?
+              </h3>
+              <div class="modal-action justify-center">
+                <label for="my-modal-6" class="btn normal-case">No</label>
+                <label
+                  for="my-modal-6"
+                  class="btn btn-error normal-case"
+                  @click.prevent="handleDelete(mood.id)"
+                  >Yes</label
+                >
+              </div>
+            </div>
           </div>
         </div>
       </div>
