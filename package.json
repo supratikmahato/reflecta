@@ -1,8 +1,8 @@
 {
-  "name": "coffee-v3",
+  "name": "coffee",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepare": "husky install"
