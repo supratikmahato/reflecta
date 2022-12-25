@@ -5,9 +5,12 @@ const octokit = new Octokit({
 });
 
 export default defineEventHandler(async (event) => {
-  const resp = await octokit.request("GET /repos/{owner}/{repo}/tags", {
-    owner: "TechGenius7777",
-    repo: "coffee",
-  });
-  return resp.data[0].name;
+  const resp = await octokit.request(
+    "GET /repos/{owner}/{repo}/releases/latest",
+    {
+      owner: "TechGenius7777",
+      repo: "coffee",
+    }
+  );
+  return resp.data.tag_name;
 });
