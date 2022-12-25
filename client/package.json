@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "@octokit/core": "^4.1.0",
-    "daisyui": "^2.45.0",
+    "daisyui": "^2.46.0",
     "joi": "^17.7.0",
     "lodash": "^4.17.21"
   }
