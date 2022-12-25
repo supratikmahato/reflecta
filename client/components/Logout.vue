@@ -9,11 +9,9 @@
 </template>
 
 <script setup lang="ts">
-const config = useRuntimeConfig();
-
 async function logout() {
   await useAsyncData(() =>
-    $fetch(`${config.baseUrl}/auth/logout`, {
+    useExtendedFetch("/auth/logout", {
       method: "GET",
       credentials: "include",
     }).then(() => {

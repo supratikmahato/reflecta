@@ -125,8 +125,6 @@ definePageMeta({
   middleware: "if-not-auth",
 });
 
-const config = useRuntimeConfig();
-
 const loading = ref(false);
 const moods = ref<IMood[]>([]);
 const editOffset = ref("");
@@ -137,7 +135,7 @@ const send = ref({
 onBeforeMount(async () => {
   loading.value = true;
   await useAsyncData("fetch-moods", () =>
-    $fetch<IRes>(`${config.baseUrl}/coffee`, {
+    useExtendedFetch<IRes>("/coffee", {
       credentials: "include",
     })
       .then((res) => {
@@ -173,7 +171,7 @@ async function handleEditSubmit(moodId: string) {
   try {
     const value = await schema.validateAsync(send.value);
     await useAsyncData("update-mood", () =>
-      $fetch(`${config.baseUrl}/coffee/${moodId}`, {
+      useExtendedFetch(`/coffee/${moodId}`, {
         method: "PATCH",
         credentials: "include",
         body: value,
@@ -204,7 +202,7 @@ async function handleEditSubmit(moodId: string) {
 
 async function handleDelete(moodId: string) {
   await useAsyncData("delete-mood", () =>
-    $fetch(`${config.baseUrl}/coffee/${moodId}`, {
+    useExtendedFetch(`/coffee/${moodId}`, {
       method: "DELETE",
       credentials: "include",
     })

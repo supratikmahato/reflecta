@@ -37,8 +37,6 @@ interface IRes {
   username: string;
 }
 
-const config = useRuntimeConfig();
-
 const location = ref("");
 const welcome = ref("Hello!");
 
@@ -62,7 +60,7 @@ onBeforeMount(async () => {
     );
   }
   await useAsyncData(() =>
-    $fetch<IRes>(`${config.baseUrl}/auth/username`, {
+    useExtendedFetch<IRes>("/auth/username", {
       credentials: "include",
     }).then((res) => {
       welcome.value = `Hello ${res.username}!`;

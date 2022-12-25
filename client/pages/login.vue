@@ -127,8 +127,6 @@ definePageMeta({
   middleware: "if-auth",
 });
 
-const config = useRuntimeConfig();
-
 const form = ref({
   email: "",
   password: "",
@@ -142,7 +140,7 @@ async function submit() {
   try {
     const value = await schema.validateAsync(form.value);
     await useAsyncData("login", () =>
-      $fetch(`${config.baseUrl}/auth/login`, {
+      useExtendedFetch("/auth/login", {
         method: "POST",
         credentials: "include",
         body: value,

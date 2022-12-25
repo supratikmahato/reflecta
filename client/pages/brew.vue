@@ -162,8 +162,6 @@ definePageMeta({
   middleware: "if-not-auth",
 });
 
-const config = useRuntimeConfig();
-
 const send = ref({
   coffeeType: "",
   content: "",
@@ -177,7 +175,7 @@ async function submit() {
   try {
     const value = await schema.validateAsync(send.value);
     await useAsyncData("brew", () =>
-      $fetch(`${config.baseUrl}/coffee`, {
+      useExtendedFetch("/coffee", {
         method: "POST",
         credentials: "include",
         body: value,
