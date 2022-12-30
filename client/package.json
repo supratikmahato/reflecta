@@ -4,14 +4,12 @@
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
-    "preview": "nuxt preview",
-    "lint": "prettier --write ."
+    "preview": "nuxt preview"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.13",
     "nuxt": "^3.0.0",
     "postcss": "^8.4.20",
-    "prettier": "^2.8.1",
     "tailwindcss": "^3.2.4"
   },
   "dependencies": {

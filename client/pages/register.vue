@@ -157,7 +157,7 @@ interface IError extends FetchError {
 }
 
 const schema = Joi.object().keys({
-  username: Joi.string().required().trim().label("Username"),
+  username: Joi.string().alphanum().required().trim().label("Username"),
   email: Joi.string()
     .email({ tlds: { allow: false } })
     .required()

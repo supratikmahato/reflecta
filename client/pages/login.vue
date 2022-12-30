@@ -147,10 +147,6 @@ async function submit() {
       })
         .then(() => {
           errors.value = [];
-          useCookie("isAuthenticated", {
-            path: "/",
-            maxAge: 60 * 60 * 24 * 60,
-          }).value = "true";
           navigateTo("/");
         })
         .catch((error: IError) => {

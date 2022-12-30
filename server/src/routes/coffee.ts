@@ -1,6 +1,10 @@
 import express from "express";
 import dotenv from "dotenv";
-import { coffeePatchValidation, coffeePostValidation } from "../validation";
+import {
+  coffeeIsPublicValidation,
+  coffeePatchValidation,
+  coffeePostValidation,
+} from "../validation";
 import { ValidationError } from "joi";
 import authenticate from "../middlewares/authenticate";
 import prisma from "../db/client";
@@ -72,6 +76,7 @@ router.get("/", authenticate, async (req, res) => {
             id: true,
             coffeeType: true,
             content: true,
+            isPublic: true,
             createdAt: true,
           },
           orderBy: {
@@ -105,33 +110,49 @@ router.get("/", authenticate, async (req, res) => {
   }
 });
 
-router.get("/test", authenticate, async (req, res) => {
-  const resp = await prisma.user.findMany({
-    select: {
-      moods: true,
-    },
-  });
-  res.json(resp);
-});
-
 router.patch("/:id", authenticate, async (req, res) => {
   const { id } = req.params;
-  const { content } = req.body;
+  const { content, isPublic } = req.body;
   try {
-    const value = await coffeePatchValidation.validateAsync({
-      content,
-    });
-    await prisma.mood.update({
-      where: {
-        id,
-      },
-      data: {
-        content: value.content,
-      },
-    });
-    res.json({
-      success: true,
-    });
+    if ((content != undefined || null) && (isPublic === undefined || null)) {
+      const value = await coffeePatchValidation.validateAsync({
+        content,
+      });
+      await prisma.mood.update({
+        where: {
+          id,
+        },
+        data: {
+          content: value.content,
+        },
+      });
+      res.json({
+        success: true,
+      });
+    } else if (
+      (isPublic != undefined || null) &&
+      (content === undefined || null)
+    ) {
+      const value = await coffeeIsPublicValidation.validateAsync({
+        isPublic,
+      });
+      await prisma.mood.update({
+        where: {
+          id,
+        },
+        data: {
+          isPublic: value.isPublic,
+        },
+      });
+      res.json({
+        success: true,
+      });
+    } else {
+      res.status(400).json({
+        success: false,
+        error: "Invalid request",
+      });
+    }
   } catch (error) {
     if (error instanceof ValidationError) {
       const errors = error.details.map((detail) => detail.message);

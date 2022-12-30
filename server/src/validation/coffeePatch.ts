@@ -1,7 +1,7 @@
 import Joi from "joi";
 
-const coffeePostValidation = Joi.object().keys({
-  content: Joi.string().required().trim().min(1).max(100),
+const coffeePatchValidation = Joi.object().keys({
+  content: Joi.string().required().trim().min(1).max(1000),
 });
 
-export default coffeePostValidation;
+export default coffeePatchValidation;

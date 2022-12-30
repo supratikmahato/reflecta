@@ -9,34 +9,54 @@
         <Logout class="col-span-1 md:col-span-2 lg:col-span-3" />
         <NuxtLink
           to="/brew"
-          class="card btn-primary p-2 flex flex-col gap-2 justify-center items-center overflow-visible shadow-xl"
+          class="card btn-primary p-4 flex flex-col gap-2 justify-center items-center overflow-visible shadow-xl"
           >Didn't See Your Mood Here?<br />Create More Moods</NuxtLink
         >
         <div
           v-for="mood in moods"
           :key="mood.id"
-          class="card bg-accent p-2 flex flex-col gap-2 justify-center items-center overflow-visible shadow-xl"
+          class="card bg-accent p-4 flex flex-col gap-2 items-center overflow-visible shadow-xl"
         >
           <div
             class="tooltip tooltip-right tooltip-primary hover:z-50"
             data-tip="Coffee"
           >
-            <h1 class="font-extrabold">
+            <h2 class="font-extrabold">
               <i class="bx bxs-coffee-bean mr-1 text-xl"></i
               >{{ mood.coffeeType }}
-            </h1>
+            </h2>
           </div>
-          <div class="tooltip tooltip-primary hover:z-50" data-tip="Your Mood">
-            <input
+          <div
+            class="flex-1 flex justify-center bg-base-200 w-full rounded-xl p-4 shadow-xl"
+          >
+            <textarea
               v-if="editOffset === mood.id"
               v-model.trim="send.content"
-              class="textarea resize-none textarea-primary"
+              class="textarea textarea-primary resize-none min-h-[10rem] h-full w-full"
               required
-              @keydown.enter="handleEditSubmit(mood.id)"
               @keydown.esc="handleEditClose"
               placeholder="What's your mood?"
-            />
-            <h1 v-else class="font-bold">{{ mood.content }}</h1>
+            ></textarea>
+            <div
+              v-else
+              class="tooltip tooltip-primary hover:z-50 w-full text-left"
+              data-tip="Your Mood"
+            >
+              <p class="font-semibold whitespace-pre-line break-words">
+                {{ mood.content }}
+              </p>
+            </div>
+          </div>
+          <div className="form-control w-full">
+            <label className="label cursor-pointer">
+              <span className="label-text text-base">Make Public</span>
+              <input
+                type="checkbox"
+                v-model="mood.isPublic"
+                @change.prevent="handleIsPublicChange(mood.id)"
+                className="checkbox checkbox-primary"
+              />
+            </label>
           </div>
           <div class="grid grid-cols-2 gap-2">
             <button
@@ -54,34 +74,43 @@
               <i class="bx bx-check text-3xl"></i>
             </button>
             <template v-else>
-              <label for="my-modal-6" class="btn btn-error"
-                ><i class="bx bx-trash text-2xl"></i
-              ></label>
+              <button
+                class="btn btn-error"
+                @click.prevent="handleDeleteStart(mood.id)"
+              >
+                <i class="bx bx-trash text-2xl"></i>
+              </button>
               <button class="btn" @click.prevent="handleEditStart(mood.id)">
                 <i class="bx bx-edit-alt text-2xl"></i>
               </button>
             </template>
           </div>
           <div class="tooltip tooltip-primary hover:z-50" data-tip="Brewed On">
-            <h1 class="font-code text-xs bg-secondary p-1 rounded">
+            <h3 class="font-code text-xs bg-secondary p-1 rounded">
               {{ parseDate(mood.createdAt) }}
-            </h1>
+            </h3>
           </div>
-
-          <input type="checkbox" id="my-modal-6" class="modal-toggle" />
-          <div class="modal modal-bottom sm:modal-middle">
+          <div
+            class="modal modal-bottom sm:modal-middle"
+            :class="deleteOffset ? 'modal-open' : ''"
+          >
             <div class="modal-box">
               <h3 class="font-bold text-lg text-center">
                 Are you sure you want to delete this mood?
               </h3>
               <div class="modal-action justify-center">
-                <label for="my-modal-6" class="btn normal-case">No</label>
-                <label
-                  for="my-modal-6"
+                <button
                   class="btn btn-error normal-case"
-                  @click.prevent="handleDelete(mood.id)"
-                  >Yes</label
+                  @click.prevent="handleDeleteSubmit"
                 >
+                  Yes
+                </button>
+                <button
+                  @click.prevent="handleDeleteClose"
+                  class="btn normal-case"
+                >
+                  No
+                </button>
               </div>
             </div>
           </div>
@@ -106,6 +135,7 @@ interface IMood {
   id: string;
   coffeeType: string;
   content: string;
+  isPublic: boolean;
   createdAt: Date;
 }
 
@@ -118,7 +148,7 @@ interface IError extends FetchError {
 }
 
 const schema = Joi.object().keys({
-  content: Joi.string().required().trim().min(1).max(100).label("Content"),
+  content: Joi.string().required().trim().min(1).max(1000).label("Content"),
 });
 
 definePageMeta({
@@ -128,6 +158,7 @@ definePageMeta({
 const loading = ref(false);
 const moods = ref<IMood[]>([]);
 const editOffset = ref("");
+const deleteOffset = ref("");
 const send = ref({
   content: "",
 });
@@ -142,19 +173,7 @@ onBeforeMount(async () => {
         moods.value = res.moods;
         loading.value = false;
       })
-      .catch((error: IError) => {
-        if (
-          error.data.error &&
-          error.data.success === false &&
-          error.data.code === 401
-        ) {
-          useCookie("isAuthenticated", {
-            path: "/",
-            maxAge: -1,
-          }).value = "false";
-          navigateTo("/login");
-        }
-      })
+      .catch((error: IError) => {})
   );
 });
 
@@ -185,22 +204,35 @@ async function handleEditSubmit(moodId: string) {
           });
           handleEditClose();
         })
-        .catch((error: IError) => {
-          if (error.data.error && error.data.success === false) {
-            if (error.data.code === 401) {
-              useCookie("isAuthenticated", {
-                path: "/",
-                maxAge: -1,
-              }).value = "false";
-              navigateTo("/login");
-            }
-          }
-        })
+        .catch((error: IError) => {})
     );
   } catch (error) {}
 }
 
-async function handleDelete(moodId: string) {
+function handleDeleteStart(moodId: string) {
+  deleteOffset.value = moodId;
+}
+
+function handleDeleteClose() {
+  deleteOffset.value = "";
+}
+
+async function handleIsPublicChange(moodId: string) {
+  await useAsyncData("update-is-public", () =>
+    useExtendedFetch(`/coffee/${moodId}`, {
+      method: "PATCH",
+      credentials: "include",
+      body: {
+        isPublic: moods.value.find((mood) => mood.id === moodId)!.isPublic,
+      },
+    })
+      .then(() => {})
+      .catch((error: IError) => {})
+  );
+}
+
+async function handleDeleteSubmit() {
+  const moodId = deleteOffset.value;
   await useAsyncData("delete-mood", () =>
     useExtendedFetch(`/coffee/${moodId}`, {
       method: "DELETE",
@@ -208,18 +240,9 @@ async function handleDelete(moodId: string) {
     })
       .then(() => {
         moods.value = moods.value.filter((mood) => mood.id !== moodId);
+        handleDeleteClose();
       })
-      .catch((error: IError) => {
-        if (error.data.error && error.data.success === false) {
-          if (error.data.code === 401) {
-            useCookie("isAuthenticated", {
-              path: "/",
-              maxAge: -1,
-            }).value = "false";
-            navigateTo("/login");
-          }
-        }
-      })
+      .catch((error: IError) => {})
   );
 }
 

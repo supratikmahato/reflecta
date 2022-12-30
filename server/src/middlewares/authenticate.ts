@@ -4,8 +4,8 @@ import jwt from "jsonwebtoken";
 import prisma from "../db/client";
 
 const authenticate = (req: Request, res: Response, next: NextFunction) => {
-  const { accessToken } = req.cookies;
-  if (accessToken) {
+  const { accessToken, isAuthenticated } = req.cookies;
+  if (accessToken && isAuthenticated === "true") {
     jwt.verify(
       accessToken,
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
@@ -28,15 +28,16 @@ const authenticate = (req: Request, res: Response, next: NextFunction) => {
           next();
         } catch (error) {
           if (error instanceof Prisma.PrismaClientKnownRequestError) {
-            res.status(401).json({
+            res.status(500).json({
               success: false,
               error: error.message,
             });
+          } else {
+            res.status(401).json({
+              success: false,
+              error: "Unauthorized",
+            });
           }
-          res.status(401).json({
-            success: false,
-            error: "Unauthorized",
-          });
         }
       }
     );

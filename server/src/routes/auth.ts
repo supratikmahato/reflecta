@@ -96,8 +96,17 @@ router.post("/login", async (req, res) => {
           .cookie("accessToken", accessToken, {
             maxAge: 60 * 60 * 24 * 60 * 1000,
             httpOnly: true,
-            sameSite: "none",
-            secure: true,
+            ...(process.env.NODE_ENV === "production" && {
+              sameSite: "none",
+              secure: true,
+            }),
+          })
+          .cookie("isAuthenticated", "true", {
+            maxAge: 60 * 60 * 24 * 60 * 1000,
+            ...(process.env.NODE_ENV === "production" && {
+              sameSite: "none",
+              secure: true,
+            }),
           })
           .json({
             success: true,
@@ -133,7 +142,7 @@ router.post("/login", async (req, res) => {
 });
 
 router.get("/logout", (req, res) => {
-  res.clearCookie("accessToken").json({
+  res.clearCookie("accessToken").clearCookie("isAuthenticated").json({
     success: true,
   });
 });

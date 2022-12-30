@@ -24,6 +24,7 @@ model Mood {
   id         String    @id @default(uuid())
   coffeeType String
   content    String
+  isPublic   Boolean   @default(false)
   createdAt  DateTime  @default(now())
   updatedAt  DateTime? @updatedAt
   deletedAt  DateTime?

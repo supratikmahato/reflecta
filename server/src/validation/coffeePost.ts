@@ -22,7 +22,7 @@ const coffeePostValidation = Joi.object().keys({
       "irish"
     )
     .required(),
-  content: Joi.string().required().trim().min(1).max(100),
+  content: Joi.string().required().trim().min(1).max(1000),
 });
 
 export default coffeePostValidation;

@@ -1,5 +1,5 @@
 import express from "express";
-import { rootRoute, authRoute, coffeeRoute } from "./routes";
+import { rootRoute, authRoute, coffeeRoute, userRoute } from "./routes";
 import dotenv from "dotenv";
 import cors from "cors";
 import cookieParser from "cookie-parser";
@@ -31,6 +31,7 @@ app.use(
 app.use("/", rootRoute);
 app.use("/auth", authRoute);
 app.use("/coffee", coffeeRoute);
+app.use("/user", userRoute);
 
 app.listen(port, () => {
   console.log("Server is running on port " + port);

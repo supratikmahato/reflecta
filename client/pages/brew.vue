@@ -52,7 +52,7 @@
           <span>Successfully brewed your mood!</span>
         </div>
       </div>
-      <div class="card flex-shrink-0 w-full max-w-sm clay">
+      <div class="card flex-shrink-0 w-full max-w-lg clay">
         <form @submit.prevent="submit">
           <div class="card-body gap-y-3">
             <div class="form-control">
@@ -84,12 +84,12 @@
               </select>
             </div>
             <div class="form-control">
-              <input
+              <textarea
                 v-model.trim="send.content"
-                class="textarea resize-none textarea-primary"
+                class="textarea textarea-primary resize-none min-h-[10rem]"
                 placeholder="How are you feeling today?"
                 required
-              />
+              ></textarea>
             </div>
             <div class="form-control mt-6">
               <button
@@ -155,7 +155,7 @@ const schema = Joi.object().keys({
     )
     .required()
     .label("Coffee Type"),
-  content: Joi.string().required().trim().min(1).max(100).label("Content"),
+  content: Joi.string().required().trim().min(1).max(1000).label("Content"),
 });
 
 definePageMeta({
@@ -190,17 +190,6 @@ async function submit() {
         })
         .catch((error: IError) => {
           success.value = false;
-          if (error.data.error && error.data.success === false) {
-            if (error.data.code === 401) {
-              useCookie("isAuthenticated", {
-                path: "/",
-                maxAge: -1,
-              }).value = "false";
-              navigateTo("/login");
-            } else {
-              errors.value = [error.data.error];
-            }
-          }
         })
     );
   } catch (error) {
