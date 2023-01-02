@@ -105,7 +105,8 @@ router.post("/login", async (req, res) => {
             maxAge: 60 * 60 * 24 * 60 * 1000,
             ...(process.env.NODE_ENV === "production" && {
               sameSite: "none",
-              // secure: true,
+              secure: true,
+              domain: "netlify.app",
             }),
           })
           .json({
