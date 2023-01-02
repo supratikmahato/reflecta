@@ -57,9 +57,9 @@ interface IError extends FetchError {
   };
 }
 
-// definePageMeta({
-//   middleware: "if-not-auth",
-// });
+definePageMeta({
+  middleware: "if-not-auth",
+});
 
 const username = ref("");
 const loading = ref(false);

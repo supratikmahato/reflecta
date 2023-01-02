@@ -103,10 +103,12 @@ router.post("/login", async (req, res) => {
           })
           .cookie("isAuthenticated", "true", {
             maxAge: 60 * 60 * 24 * 60 * 1000,
-            ...(process.env.NODE_ENV === "production" && {
-              sameSite: "none",
-              secure: true,
-            }),
+            // ...(process.env.NODE_ENV === "production" && {
+            //   sameSite: "none",
+            //   secure: true,
+            // }),
+            sameSite: "none",
+            // secure: true,
           })
           .json({
             success: true,
