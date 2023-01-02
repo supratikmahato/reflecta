@@ -3,7 +3,7 @@
     <div
       class="min-h-screen flex flex-col gap-y-6 justify-center items-center p-5"
     >
-      <h1 class="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold">
+      <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold">
         Mood.
       </h1>
       <div
@@ -106,6 +106,14 @@
                 class="btn btn-primary text-md sm:text-lg md:text-lg normal-case"
               >
                 <i class="bx bxs-coffee mr-1 text-2xl"></i>View Your Moods
+              </NuxtLink>
+            </div>
+            <div class="form-control">
+              <NuxtLink
+                to="/find"
+                class="btn btn-secondary text-md sm:text-lg md:text-lg normal-case"
+              >
+                <i class="bx bxs-coffee mr-1 text-2xl"></i>Find Others
               </NuxtLink>
             </div>
             <div class="divider"></div>

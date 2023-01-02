@@ -18,6 +18,9 @@
       <NuxtLink to="/brew" class="btn btn-accent normal-case mt-4"
         >How are you feeling today?</NuxtLink
       >
+      <NuxtLink to="/find" class="btn btn-primary normal-case mt-2"
+        >Find Others</NuxtLink
+      >
     </div>
   </div>
 </template>

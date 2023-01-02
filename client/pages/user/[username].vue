@@ -3,13 +3,13 @@
     <div v-if="loading"><Loading /></div>
     <div v-else class="min-h-screen text-center p-5">
       <h1 class="text-3xl mb-5 md:text-4xl lg:text-5xl font-bold">
-        {{ $route.params.username }}'s Moods
+        {{ username }}'s Moods
       </h1>
       <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
         <NuxtLink
           to="/brew"
           class="card btn-primary p-4 flex flex-col gap-2 justify-center items-center overflow-visible shadow-xl"
-          >Didn't See Your Mood Here?<br />Create More Moods</NuxtLink
+          >Want To Create Your Own Mood?</NuxtLink
         >
         <div
           v-for="mood in moods"
@@ -51,7 +51,6 @@
 </template>
 
 <script setup lang="ts">
-import Joi from "joi";
 import { FetchError } from "ohmyfetch";
 
 interface IRes {
@@ -80,6 +79,7 @@ definePageMeta({
 
 const route = useRoute();
 
+const username = ref(route.params.username);
 const loading = ref(false);
 const moods = ref<IMood[]>([]);
 

@@ -53,7 +53,7 @@
               <input
                 type="checkbox"
                 v-model="mood.isPublic"
-                @change.prevent="handleIsPublicChange(mood.id)"
+                @change.prevent="handleDebouncedIsPublicChange(mood.id)"
                 className="checkbox checkbox-primary"
               />
             </label>
@@ -124,6 +124,7 @@
 
 <script setup lang="ts">
 import Joi from "joi";
+import debounce from "lodash/debounce";
 import { FetchError } from "ohmyfetch";
 
 interface IRes {
@@ -216,6 +217,8 @@ function handleDeleteStart(moodId: string) {
 function handleDeleteClose() {
   deleteOffset.value = "";
 }
+
+const handleDebouncedIsPublicChange = debounce(handleIsPublicChange, 500);
 
 async function handleIsPublicChange(moodId: string) {
   await useAsyncData("update-is-public", () =>
