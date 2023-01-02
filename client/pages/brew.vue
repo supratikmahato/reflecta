@@ -166,9 +166,9 @@ const schema = Joi.object().keys({
   content: Joi.string().required().trim().min(1).max(1000).label("Content"),
 });
 
-definePageMeta({
-  middleware: "if-not-auth",
-});
+// definePageMeta({
+//   middleware: "if-not-auth",
+// });
 
 const send = ref({
   coffeeType: "",
