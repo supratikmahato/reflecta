@@ -106,7 +106,6 @@ router.post("/login", async (req, res) => {
             ...(process.env.NODE_ENV === "production" && {
               sameSite: "none",
               secure: true,
-              domain: "netlify.app",
             }),
           })
           .json({
