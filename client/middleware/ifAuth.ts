@@ -3,6 +3,7 @@ export default defineNuxtRouteMiddleware(() => {
     method: "GET",
     credentials: "include",
   }).then((res) => {
+    console.log(res);
     return "/";
   });
 });
