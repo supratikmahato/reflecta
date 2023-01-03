@@ -1,5 +1,5 @@
 export default defineNuxtRouteMiddleware(() => {
-  $fetch("/auth", {
+  useExtendedFetch("/auth", {
     method: "GET",
     credentials: "include",
   }).catch(() => {
