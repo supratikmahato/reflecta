@@ -1,5 +1,8 @@
 export default defineNuxtRouteMiddleware(() => {
-  if (useCookie("isAuthenticated").value) {
+  $fetch("/auth", {
+    method: "GET",
+    credentials: "include",
+  }).then((res) => {
     return "/";
-  }
+  });
 });
