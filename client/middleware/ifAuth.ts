@@ -2,8 +2,9 @@ export default defineNuxtRouteMiddleware(() => {
   useExtendedFetch("/auth", {
     method: "GET",
     credentials: "include",
-  }).then((res) => {
-    console.log(res);
-    return "/";
+  }).then((res: any) => {
+    if (res.success) {
+      return "/login";
+    }
   });
 });
