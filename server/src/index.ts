@@ -12,6 +12,7 @@ import cookieParser from "cookie-parser";
 import helmet from "helmet";
 import morgan from "morgan";
 import compression from "compression";
+import { connect } from "./db/client";
 
 dotenv.config();
 
@@ -42,4 +43,5 @@ app.use("/users", usersRoute);
 
 app.listen(port, () => {
   console.log("Server is running on port " + port);
+  connect();
 });

@@ -4,4 +4,9 @@ const prisma = new PrismaClient({
   errorFormat: "pretty",
 });
 
+export async function connect() {
+  await prisma.$connect();
+  console.log("Connected to database");
+}
+
 export default prisma;

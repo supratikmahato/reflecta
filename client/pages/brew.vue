@@ -198,6 +198,17 @@ async function submit() {
         })
         .catch((error: IError) => {
           success.value = false;
+          if (error.data.error && error.data.success === false) {
+            if (error.data.code === 401) {
+              useCookie("isAuthenticated", {
+                path: "/",
+                maxAge: -1,
+              }).value = "false";
+              navigateTo("/login");
+            } else {
+              errors.value = [error.data.error];
+            }
+          }
         })
     );
   } catch (error) {

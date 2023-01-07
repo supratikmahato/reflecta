@@ -12,12 +12,6 @@ const router = express.Router();
 
 dotenv.config();
 
-router.get("/", authenticate, async (req, res) => {
-  res.json({
-    success: true,
-  });
-});
-
 router.post("/register", async (req, res) => {
   const { email, username, password, confirmPassword } = req.body;
   try {

@@ -174,7 +174,19 @@ onBeforeMount(async () => {
         moods.value = res.moods;
         loading.value = false;
       })
-      .catch((error: IError) => {})
+      .catch((error: IError) => {
+        if (
+          error.data.error &&
+          error.data.success === false &&
+          error.data.code === 401
+        ) {
+          useCookie("isAuthenticated", {
+            path: "/",
+            maxAge: -1,
+          }).value = "false";
+          navigateTo("/login");
+        }
+      })
   );
 });
 
@@ -205,17 +217,19 @@ async function handleEditSubmit(moodId: string) {
           });
           handleEditClose();
         })
-        .catch((error: IError) => {})
+        .catch((error: IError) => {
+          if (error.data.error && error.data.success === false) {
+            if (error.data.code === 401) {
+              useCookie("isAuthenticated", {
+                path: "/",
+                maxAge: -1,
+              }).value = "false";
+              navigateTo("/login");
+            }
+          }
+        })
     );
   } catch (error) {}
-}
-
-function handleDeleteStart(moodId: string) {
-  deleteOffset.value = moodId;
-}
-
-function handleDeleteClose() {
-  deleteOffset.value = "";
 }
 
 const handleDebouncedIsPublicChange = debounce(handleIsPublicChange, 500);
@@ -234,6 +248,14 @@ async function handleIsPublicChange(moodId: string) {
   );
 }
 
+function handleDeleteStart(moodId: string) {
+  deleteOffset.value = moodId;
+}
+
+function handleDeleteClose() {
+  deleteOffset.value = "";
+}
+
 async function handleDeleteSubmit() {
   const moodId = deleteOffset.value;
   await useAsyncData("delete-mood", () =>
@@ -245,7 +267,17 @@ async function handleDeleteSubmit() {
         moods.value = moods.value.filter((mood) => mood.id !== moodId);
         handleDeleteClose();
       })
-      .catch((error: IError) => {})
+      .catch((error: IError) => {
+        if (error.data.error && error.data.success === false) {
+          if (error.data.code === 401) {
+            useCookie("isAuthenticated", {
+              path: "/",
+              maxAge: -1,
+            }).value = "false";
+            navigateTo("/login");
+          }
+        }
+      })
   );
 }
 

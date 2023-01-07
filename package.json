@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/TechGenius7777/coffee#readme",
   "devDependencies": {
-    "husky": "^8.0.2",
+    "husky": "^8.0.3",
     "pretty-quick": "^3.1.3"
   }
 }

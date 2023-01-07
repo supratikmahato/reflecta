@@ -1,9 +1,5 @@
-export default defineNuxtRouteMiddleware(() => {
-  useExtendedFetch("/auth", {
-    method: "GET",
-    credentials: "include",
-  }).catch((err) => {
-    console.log(err);
+export default defineNuxtRouteMiddleware(async () => {
+  if (!useCookie("isAuthenticated").value) {
     return "/login";
-  });
+  }
 });

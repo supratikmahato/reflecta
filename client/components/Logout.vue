@@ -15,6 +15,10 @@ async function logout() {
       method: "GET",
       credentials: "include",
     }).then(() => {
+      useCookie("isAuthenticated", {
+        path: "/",
+        maxAge: -1,
+      }).value = "false";
       navigateTo("/");
     })
   );
