@@ -13,6 +13,7 @@
     "prepare": "husky install"
   },
   "devDependencies": {
+    "dotenv-cli": "^7.0.0",
     "eslint-config-custom": "*",
     "husky": "^8.0.3",
     "prettier": "2.8.3",
@@ -22,8 +23,5 @@
   "engines": {
     "node": ">=14.0.0"
   },
-  "packageManager": "npm@9.2.0",
-  "dependencies": {
-    "dotenv-cli": "^7.0.0"
-  }
+  "packageManager": "npm@9.2.0"
 }
