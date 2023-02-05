@@ -24,15 +24,16 @@
       "persistent": true
     },
     "server#start": {
-      "dependsOn": ["server#build"],
+      "dependsOn": ["server#build", "^db:migrate:deploy"],
       "env": ["SERVER_PORT", "FRONTEND_URL", "ACCESS_TOKEN_SECRET"],
       "inputs": ["dist/**"],
       "persistent": true
     },
-    "db:generate": {
+    "db:migrate:deploy": {
       "cache": false
     },
-    "db:migrate:deploy": {
+    "db:generate": {
+      "dependsOn": ["^db:migrate:deploy"],
       "cache": false
     }
   },
