@@ -11,7 +11,12 @@
       "outputs": ["dist/**"]
     },
     "server#build": {
-      "dependsOn": ["validation#build", "database#build"],
+      "dependsOn": [
+        "database#db:migrate:deploy",
+        "database#db:generate",
+        "validation#build",
+        "database#build"
+      ],
       "env": ["SERVER_PORT", "FRONTEND_URL", "ACCESS_TOKEN_SECRET"],
       "outputs": ["dist/**"]
     },
@@ -27,11 +32,7 @@
       "persistent": true
     },
     "server#start": {
-      "dependsOn": [
-        "database#db:migrate:deploy",
-        "database#db:generate",
-        "server#build"
-      ],
+      "dependsOn": ["server#build"],
       "env": ["SERVER_PORT", "FRONTEND_URL", "ACCESS_TOKEN_SECRET"],
       "inputs": ["dist/**"],
       "persistent": true
