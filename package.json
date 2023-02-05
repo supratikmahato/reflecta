@@ -7,12 +7,13 @@
   ],
   "scripts": {
     "build": "turbo run build",
-    "dev": "turbo run dev --parallel",
+    "dev": "dotenv -- turbo run dev --parallel",
     "lint": "turbo run lint",
     "format": "prettier --write .",
     "prepare": "husky install"
   },
   "devDependencies": {
+    "dotenv-cli": "^7.0.0",
     "eslint-config-custom": "*",
     "husky": "^8.0.3",
     "prettier": "2.8.3",

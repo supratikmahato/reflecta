@@ -4,7 +4,11 @@
     "build": {
       "dependsOn": ["^build"]
     },
+    "validation#build": {
+      "outputs": ["dist/**"]
+    },
     "server#build": {
+      "dependsOn": ["validation#build"],
       "env": ["SERVER_PORT", "FRONTEND_URL", "ACCESS_TOKEN_SECRET"],
       "outputs": ["dist/**"]
     },
@@ -17,6 +21,12 @@
     },
     "dev": {
       "cache": false,
+      "persistent": true
+    },
+    "server#start": {
+      "dependsOn": ["server#build"],
+      "env": ["SERVER_PORT", "FRONTEND_URL", "ACCESS_TOKEN_SECRET"],
+      "inputs": ["dist/**"],
       "persistent": true
     }
   },
