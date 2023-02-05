@@ -1,7 +1,7 @@
 {
   "name": "database",
   "main": "dist/index.js",
-  "types": "./index.ts",
+  "types": "src/index.ts",
   "scripts": {
     "build": "tsc",
     "db:migrate:dev": "prisma migrate dev --skip-generate",
