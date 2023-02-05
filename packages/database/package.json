@@ -1,12 +1,19 @@
 {
-  "name": "validation",
+  "name": "database",
   "main": "dist/index.js",
-  "types": "src/index.ts",
+  "types": "./index.ts",
   "scripts": {
-    "lint": "eslint --fix .",
-    "build": "tsc"
+    "build": "tsc",
+    "db:migrate:dev": "prisma migrate dev --skip-generate",
+    "db:migrate:deploy": "prisma migrate deploy",
+    "db:migrate:status": "prisma migrate status",
+    "db:generate": "prisma generate"
+  },
+  "dependencies": {
+    "@prisma/client": "^4.9.0"
   },
   "devDependencies": {
+    "prisma": "^4.9.0",
     "@typescript-eslint/eslint-plugin": "^5.50.0",
     "eslint": "^8.33.0",
     "eslint-config-custom": "*",
@@ -15,8 +22,5 @@
     "eslint-plugin-n": "^15.6.1",
     "eslint-plugin-promise": "^6.1.1",
     "typescript": "^4.9.5"
-  },
-  "dependencies": {
-    "joi": "^17.7.0"
   }
 }

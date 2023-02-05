@@ -28,6 +28,12 @@
       "env": ["SERVER_PORT", "FRONTEND_URL", "ACCESS_TOKEN_SECRET"],
       "inputs": ["dist/**"],
       "persistent": true
+    },
+    "db:generate": {
+      "cache": false
+    },
+    "db:migrate:deploy": {
+      "cache": false
     }
   },
   "globalEnv": ["NODE_ENV"]
