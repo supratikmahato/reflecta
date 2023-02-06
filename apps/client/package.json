@@ -5,8 +5,16 @@
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
-    "preview": "nuxt preview",
-    "lint": "eslint --fix ."
+    "lint": "eslint --fix .",
+    "preview": "nuxt preview"
+  },
+  "dependencies": {
+    "@octokit/core": "^4.2.0",
+    "daisyui": "^2.50.0",
+    "joi": "^17.7.0",
+    "lodash": "^4.17.21",
+    "ofetch": "^1.0.0",
+    "validation": "*"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config-typescript": "^12.0.0",
@@ -18,13 +26,5 @@
     "postcss": "^8.4.21",
     "prettier-plugin-tailwindcss": "^0.2.2",
     "tailwindcss": "^3.2.4"
-  },
-  "dependencies": {
-    "@octokit/core": "^4.2.0",
-    "daisyui": "^2.50.0",
-    "joi": "^17.7.0",
-    "lodash": "^4.17.21",
-    "ofetch": "^1.0.0",
-    "validation": "*"
   }
 }

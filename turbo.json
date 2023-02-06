@@ -4,18 +4,18 @@
     "build": {
       "dependsOn": ["^build"]
     },
-    "validation#build": {
+    "database#build": {
       "outputs": ["dist/**"]
     },
-    "database#build": {
+    "validation#build": {
       "outputs": ["dist/**"]
     },
     "server#build": {
       "dependsOn": [
         "database#db:migrate:deploy",
         "database#db:generate",
-        "validation#build",
-        "database#build"
+        "database#build",
+        "validation#build"
       ],
       "env": ["SERVER_PORT", "FRONTEND_URL", "ACCESS_TOKEN_SECRET"],
       "outputs": ["dist/**"]

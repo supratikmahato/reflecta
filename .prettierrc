@@ -1,4 +1,9 @@
 {
   "tabWidth": 2,
-  "singleQuote": false
+  "singleQuote": false,
+  "plugins": [
+    "prettier-plugin-pkg",
+    "prettier-plugin-sh",
+    "prettier-plugin-toml"
+  ]
 }
