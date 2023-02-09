@@ -2,5 +2,6 @@
   "$schema": "https://unpkg.com/tsup/schema.json",
   "entry": ["src/index.ts"],
   "clean": true,
-  "dts": true
+  "dts": true,
+  "format": ["esm", "cjs"]
 }
