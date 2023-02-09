@@ -21,6 +21,7 @@
       "outputs": ["dist/**"]
     },
     "client#build": {
+      "dependsOn": ["validation#build"],
       "env": ["GITHUB_TOKEN", "BASE_URL"],
       "outputs": [".output/**", "dist/**"]
     },
