@@ -1,7 +1,6 @@
 {
   "$schema": "https://unpkg.com/tsup/schema.json",
   "entry": ["src/index.ts"],
-  "target": "esnext",
   "clean": true,
   "dts": true
 }

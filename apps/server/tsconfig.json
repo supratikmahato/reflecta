@@ -1,9 +1,15 @@
 {
   "compilerOptions": {
-    "sourceMap": true,
-    "outDir": "dist",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "moduleResolution": "node",
+    "preserveWatchOutput": true,
+    "skipLibCheck": true,
+    "noEmit": true,
     "strict": true,
     "lib": ["esnext"],
-    "esModuleInterop": true
-  }
+    "target": "esnext"
+  },
+  "exclude": ["node_modules"]
 }
