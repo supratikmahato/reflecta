@@ -12,7 +12,7 @@ export default defineNuxtConfig({
       baseUrl: process.env.BASE_URL || "http://localhost:8000",
     },
   },
-  css: ["@/styles/styles.css", "@/styles/fonts.css"],
+  css: ["~/assets/css/main.css", "~/assets/css/fonts.css"],
   app: {
     head: {
       title: "Coffee",

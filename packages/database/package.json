@@ -1,16 +1,16 @@
 {
   "name": "database",
   "main": "dist/index.js",
-  "types": "src/index.ts",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "build": "tsc",
+    "build": "tsup",
     "db:generate": "prisma generate",
     "db:migrate:deploy": "prisma migrate deploy",
     "db:migrate:dev": "prisma migrate dev --skip-generate",
     "db:migrate:status": "prisma migrate status"
   },
   "dependencies": {
-    "@prisma/client": "^4.9.0"
+    "@prisma/client": "^4.10.0"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.51.0",
@@ -20,8 +20,10 @@
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-n": "^15.6.1",
     "eslint-plugin-promise": "^6.1.1",
-    "prettier-plugin-prisma": "4.9.0",
-    "prisma": "^4.9.0",
-    "typescript": "^4.9.5"
+    "prettier-plugin-prisma": "4.10.0",
+    "prisma": "^4.10.0",
+    "tsup": "^6.6.0",
+    "typescript": "^4.9.5",
+    "validation": "*"
   }
 }

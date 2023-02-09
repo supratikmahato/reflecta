@@ -6,9 +6,8 @@
     "moduleResolution": "node",
     "preserveWatchOutput": true,
     "skipLibCheck": true,
-    "strict": true,
-    "outDir": "dist",
-    "lib": ["esnext"]
+    "noEmit": true,
+    "strict": true
   },
   "exclude": ["node_modules"]
 }
