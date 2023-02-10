@@ -8,7 +8,9 @@
     "db:generate": "prisma generate",
     "db:migrate:deploy": "prisma migrate deploy",
     "db:migrate:dev": "prisma migrate dev --skip-generate",
-    "db:migrate:status": "prisma migrate status"
+    "db:migrate:status": "prisma migrate status",
+    "dev": "tsup --watch",
+    "lint": "eslint --fix ."
   },
   "dependencies": {
     "@prisma/client": "^4.10.1"
