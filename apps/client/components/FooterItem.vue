@@ -11,5 +11,3 @@
 <script setup lang="ts">
 const { data } = await useFetch("/api/get-version");
 </script>
-
-<style scoped></style>
