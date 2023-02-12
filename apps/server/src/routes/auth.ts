@@ -1,5 +1,5 @@
 import express, { type RequestHandler } from "express";
-import bcrypt from "bcrypt";
+import * as argon2 from "argon2";
 import jwt from "jsonwebtoken";
 import { userRegisterValidation, userLoginValidation } from "validation";
 import prisma from "../db/client";
@@ -18,23 +18,16 @@ router.post("/register", (async (req, res) => {
       password,
       confirmPassword,
     });
-    const saltRounds = 10;
-    bcrypt.hash(value.password, saltRounds, async (error, hash) => {
-      if (error) {
-        res.status(500).json({
-          success: false,
-        });
-      }
-      await prisma.user.create({
-        data: {
-          email: value.email,
-          username: value.username,
-          password: hash,
-        },
-      });
-      res.json({
-        success: true,
-      });
+    const hash = await argon2.hash(value.password);
+    await prisma.user.create({
+      data: {
+        email: value.email,
+        username: value.username,
+        password: hash,
+      },
+    });
+    res.json({
+      success: true,
     });
   } catch (error) {
     if (error instanceof ValidationError) {
@@ -70,46 +63,39 @@ router.post("/login", (async (req, res) => {
         email: value.email,
       },
     });
-    bcrypt.compare(value.password, user.password, (error, result) => {
-      if (error) {
-        res.status(500).json({
-          success: false,
-          error: "Server error",
+    if (await argon2.verify(user.password, value.password)) {
+      const accessToken = jwt.sign(
+        { token: user.token },
+        process.env.ACCESS_TOKEN_SECRET as string,
+        {
+          expiresIn: "60d",
+        }
+      );
+      res
+        .cookie("accessToken", accessToken, {
+          maxAge: 60 * 60 * 24 * 60 * 1000,
+          httpOnly: true,
+          ...(process.env.NODE_ENV === "production" && {
+            sameSite: "none",
+            secure: true,
+          }),
+        })
+        .cookie("isAuthenticated", "true", {
+          maxAge: 60 * 60 * 24 * 60 * 1000,
+          ...(process.env.NODE_ENV === "production" && {
+            sameSite: "none",
+            secure: true,
+          }),
+        })
+        .json({
+          success: true,
         });
-      } else if (!result) {
-        res.status(400).json({
-          success: false,
-          error: "Wrong password",
-        });
-      } else {
-        const accessToken = jwt.sign(
-          { token: user.token },
-          process.env.ACCESS_TOKEN_SECRET as string,
-          {
-            expiresIn: "60d",
-          }
-        );
-        res
-          .cookie("accessToken", accessToken, {
-            maxAge: 60 * 60 * 24 * 60 * 1000,
-            httpOnly: true,
-            ...(process.env.NODE_ENV === "production" && {
-              sameSite: "none",
-              secure: true,
-            }),
-          })
-          .cookie("isAuthenticated", "true", {
-            maxAge: 60 * 60 * 24 * 60 * 1000,
-            ...(process.env.NODE_ENV === "production" && {
-              sameSite: "none",
-              secure: true,
-            }),
-          })
-          .json({
-            success: true,
-          });
-      }
-    });
+    } else {
+      res.status(400).json({
+        success: false,
+        error: "Wrong password",
+      });
+    }
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {
     if (error instanceof ValidationError) {
