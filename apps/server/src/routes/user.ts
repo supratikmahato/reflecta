@@ -1,8 +1,8 @@
-import express, { type RequestHandler } from "express";
 import prisma from "../db/client";
-import { Prisma } from "@prisma/client";
-import { parseCoffeeType } from "../utils";
 import authenticate from "../middlewares/authenticate";
+import { parseCoffeeType } from "../utils";
+import { Prisma } from "@prisma/client";
+import express, { type RequestHandler } from "express";
 
 const router = express.Router();
 

@@ -1,59 +1,56 @@
-import Joi from "joi";
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-expect-error
+import isAlphanumeric from "validator/lib/isAlphanumeric";
+import { z } from "zod";
 
-export const coffeeIsPublicValidation = Joi.object().keys({
-  isPublic: Joi.boolean().required().label("Is Public"),
+export const coffeeIsPublicValidation = z.object({
+  isPublic: z.boolean(),
 });
 
-export const coffeePatchValidation = Joi.object().keys({
-  content: Joi.string().required().trim().min(1).max(1000),
+export const coffeePatchValidation = z.object({
+  content: z.string().trim().min(1).max(1000),
 });
 
-export const coffeePostValidation = Joi.object().keys({
-  coffeeType: Joi.string()
-    .valid(
-      "black",
-      "americano",
-      "latte",
-      "cappuccino",
-      "espresso",
-      "doppio",
-      "cortado",
-      "red-eye",
-      "galao",
-      "lungo",
-      "macchiato",
-      "mocha",
-      "ristretto",
-      "flat-white",
-      "affogato",
-      "cafe-au-lait",
-      "irish"
-    )
-    .required(),
-  content: Joi.string().required().trim().min(1).max(1000),
+export const coffeePostValidation = z.object({
+  coffeeType: z.enum([
+    "black",
+    "americano",
+    "latte",
+    "cappuccino",
+    "espresso",
+    "doppio",
+    "cortado",
+    "red-eye",
+    "galao",
+    "lungo",
+    "macchiato",
+    "mocha",
+    "ristretto",
+    "flat-white",
+    "affogato",
+    "cafe-au-lait",
+    "irish",
+  ]),
+  content: z.string().trim().min(1).max(1000),
 });
 
-export const userLoginValidation = Joi.object().keys({
-  email: Joi.string()
-    .email({ tlds: { allow: false } })
-    .required()
-    .trim()
-    .label("Email"),
-  password: Joi.string().required().trim().min(6).label("Password"),
+export const userLoginValidation = z.object({
+  email: z.string().trim().email(),
+  password: z.string().trim().min(6),
 });
 
-export const userRegisterValidation = Joi.object().keys({
-  username: Joi.string().alphanum().required().trim().label("Username"),
-  email: Joi.string()
-    .email({ tlds: { allow: false } })
-    .required()
-    .trim()
-    .label("Email"),
-  password: Joi.string().required().min(6).trim().label("Password"),
-  confirmPassword: Joi.string()
-    .required()
-    .min(6)
-    .trim()
-    .valid(Joi.ref("password"))
-    .label("Confirm Password"),
-});
+export const userRegisterValidation = z
+  .object({
+    username: z.string().trim().superRefine(isAlphanumeric).innerType(),
+    email: z.string().trim().email(),
+    password: z.string().trim().min(6),
+    confirmPassword: z.string().trim().min(6),
+  })
+  .superRefine(({ confirmPassword, password }, ctx) => {
+    if (confirmPassword !== password) {
+      ctx.addIssue({
+        code: "custom",
+        message: "The passwords did not match",
+      });
+    }
+  });

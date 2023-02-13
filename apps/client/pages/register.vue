@@ -145,9 +145,10 @@
 </template>
 
 <script setup lang="ts">
-import { ValidationError } from "joi";
-import { userRegisterValidation as schema } from "validation";
 import { FetchError } from "ofetch";
+import { userRegisterValidation as schema } from "validation";
+import { ZodError } from "zod";
+import { fromZodError } from "zod-validation-error";
 
 interface IError extends FetchError {
   data: {
@@ -175,7 +176,7 @@ const loading = ref(false);
 async function submit() {
   loading.value = true;
   try {
-    const value = await schema.validateAsync(form.value);
+    const value = await schema.parseAsync(form.value);
     await useAsyncData("register", () =>
       useExtendedFetch("/auth/register", {
         method: "POST",
@@ -193,8 +194,8 @@ async function submit() {
         })
     );
   } catch (error) {
-    if (error instanceof ValidationError) {
-      errors.value = error.details.map((detail) => detail.message);
+    if (error instanceof ZodError) {
+      errors.value = [fromZodError(error).message];
     } else {
       throw error;
     }

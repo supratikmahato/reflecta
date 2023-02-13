@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-misused-promises */
+import prisma from "../db/client";
 import { Prisma } from "@prisma/client";
 import { type NextFunction, type Request, type Response } from "express";
 import jwt from "jsonwebtoken";
-import prisma from "../db/client";
 
 const authenticate = (
   req: Request,

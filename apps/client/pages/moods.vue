@@ -123,9 +123,9 @@
 </template>
 
 <script setup lang="ts">
-import { coffeePatchValidation as schema } from "validation";
 import debounce from "lodash/debounce";
 import { FetchError } from "ofetch";
+import { coffeePatchValidation as schema } from "validation";
 
 interface IMood {
   id: string;
@@ -195,7 +195,7 @@ function handleEditClose() {
 
 async function handleEditSubmit(moodId: string) {
   try {
-    const value = await schema.validateAsync(send.value);
+    const value = await schema.parseAsync(send.value);
     await useAsyncData("update-mood", () =>
       useExtendedFetch(`/coffee/${moodId}`, {
         method: "PATCH",

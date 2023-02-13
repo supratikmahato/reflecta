@@ -1,5 +1,5 @@
-import express, { type RequestHandler } from "express";
 import prisma from "../db/client";
+import express, { type RequestHandler } from "express";
 
 const router = express.Router();
 

@@ -1,18 +1,19 @@
-import express, { type RequestHandler } from "express";
+import prisma from "../db/client";
+import authenticate from "../middlewares/authenticate";
+import { Prisma } from "@prisma/client";
 import * as argon2 from "argon2";
+import express, { type RequestHandler } from "express";
 import jwt from "jsonwebtoken";
 import { userRegisterValidation, userLoginValidation } from "validation";
-import prisma from "../db/client";
-import { ValidationError } from "joi";
-import { Prisma } from "@prisma/client";
-import authenticate from "../middlewares/authenticate";
+import { ZodError } from "zod";
+import { fromZodError } from "zod-validation-error";
 
 const router = express.Router();
 
 router.post("/register", (async (req, res) => {
   const { email, username, password, confirmPassword } = req.body;
   try {
-    const value = await userRegisterValidation.validateAsync({
+    const value = await userRegisterValidation.parseAsync({
       email,
       username,
       password,
@@ -30,11 +31,10 @@ router.post("/register", (async (req, res) => {
       success: true,
     });
   } catch (error) {
-    if (error instanceof ValidationError) {
-      const errors = error.details.map((detail) => detail.message);
+    if (error instanceof ZodError) {
       res.status(400).json({
         success: false,
-        error: errors,
+        error: fromZodError(error),
       });
     } else if (error instanceof Prisma.PrismaClientKnownRequestError) {
       res.status(400).json({
@@ -54,7 +54,7 @@ router.post("/register", (async (req, res) => {
 router.post("/login", (async (req, res) => {
   const { email, password } = req.body;
   try {
-    const value = await userLoginValidation.validateAsync({
+    const value = await userLoginValidation.parseAsync({
       email,
       password,
     });
@@ -98,11 +98,10 @@ router.post("/login", (async (req, res) => {
     }
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {
-    if (error instanceof ValidationError) {
-      const errors = error.details.map((detail) => detail.message);
+    if (error instanceof ZodError) {
       res.status(400).json({
         success: false,
-        error: errors,
+        error: fromZodError(error),
       });
     } else if (error instanceof Prisma.PrismaClientKnownRequestError) {
       res.status(400).json({
