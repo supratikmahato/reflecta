@@ -33,6 +33,7 @@
       "persistent": true
     },
     "database#dev": {
+      "dependsOn": ["database#db:migrate:dev", "database#db:generate"],
       "outputs": ["dist/**"]
     },
     "validation#dev": {
@@ -44,10 +45,13 @@
       "inputs": ["dist/**"],
       "persistent": true
     },
-    "db:migrate:deploy": {
+    "database#db:migrate:dev": {
       "cache": false
     },
-    "db:generate": {
+    "database#db:migrate:deploy": {
+      "cache": false
+    },
+    "database#db:generate": {
       "cache": false
     }
   },
