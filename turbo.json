@@ -33,7 +33,6 @@
       "persistent": true
     },
     "database#dev": {
-      "dependsOn": ["database#db:migrate:dev", "database#db:generate"],
       "outputs": ["dist/**"]
     },
     "validation#dev": {

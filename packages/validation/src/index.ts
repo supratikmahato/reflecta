@@ -1,5 +1,3 @@
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-expect-error
 import isAlphanumeric from "validator/lib/isAlphanumeric";
 import { z } from "zod";
 
@@ -41,7 +39,7 @@ export const userLoginValidation = z.object({
 
 export const userRegisterValidation = z
   .object({
-    username: z.string().trim().superRefine(isAlphanumeric).innerType(),
+    username: z.string().trim().refine(isAlphanumeric),
     email: z.string().trim().email(),
     password: z.string().trim().min(6),
     confirmPassword: z.string().trim().min(6),
