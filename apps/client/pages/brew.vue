@@ -98,6 +98,11 @@
                 :class="loading ? 'loading' : ''"
               >
                 <i class="bx bx-coffee-togo mr-1 text-2xl"></i>Brew Your Mood
+                <div class="ml-2 flex rounded-xl bg-secondary p-1">
+                  <kbd class="kbd kbd-xs">ctrl</kbd>
+                  &nbsp;+&nbsp;
+                  <kbd class="kbd kbd-xs">k</kbd>
+                </div>
               </button>
             </div>
             <div class="form-control">
@@ -129,6 +134,7 @@
 </template>
 
 <script setup lang="ts">
+import { useMagicKeys } from "@vueuse/core";
 import { FetchError } from "ofetch";
 import { coffeePostValidation as schema } from "validation";
 import { ZodError } from "zod";
@@ -153,6 +159,10 @@ const send = ref({
 const errors = ref<string[]>([]);
 const success = ref(false);
 const loading = ref(false);
+
+const keys = useMagicKeys();
+
+whenever(keys.ctrl_k, submit);
 
 async function submit() {
   loading.value = true;

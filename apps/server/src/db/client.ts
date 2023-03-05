@@ -9,4 +9,9 @@ export async function connect(): Promise<void> {
   console.log("Connected to database");
 }
 
+export async function disconnect(): Promise<void> {
+  await prisma.$disconnect();
+  console.log("Disconnected from database");
+}
+
 export default prisma;

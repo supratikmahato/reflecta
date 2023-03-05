@@ -1,4 +1,4 @@
-import { connect } from "./db/client";
+import { connect, disconnect } from "./db/client";
 import {
   rootRoute,
   authRoute,
@@ -36,7 +36,15 @@ app.use("/coffee", coffeeRoute);
 app.use("/user", userRoute);
 app.use("/users", usersRoute);
 
-app.listen(port, () => {
+const server = app.listen(port, () => {
   console.log("Server is running on port " + port);
   void connect();
+});
+
+process.on("SIGTERM", () => {
+  console.log("SIGTERM signal received: closing HTTP server");
+  server.close(() => {
+    void disconnect();
+    console.log("HTTP server closed");
+  });
 });

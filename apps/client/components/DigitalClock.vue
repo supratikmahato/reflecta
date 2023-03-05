@@ -1,80 +1,49 @@
 <template>
-  <time class="clock">
-    <span class="clock__hour">{{ hours }}</span
-    ><span
-      class="clock__colon"
-      :style="{
-        visibility: !blink || seconds % 2 === 0 ? 'visible' : 'hidden',
-      }"
-    >
-      : </span
-    ><span class="clock__minutes">{{ minutes }}</span
-    ><span
-      v-if="displaySeconds"
-      class="clock__colon"
-      :style="{
-        visibility: !blink || seconds % 2 === 0 ? 'visible' : 'hidden',
-      }"
-    >
-      :
-    </span>
-    <span v-if="displaySeconds" class="clock__seconds">{{ seconds }}</span
-    ><span v-if="twelveHour" class="clock__ampm text-sm font-bold"
-      >&nbsp;{{ amPm }}</span
-    >
+  <time>
+    <span>{{ hours }}</span
+    ><span> : </span><span>{{ minutes }}</span
+    ><span class="text-sm font-bold">&nbsp;{{ amPm }}</span>
   </time>
 </template>
 
-<script>
-function padZero(number) {
+<script setup lang="ts">
+function padZero(number: number) {
   if (number < 10) {
     return "0" + number;
   }
-  return number;
+  return String(number);
 }
-
-const getDate = () => new Date();
-
-const getSeconds = () => padZero(getDate().getSeconds());
-
-const getMinutes = () => padZero(getDate().getMinutes());
-
-const getHour = (twelveHour) => {
+function getDate() {
+  return new Date();
+}
+function getMinutes() {
+  return padZero(getDate().getMinutes());
+}
+function getHour() {
   let hours = getDate().getHours();
-  if (twelveHour && hours > 12) {
+  if (hours > 12) {
     hours = hours - 12;
   }
   return padZero(hours);
-};
+}
+function getAmPm() {
+  return getDate().getHours() >= 12 ? "PM" : "AM";
+}
 
-const getAmPm = () => (getDate().getHours() >= 12 ? "PM" : "AM");
+const ticker = ref();
+const minutes = ref(getMinutes());
+const hours = ref(getHour());
+const amPm = ref(getAmPm());
 
-export default {
-  name: "VueDigitalClock",
+onBeforeMount(() => {
+  ticker.value = setInterval(() => {
+    minutes.value = getMinutes();
+    hours.value = getHour();
+    amPm.value = getAmPm();
+  }, 1000);
+});
 
-  // eslint-disable-next-line vue/require-prop-types
-  props: ["blink", "displaySeconds", "twelveHour"],
-
-  data() {
-    return {
-      ticker: null,
-      minutes: getMinutes(),
-      hours: getHour(this.twelveHour),
-      seconds: getSeconds(),
-      amPm: getAmPm(),
-    };
-  },
-
-  created() {
-    this.ticker = setInterval(() => {
-      this.minutes = getMinutes();
-      this.hours = getHour(this.twelveHour);
-      this.seconds = getSeconds();
-    }, 1000);
-  },
-
-  unmounted() {
-    clearInterval(this.ticker);
-  },
-};
+onUnmounted(() => {
+  clearInterval(ticker.value);
+});
 </script>
