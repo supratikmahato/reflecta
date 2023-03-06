@@ -7,7 +7,7 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
-  modules: ["@vueuse/nuxt"],
+  modules: ["@vueuse/nuxt", "@nuxtjs/fontaine"],
   runtimeConfig: {
     public: {
       baseUrl: process.env.BASE_URL || "http://localhost:8000",

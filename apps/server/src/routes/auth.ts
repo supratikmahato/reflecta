@@ -76,14 +76,14 @@ router.post("/login", (async (req, res) => {
           maxAge: 60 * 60 * 24 * 60 * 1000,
           httpOnly: true,
           ...(process.env.NODE_ENV === "production" && {
-            sameSite: "none",
+            sameSite: "lax",
             secure: true,
           }),
         })
         .cookie("isAuthenticated", "true", {
           maxAge: 60 * 60 * 24 * 60 * 1000,
           ...(process.env.NODE_ENV === "production" && {
-            sameSite: "none",
+            sameSite: "lax",
             secure: true,
           }),
         })

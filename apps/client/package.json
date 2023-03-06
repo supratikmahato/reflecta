@@ -15,11 +15,12 @@
     "lodash": "^4.17.21",
     "ofetch": "^1.0.1",
     "validation": "*",
-    "zod": "^3.21.0",
+    "zod": "^3.21.1",
     "zod-validation-error": "^1.0.1"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config-typescript": "^12.0.0",
+    "@nuxtjs/fontaine": "^0.2.4",
     "@types/lodash": "^4.14.191",
     "@vueuse/core": "^9.13.0",
     "@vueuse/nuxt": "^9.13.0",
