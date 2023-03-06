@@ -8,10 +8,6 @@
     >
       <source src="/videos/background.mp4" type="video/mp4" />
     </video>
-    <!-- <img
-      src="/videos/background.gif"
-      class="fixed top-0 right-0 min-h-full min-w-full"
-    /> -->
     <div
       class="clay fixed top-1/2 left-1/2 flex -translate-y-1/2 -translate-x-1/2 flex-col gap-y-1 rounded-3xl p-6 text-center font-gilroy text-3xl font-extrabold"
     >
