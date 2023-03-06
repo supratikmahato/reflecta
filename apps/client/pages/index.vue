@@ -5,13 +5,18 @@
       muted
       loop
       class="fixed top-0 right-0 min-h-full min-w-full"
-      poster="/videos/background.gif"
-    ></video>
+    >
+      <source src="/videos/background.mp4" type="video/mp4" />
+    </video>
+    <!-- <img
+      src="/videos/background.gif"
+      class="fixed top-0 right-0 min-h-full min-w-full"
+    /> -->
     <div
       class="clay fixed top-1/2 left-1/2 flex -translate-y-1/2 -translate-x-1/2 flex-col gap-y-1 rounded-3xl p-6 text-center font-gilroy text-3xl font-extrabold"
     >
       <i class="bx bxs-coffee text-5xl"></i>
-      <digital-clock :blink="false" :twelve-hour="true" />
+      <DigitalClock :blink="false" :twelve-hour="true" />
       <p class="text-base font-medium">{{ location }}</p>
       <div class="divider"></div>
       <h1 class="text-xl font-bold">{{ welcome }}</h1>
