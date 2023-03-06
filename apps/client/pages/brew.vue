@@ -160,7 +160,12 @@ const errors = ref<string[]>([]);
 const success = ref(false);
 const loading = ref(false);
 
-const keys = useMagicKeys();
+const keys = useMagicKeys({
+  passive: false,
+  onEventFired(e) {
+    if (e.ctrlKey && e.key === "k" && e.type === "keydown") e.preventDefault();
+  },
+});
 
 whenever(keys.ctrl_k, submit);
 
