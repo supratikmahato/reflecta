@@ -11,15 +11,18 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       baseUrl: process.env.BASE_URL || "http://localhost:8000",
+      siteUrl:
+        process.env.NUXT_PUBLIC_SITE_URL ||
+        "https://techgenius-coffee.netlify.app",
+      siteName: "Coffee",
+      siteDescription: "Welcome to my awesome site!",
+      language: "en",
     },
   },
+  extends: ["nuxt-seo-kit"],
   css: ["~/assets/css/main.css", "~/assets/css/fonts.css"],
   app: {
     head: {
-      htmlAttrs: {
-        lang: "en",
-      },
-      title: "Coffee",
       link: [
         {
           rel: "icon",
