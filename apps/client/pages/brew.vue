@@ -52,7 +52,7 @@
           <span>Successfully brewed your mood!</span>
         </div>
       </div>
-      <div class="clay card w-full max-w-lg flex-shrink-0">
+      <div class="card w-full max-w-lg flex-shrink-0 bg-base-100 shadow-2xl">
         <form @submit.prevent="submit">
           <div class="card-body gap-y-3">
             <div class="form-control">
@@ -213,13 +213,3 @@ async function submit() {
   loading.value = false;
 }
 </script>
-
-<style scoped>
-.clay {
-  backdrop-filter: blur(5px);
-  background-color: rgba(240, 234, 210, 1);
-  box-shadow: 35px 35px 68px 0px rgba(240, 234, 210, 0.5),
-    inset -12px -12px 16px 0px rgba(240, 234, 210, 0.6),
-    inset 0px 11px 28px 0px rgb(255, 255, 255);
-}
-</style>

@@ -1,7 +1,7 @@
 <template>
   <div>
     <div v-if="loading"><LoadingItem /></div>
-    <div v-else class="min-h-screen p-5 text-center">
+    <div v-else class="min-h-screen p-4 text-center">
       <h1 class="mb-5 text-3xl font-bold md:text-4xl lg:text-5xl">
         Your Moods
       </h1>
@@ -89,7 +89,9 @@
             </template>
           </div>
           <div class="tooltip tooltip-primary hover:z-50" data-tip="Brewed On">
-            <h3 class="rounded bg-secondary p-1 font-code text-xs">
+            <h3
+              class="rounded bg-base-200 p-1 font-code text-xs font-semibold shadow-2xl"
+            >
               {{ parseDate(mood.createdAt) }}
             </h3>
           </div>
@@ -120,7 +122,44 @@
         </div>
       </div>
     </div>
-    <ScrollToTop />
+    <ScrollToTop>
+      <div v-if="success === true" class="alert alert-success shadow-lg">
+        <div>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6 flex-shrink-0 stroke-current"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+            />
+          </svg>
+          <span>Successfully updated your mood!</span>
+        </div>
+      </div>
+      <div v-else-if="success === false" class="alert alert-error shadow-lg">
+        <div>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6 flex-shrink-0 stroke-current"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+            />
+          </svg>
+          <span>Error updating your mood.</span>
+        </div>
+      </div>
+    </ScrollToTop>
     <FooterItem />
   </div>
 </template>
@@ -159,6 +198,15 @@ const editOffset = ref("");
 const deleteOffset = ref("");
 const send = ref({
   content: "",
+});
+const success = ref<boolean>();
+
+watch(success, () => {
+  if (success.value === true) {
+    setTimeout(() => {
+      success.value = undefined;
+    }, 2500);
+  }
 });
 
 onBeforeMount(async () => {
@@ -213,6 +261,7 @@ async function handleEditSubmit(moodId: string) {
             return mood;
           });
           handleEditClose();
+          success.value = true;
         })
         .catch((error: IError) => {
           if (error.data.error && error.data.success === false) {
