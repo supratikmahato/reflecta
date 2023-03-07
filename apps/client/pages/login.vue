@@ -71,6 +71,8 @@
                   <button
                     type="button"
                     class="btn-primary btn"
+                    readonly
+                    tabindex="-1"
                     @click.prevent="togglePassword"
                   >
                     <i v-if="!showPassword" class="bx bx-show text-xl"></i>
