@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div class="hero flex min-h-screen flex-col bg-base-200 p-5">
-      <h1 class="mb-5 text-4xl font-bold sm:text-5xl md:text-6xl lg:text-6xl">
+    <div class="hero flex min-h-screen flex-col bg-base-200 p-4">
+      <h1 class="mb-4 text-4xl font-bold sm:text-5xl md:text-6xl lg:text-6xl">
         Find Others.
       </h1>
       <div class="hero-content w-[30rem] flex-col p-0 lg:flex-row-reverse">

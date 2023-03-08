@@ -1,13 +1,13 @@
 <template>
   <div class="sticky bottom-0 flex w-full justify-end px-4 pb-4 transition">
-    <div class="toast-end toast sticky ml-auto p-0 pr-4">
+    <div class="toast-end toast sticky ml-auto min-w-0 p-0 pr-4 pl-4">
       <slot></slot>
     </div>
     <div
       :class="{ invisible }"
       class="mt-auto text-primary transition hover:text-primary-focus"
     >
-      <button role="button" @click="scrollToTop">
+      <button role="button" @click.prevent="scrollToTop">
         <i class="bx bxs-up-arrow-circle text-6xl"></i>
       </button>
     </div>

@@ -1,7 +1,7 @@
 <template>
   <div>
     <div
-      class="flex min-h-screen flex-col items-center justify-center gap-y-6 p-5"
+      class="flex min-h-screen flex-col items-center justify-center gap-y-6 p-4"
     >
       <h1 class="text-5xl font-bold sm:text-6xl md:text-7xl lg:text-8xl">
         Mood.
@@ -31,11 +31,8 @@
           <span>{{ error }}</span>
         </div>
       </div>
-      <div
-        v-if="success"
-        class="flex h-auto flex-col gap-y-1 pr-3 pl-3 text-sm"
-      >
-        <div class="alert alert-success p-2 shadow-md">
+      <div v-if="success" class="alert alert-success shadow-lg">
+        <div>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             class="h-6 w-6 flex-shrink-0 stroke-current"

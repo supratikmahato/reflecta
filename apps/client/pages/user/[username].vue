@@ -1,8 +1,8 @@
 <template>
   <div>
     <div v-if="loading"><LoadingItem /></div>
-    <div v-else class="min-h-screen p-5 text-center">
-      <h1 class="mb-5 text-3xl font-bold md:text-4xl lg:text-5xl">
+    <div v-else class="min-h-screen p-4 text-center">
+      <h1 class="mb-4 text-3xl font-bold md:text-4xl lg:text-5xl">
         {{ username }}'s Moods
       </h1>
       <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
@@ -11,38 +11,13 @@
           class="card btn-primary flex flex-col items-center justify-center gap-2 overflow-visible p-4 shadow-xl"
           >Want To Create Your Own Mood?</NuxtLink
         >
-        <div
+        <MoodItem
           v-for="mood in moods"
           :key="mood.id"
-          class="card flex flex-col items-center gap-2 overflow-visible bg-accent p-4 shadow-xl"
-        >
-          <div
-            class="tooltip tooltip-right tooltip-primary hover:z-50"
-            data-tip="Coffee"
-          >
-            <h2 class="font-extrabold">
-              <i class="bx bxs-coffee-bean mr-1 text-xl"></i
-              >{{ mood.coffeeType }}
-            </h2>
-          </div>
-          <div
-            class="flex w-full flex-1 justify-center rounded-xl bg-base-200 p-4 shadow-xl"
-          >
-            <div
-              class="tooltip tooltip-primary w-full text-left hover:z-50"
-              data-tip="Your Mood"
-            >
-              <p class="whitespace-pre-line break-words font-semibold">
-                {{ mood.content }}
-              </p>
-            </div>
-          </div>
-          <div class="tooltip tooltip-primary hover:z-50" data-tip="Brewed On">
-            <h3 class="rounded bg-secondary p-1 font-code text-xs">
-              {{ parseDate(mood.createdAt) }}
-            </h3>
-          </div>
-        </div>
+          :is-self="false"
+          :username="username"
+          :mood="mood"
+        />
       </div>
     </div>
     <ScrollToTop />
@@ -83,12 +58,4 @@ onBeforeMount(async () => {
     })
   );
 });
-
-function parseDate(date: Date) {
-  return new Intl.DateTimeFormat("en-GB", {
-    dateStyle: "full",
-    timeStyle: "short",
-    hour12: true,
-  }).format(new Date(date));
-}
 </script>
