@@ -17,10 +17,14 @@ export default defineNuxtConfig({
       language: "en",
     },
   },
+  linkChecker: {
+    failOn404: true,
+  },
   extends: ["nuxt-seo-kit"],
   css: ["~/assets/css/main.css", "~/assets/css/fonts.css"],
   app: {
     head: {
+      viewport: "width=device-width, initial-scale=1, maximum-scale=1",
       link: [
         {
           rel: "icon",
