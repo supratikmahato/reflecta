@@ -2,7 +2,6 @@
   <div>
     <SeoKit />
     <OgImageScreenshot />
-    <OgImageStatic />
     <NuxtPage />
   </div>
 </template>

@@ -13,7 +13,7 @@
         <div
           v-for="error in errors"
           :key="error"
-          class="alert alert-error p-2 shadow-md"
+          class="alert alert-error w-fit p-2 shadow-md"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -31,7 +31,7 @@
           <span>{{ error }}</span>
         </div>
       </div>
-      <div v-if="success" class="alert alert-success shadow-lg">
+      <div v-if="success" class="alert alert-success w-fit shadow-lg">
         <div>
           <svg
             xmlns="http://www.w3.org/2000/svg"
