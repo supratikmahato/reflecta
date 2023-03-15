@@ -35,7 +35,7 @@ importers:
       "@vueuse/core": ^9.13.0
       "@vueuse/nuxt": ^9.13.0
       autoprefixer: ^10.4.14
-      daisyui: ^2.51.3
+      daisyui: ^2.51.4
       eslint: ^8.36.0
       eslint-config-custom: workspace:*
       lodash: ^4.17.21
@@ -51,7 +51,7 @@ importers:
     dependencies:
       "@formkit/auto-animate": 1.0.0-beta.6
       "@octokit/core": 4.2.0
-      daisyui: 2.51.3_j7yt3jd32cwenjqavrrga47yr4
+      daisyui: 2.51.4_j7yt3jd32cwenjqavrrga47yr4
       lodash: 4.17.21
       ofetch: 1.0.1
       validation: link:../../packages/validation
@@ -5097,10 +5097,10 @@ packages:
       }
     dev: true
 
-  /daisyui/2.51.3_j7yt3jd32cwenjqavrrga47yr4:
+  /daisyui/2.51.4_j7yt3jd32cwenjqavrrga47yr4:
     resolution:
       {
-        integrity: sha512-AQa9exq/DsnvjyDi6bwOqHExQr9LJJag0iKRXNvRRtHXPo1gaAQ3ASJWylUB8J8KMH2M9zIpr7cvPHc7yGckyQ==,
+        integrity: sha512-TGYD2BQCduxkKbDALlaWWaUdi33tryUuO/MxxBtAmLJ9zKn04gF6xduMxbrAUesR4AFr6LZW187TqF2H5c1AoA==,
       }
     peerDependencies:
       autoprefixer: ^10.0.2
