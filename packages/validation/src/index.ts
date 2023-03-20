@@ -1,4 +1,5 @@
 import isAlphanumeric from "validator/lib/isAlphanumeric";
+import isStrongPassword from "validator/lib/isStrongPassword";
 import { z } from "zod";
 
 export const coffeeIsPublicValidation = z.object({
@@ -34,15 +35,19 @@ export const coffeePostValidation = z.object({
 
 export const userLoginValidation = z.object({
   email: z.string().trim().email(),
-  password: z.string().trim().min(6),
+  password: z.string().trim().refine(isStrongPassword, {
+    message: "Password must be at least 8 characters long",
+  }),
 });
 
 export const userRegisterValidation = z
   .object({
     username: z.string().trim().refine(isAlphanumeric),
     email: z.string().trim().email(),
-    password: z.string().trim().min(6),
-    confirmPassword: z.string().trim().min(6),
+    password: z.string().trim().refine(isStrongPassword, {
+      message: "Password must be at least 8 characters long",
+    }),
+    confirmPassword: z.string().trim(),
   })
   .superRefine(({ confirmPassword, password }, ctx) => {
     if (confirmPassword !== password) {
