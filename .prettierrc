@@ -5,6 +5,8 @@
     "prettier-plugin-pkg",
     "prettier-plugin-sh",
     "prettier-plugin-toml",
-    "@trivago/prettier-plugin-sort-imports"
+    "@trivago/prettier-plugin-sort-imports",
+    "prettier-plugin-prisma",
+    "prettier-plugin-tailwindcss"
   ]
 }

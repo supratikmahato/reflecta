@@ -9,7 +9,7 @@
       <source src="/videos/background.mp4" type="video/mp4" />
     </video>
     <div
-      class="clay fixed top-1/2 left-1/2 flex -translate-y-1/2 -translate-x-1/2 flex-col gap-y-1 rounded-3xl p-6 text-center font-gilroy text-3xl font-extrabold"
+      class="clay font-gilroy fixed top-1/2 left-1/2 flex -translate-y-1/2 -translate-x-1/2 flex-col gap-y-1 rounded-3xl p-6 text-center text-3xl font-extrabold"
     >
       <i class="bx bxs-coffee text-5xl"></i>
       <DigitalClock :blink="false" :twelve-hour="true" />

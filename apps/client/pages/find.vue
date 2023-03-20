@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="hero flex min-h-screen flex-col bg-base-200 p-4">
+    <div class="hero bg-base-200 flex min-h-screen flex-col p-4">
       <h1 class="mb-4 text-4xl font-bold sm:text-5xl md:text-6xl lg:text-6xl">
         Find Others.
       </h1>
@@ -20,7 +20,7 @@
                 v-for="user in users"
                 :key="user.id"
                 :to="`/user/${user.username}`"
-                class="card flex flex-col items-center gap-2 overflow-visible bg-accent p-4 shadow-xl"
+                class="card bg-accent flex flex-col items-center gap-2 overflow-visible p-4 shadow-xl"
               >
                 <div>
                   <h2 class="font-extrabold">

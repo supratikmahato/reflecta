@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col items-center justify-center gap-y-2 bg-accent p-6">
+  <div class="bg-accent flex flex-col items-center justify-center gap-y-2 p-6">
     <code>Version: {{ data }}</code>
     <h2>
       Copyright

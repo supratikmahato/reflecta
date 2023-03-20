@@ -1,7 +1,7 @@
 <template>
   <div
     v-if="!deleteConfirm"
-    class="card flex flex-col items-center gap-2 overflow-visible bg-accent p-4 shadow-xl"
+    class="card bg-accent flex flex-col items-center gap-2 overflow-visible p-4 shadow-xl"
   >
     <div
       class="tooltip tooltip-right tooltip-primary hover:z-50"
@@ -12,7 +12,7 @@
       </h2>
     </div>
     <div
-      class="flex w-full flex-1 justify-center rounded-xl bg-base-200 p-4 shadow-xl"
+      class="bg-base-200 flex w-full flex-1 justify-center rounded-xl p-4 shadow-xl"
     >
       <textarea
         v-if="isSelf === undefined || false || editOffset"
@@ -61,7 +61,7 @@
     </div>
     <div class="tooltip tooltip-primary hover:z-50" data-tip="Brewed On">
       <h3
-        class="rounded bg-base-200 p-1 font-code text-xs font-semibold shadow-2xl"
+        class="bg-base-200 font-code rounded p-1 text-xs font-semibold shadow-2xl"
       >
         {{ parseDate(moodRef.createdAt) }}
       </h3>

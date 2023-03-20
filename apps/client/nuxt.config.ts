@@ -11,7 +11,9 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       baseUrl: process.env.BASE_URL || "http://localhost:8000",
-      siteUrl: "https://techgenius-coffee.netlify.app",
+      siteUrl:
+        process.env.NUXT_PUBLIC_SITE_URL ||
+        "https://techgenius-coffee.netlify.app",
       siteName: "Coffee",
       siteDescription: "Welcome to my awesome site!",
       language: "en",

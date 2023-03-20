@@ -49,7 +49,7 @@
           <span>Successfully brewed your mood!</span>
         </div>
       </div>
-      <div class="card w-full max-w-lg flex-shrink-0 bg-base-100 shadow-2xl">
+      <div class="card bg-base-100 w-full max-w-lg flex-shrink-0 shadow-2xl">
         <form @submit.prevent="submit">
           <div class="card-body gap-y-3">
             <div class="form-control">
@@ -95,7 +95,7 @@
                 :class="loading ? 'loading' : ''"
               >
                 <i class="bx bx-coffee-togo mr-1 text-2xl"></i>Brew Your Mood
-                <div class="ml-2 flex rounded-xl bg-secondary p-1">
+                <div class="bg-secondary ml-2 flex rounded-xl p-1">
                   <kbd class="kbd kbd-xs">ctrl</kbd>
                   &nbsp;+&nbsp;
                   <kbd class="kbd kbd-xs">k</kbd>

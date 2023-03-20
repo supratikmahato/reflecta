@@ -5,7 +5,7 @@
     </div>
     <div
       :class="{ invisible }"
-      class="mt-auto text-primary transition hover:text-primary-focus"
+      class="text-primary hover:text-primary-focus mt-auto transition"
     >
       <button role="button" @click.prevent="scrollToTop">
         <i class="bx bxs-up-arrow-circle text-6xl"></i>

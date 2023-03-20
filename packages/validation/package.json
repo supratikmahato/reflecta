@@ -7,7 +7,7 @@
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch",
-    "lint": "eslint --fix ."
+    "lint": "eslint --fix"
   },
   "dependencies": {
     "validator": "^13.9.0",
@@ -23,7 +23,7 @@
     "eslint-plugin-n": "^15.6.1",
     "eslint-plugin-promise": "^6.1.1",
     "tsconfig": "workspace:*",
-    "tsup": "^6.6.3",
-    "typescript": "^4.9.5"
+    "tsup": "^6.7.0",
+    "typescript": "^5.0.2"
   }
 }
