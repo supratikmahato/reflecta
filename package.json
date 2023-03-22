@@ -1,5 +1,6 @@
 {
   "name": "coffee",
+  "version": "8.4.0",
   "private": true,
   "workspaces": [
     "apps/*",
