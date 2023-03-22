@@ -3,9 +3,18 @@
     "publish": false
   },
   "github": {
-    "release": true
+    "release": true,
+    "releaseName": null
   },
   "git": {
-    "commitArgs": ["--no-verify"]
+    "commitArgs": ["--no-verify"],
+    "commitMessage": "chore: release v${version}",
+    "tagAnnotation": null
+  },
+  "plugins": {
+    "@release-it/conventional-changelog": {
+      "preset": "conventionalcommits",
+      "infile": "CHANGELOG.md"
+    }
   }
 }
