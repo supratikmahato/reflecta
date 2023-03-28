@@ -4,7 +4,8 @@
   },
   "github": {
     "release": true,
-    "releaseName": null
+    "releaseName": null,
+    "tokenRef": "RELEASE_IT_TOKEN"
   },
   "git": {
     "commitArgs": ["--no-verify"],

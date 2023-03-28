@@ -18,7 +18,7 @@
     "lint": "turbo run lint",
     "preinstall": "npx only-allow pnpm",
     "prepare": "husky install",
-    "release": "release-it"
+    "release": "dotenv release-it --"
   },
   "config": {
     "commitizen": {
