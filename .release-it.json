@@ -4,8 +4,7 @@
   },
   "github": {
     "release": true,
-    "releaseName": null,
-    "autoGenerate": true
+    "releaseName": null
   },
   "git": {
     "commitArgs": ["--no-verify"],
