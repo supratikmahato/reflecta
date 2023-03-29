@@ -1,6 +1,6 @@
 <template>
   <div class="bg-accent flex flex-col items-center justify-center gap-y-2 p-6">
-    <code>Version: {{ data }}</code>
+    <code>Version: v{{ version }}</code>
     <h2>
       Copyright
       <a href="https://techgenius7777.tech" class="link">Tech Genius</a>
@@ -9,5 +9,5 @@
 </template>
 
 <script setup lang="ts">
-const { data } = await useFetch("/api/get-version");
+import { version } from "../.../../../../package.json";
 </script>
