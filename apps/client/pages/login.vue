@@ -8,7 +8,7 @@
       </h1>
       <div
         v-if="errors.length"
-        class="flex h-auto flex-col gap-y-1 pr-3 pl-3 text-sm"
+        class="flex h-auto flex-col gap-y-1 pl-3 pr-3 text-sm"
       >
         <div
           v-for="error in errors"

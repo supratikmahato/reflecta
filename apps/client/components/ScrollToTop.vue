@@ -1,6 +1,6 @@
 <template>
   <div class="sticky bottom-0 flex w-full justify-end px-4 pb-4 transition">
-    <div class="toast-end toast sticky ml-auto min-w-0 p-0 pr-4 pl-4">
+    <div class="toast-end toast sticky ml-auto min-w-0 p-0 pl-4 pr-4">
       <slot></slot>
     </div>
     <div

@@ -4,12 +4,12 @@
       autoplay
       muted
       loop
-      class="fixed top-0 right-0 min-h-full min-w-full"
+      class="fixed right-0 top-0 min-h-full min-w-full"
     >
       <source src="/videos/background.mp4" type="video/mp4" />
     </video>
     <div
-      class="clay font-gilroy fixed top-1/2 left-1/2 flex -translate-y-1/2 -translate-x-1/2 flex-col gap-y-1 rounded-3xl p-6 text-center text-3xl font-extrabold"
+      class="clay font-gilroy fixed left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 flex-col gap-y-1 rounded-3xl p-6 text-center text-3xl font-extrabold"
     >
       <i class="bx bxs-coffee text-5xl"></i>
       <DigitalClock :blink="false" :twelve-hour="true" />
