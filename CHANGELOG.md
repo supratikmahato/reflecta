@@ -1,5 +1,10 @@
 # Changelog
 
+## [v8.8.1](https://github.com/TechGenius7777/coffee/compare/v8.8.0...v8.8.1) (2023-03-29)
+
+- chore: release v8.8.1 [`f1020aa`](https://github.com/TechGenius7777/coffee/commit/f1020aa93ca9f3aa42b288458498550273149c90)
+- docs(.release-it.json): changed template to keep a changelog template in .release-it.json [`d2cf346`](https://github.com/TechGenius7777/coffee/commit/d2cf346642008c38c066d7eb310157f9cc03aa6b)
+
 ## [v8.8.0](https://github.com/TechGenius7777/coffee/compare/v8.7.1...v8.8.0) (2023-03-29)
 
 - chore: dependency upgrades and bumped pnpm version to v8 [`c573821`](https://github.com/TechGenius7777/coffee/commit/c57382183a30d8a436ccf1020675ec36d8f8a1a3)
