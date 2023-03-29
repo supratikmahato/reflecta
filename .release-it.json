@@ -14,5 +14,11 @@
   },
   "hooks": {
     "after:bump": "npx auto-changelog --commit-limit false --template https://raw.githubusercontent.com/release-it/release-it/main/templates/keepachangelog.hbs"
+  },
+  "plugins": {
+    "@release-it/bumper": {
+      "in": "apps/client/package.json",
+      "out": "apps/client/package.json"
+    }
   }
 }
