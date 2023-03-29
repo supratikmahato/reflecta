@@ -22,7 +22,12 @@
     },
     "client#build": {
       "dependsOn": ["validation#build"],
-      "env": ["GITHUB_TOKEN", "BASE_URL", "NUXT_PUBLIC_SITE_URL"],
+      "env": ["BASE_URL", "NUXT_PUBLIC_SITE_URL"],
+      "outputs": [".output/**", "dist/**"]
+    },
+    "client#generate": {
+      "dependsOn": ["validation#build"],
+      "env": ["BASE_URL", "NUXT_PUBLIC_SITE_URL"],
       "outputs": [".output/**", "dist/**"]
     },
     "lint": {
