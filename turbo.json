@@ -37,11 +37,9 @@
       "cache": false,
       "persistent": true
     },
-    "database#dev": {
-      "outputs": ["dist/**"]
-    },
-    "validation#dev": {
-      "outputs": ["dist/**"]
+    "server#dev": {
+      "dependsOn": ["database#build", "validation#build"],
+      "env": ["SERVER_PORT", "FRONTEND_URL", "ACCESS_TOKEN_SECRET"]
     },
     "server#start": {
       "dependsOn": ["server#build"],
