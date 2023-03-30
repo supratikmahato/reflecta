@@ -1,5 +1,10 @@
 # Changelog
 
+## [v8.8.2](https://github.com/TechGenius7777/coffee/compare/v8.8.1...v8.8.2) (2023-03-29)
+
+- fix(client): version is now fetched locally from the package instead of root in order to fix a bug [`f516b83`](https://github.com/TechGenius7777/coffee/commit/f516b833765ec35bad6afb4f2689dbd57459a09a)
+- chore: release v8.8.2 [`094b9a2`](https://github.com/TechGenius7777/coffee/commit/094b9a202f82bae9d699a6e609bd8dea90a1ce96)
+
 ## [v8.8.1](https://github.com/TechGenius7777/coffee/compare/v8.8.0...v8.8.1) (2023-03-29)
 
 - chore: release v8.8.1 [`f1020aa`](https://github.com/TechGenius7777/coffee/commit/f1020aa93ca9f3aa42b288458498550273149c90)
