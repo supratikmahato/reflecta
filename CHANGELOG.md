@@ -1,5 +1,14 @@
 # Changelog
 
+## [v8.8.3](https://github.com/TechGenius7777/coffee/compare/v8.8.2...v8.8.3) (2023-03-30)
+
+- chore: dependency upgrades and bumped pnpm version to v8.1.0 [`3ab2b92`](https://github.com/TechGenius7777/coffee/commit/3ab2b92e0e4e924a6085a4260c0f52915bb198bf)
+- fix(packages): removed dev script in database and validation package in order to fix turbo dev bug [`b76772a`](https://github.com/TechGenius7777/coffee/commit/b76772a432c301bece85da8169abde8e11b73e9c)
+- chore: release v8.8.3 [`94a7a28`](https://github.com/TechGenius7777/coffee/commit/94a7a28fa7df13059d80b08202e3b321fb81c6c3)
+- refactor: now use typescript sdk installed in `node_modules` for the vs code language server [`931c812`](https://github.com/TechGenius7777/coffee/commit/931c812f7f57b00db3a5446ea9c2aaeb4adaf147)
+- perf(client): changed deployment command back to `turbo run build` instead of `turbo run generate` [`345c1f6`](https://github.com/TechGenius7777/coffee/commit/345c1f633cb278981fc72dc9b88ce5861c800ab7)
+- perf(client): disable generating shims for typescript in client [`1452792`](https://github.com/TechGenius7777/coffee/commit/14527924f3e888b6c3b20399006efc58f2250251)
+
 ## [v8.8.2](https://github.com/TechGenius7777/coffee/compare/v8.8.1...v8.8.2) (2023-03-29)
 
 - fix(client): version is now fetched locally from the package instead of root in order to fix a bug [`f516b83`](https://github.com/TechGenius7777/coffee/commit/f516b833765ec35bad6afb4f2689dbd57459a09a)
