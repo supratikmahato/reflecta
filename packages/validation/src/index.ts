@@ -35,9 +35,7 @@ export const coffeePostValidation = z.object({
 
 export const userLoginValidation = z.object({
   email: z.string().trim().email(),
-  password: z.string().trim().refine(isStrongPassword, {
-    message: "Password must be at least 8 characters long",
-  }),
+  password: z.string().trim(),
 });
 
 export const userRegisterValidation = z
