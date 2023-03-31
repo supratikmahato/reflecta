@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=M+PLUS+Code+Latin:wght@600&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -12,7 +12,7 @@
   padding: 0;
 }
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: "Sofia Pro", sans-serif;
   font-weight: 600;
   @apply bg-base-200;
 }
