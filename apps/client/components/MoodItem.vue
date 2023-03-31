@@ -61,7 +61,7 @@
     </div>
     <div class="tooltip tooltip-primary hover:z-50" data-tip="Brewed On">
       <h3
-        class="bg-base-200 font-code rounded p-1 text-xs font-semibold shadow-2xl"
+        class="bg-base-200 font-code rounded p-1 text-xs font-bold shadow-2xl"
       >
         {{ parseDate(moodRef.createdAt) }}
       </h3>
