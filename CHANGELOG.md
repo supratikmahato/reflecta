@@ -1,5 +1,18 @@
 # Changelog
 
+## [v8.8.4](https://github.com/TechGenius7777/coffee/compare/v8.8.3...v8.8.4) (2023-03-31)
+
+- refactor(client): changed and added new `@font-face` rules in order to use newly added fonts [`afe03be`](https://github.com/TechGenius7777/coffee/commit/afe03be1930e36a0a700441ffcaab9da352713c4)
+- chore: dependency upgrades [`08bf33a`](https://github.com/TechGenius7777/coffee/commit/08bf33ae5db15c78c6003b2f4b4ed294facdfe2c)
+- chore: release v8.8.4 [`24d9ff1`](https://github.com/TechGenius7777/coffee/commit/24d9ff1f569719ae67367fd6277f20d3e313b3e6)
+- fix(client): changed code property to space mono, added types and fixed `app.vue` bug [`8ef0c35`](https://github.com/TechGenius7777/coffee/commit/8ef0c359ad09253f8323efa87f72da968d64724c)
+- fix(validation): fixed login password bug that doesn't allow users with old weak passwords to login [`465f091`](https://github.com/TechGenius7777/coffee/commit/465f091dc31c5d29aca47a8f47e8cd668ef36381)
+- refactor(client): changed default font to sofia pro and replaced m plus code latin with space mono [`b465995`](https://github.com/TechGenius7777/coffee/commit/b465995ad2d3dccd299f5cce2f9b9229dae3f31e)
+- refactor(client): changed `font-semibold` class to `font-bold` [`05f0371`](https://github.com/TechGenius7777/coffee/commit/05f037165c32f4e3b2d7411f0aad9c73441c93a3)
+- chore: dependency upgrade [`8cb3b85`](https://github.com/TechGenius7777/coffee/commit/8cb3b857899e718f568cb0e6d6e57ceba23a8ba6)
+- feat(client/fonts): added sofia pro font family [`6a7b5ff`](https://github.com/TechGenius7777/coffee/commit/6a7b5ff5a5b6c5170eb92bec8d8d08e62a22bf0a)
+- feat(client/fonts): added the entire gilroy font family [`b3c0df7`](https://github.com/TechGenius7777/coffee/commit/b3c0df7e93884997f5c0c08cffcd8f45c2fd399c)
+
 ## [v8.8.3](https://github.com/TechGenius7777/coffee/compare/v8.8.2...v8.8.3) (2023-03-30)
 
 - chore: dependency upgrades and bumped pnpm version to v8.1.0 [`3ab2b92`](https://github.com/TechGenius7777/coffee/commit/3ab2b92e0e4e924a6085a4260c0f52915bb198bf)
