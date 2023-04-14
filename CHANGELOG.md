@@ -1,5 +1,11 @@
 # Changelog
 
+## [v8.8.5](https://github.com/TechGenius7777/coffee/compare/v8.8.4...v8.8.5) (2023-04-08)
+
+- chore: dependency upgrades and upgraded pnpm version to `v8.1.1` [`24b4468`](https://github.com/TechGenius7777/coffee/commit/24b446817bc376a8f15f61e3109ba22ca93ed86c)
+- perf(client): added `font-display: swap;` for lower font waterfall [`c4fb2a3`](https://github.com/TechGenius7777/coffee/commit/c4fb2a3d32b832dbfdc14a1f13cd02cfbc91c233)
+- chore: release v8.8.5 [`b8a0b08`](https://github.com/TechGenius7777/coffee/commit/b8a0b086bb57230cfebb202c3530cf8c8cf194e6)
+
 ## [v8.8.4](https://github.com/TechGenius7777/coffee/compare/v8.8.3...v8.8.4) (2023-03-31)
 
 - refactor(client): changed and added new `@font-face` rules in order to use newly added fonts [`afe03be`](https://github.com/TechGenius7777/coffee/commit/afe03be1930e36a0a700441ffcaab9da352713c4)
