@@ -13,7 +13,7 @@
     "changelog": "npx auto-changelog --stdout --commit-limit false --unreleased --template https://raw.githubusercontent.com/release-it/release-it/main/templates/changelog-compact.hbs"
   },
   "hooks": {
-    "after:bump": "npx auto-changelog --commit-limit false --template templates/keepachangelog.hbs"
+    "after:bump": "npx auto-changelog --commit-limit false --template keepachangelog"
   },
   "plugins": {
     "@release-it/bumper": {
