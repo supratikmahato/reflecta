@@ -61,7 +61,7 @@ async function find() {
   loading.value = true;
 
   await useAsyncData("find", () =>
-    useExtendedFetch<IRes>("/users/find", {
+    $fetch<IRes>("/users/find", {
       method: "GET",
       credentials: "include",
       query: {

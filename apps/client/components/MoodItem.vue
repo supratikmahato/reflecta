@@ -137,7 +137,7 @@ async function handleEditSubmit() {
   try {
     const value = await schema.parseAsync(send.value);
     await useAsyncData("update-mood", () =>
-      useExtendedFetch(`/coffee/${moodRef.value.id}`, {
+      $fetch(`/coffee/${moodRef.value.id}`, {
         method: "PATCH",
         credentials: "include",
         body: value,
@@ -169,7 +169,7 @@ const handleDebouncedIsPublicChange = debounce(handleIsPublicChange, 500, {
 
 async function handleIsPublicChange() {
   await useAsyncData("update-is-public", () =>
-    useExtendedFetch(`/coffee/${moodRef.value.id}`, {
+    $fetch(`/coffee/${moodRef.value.id}`, {
       method: "PATCH",
       credentials: "include",
       body: {
@@ -186,7 +186,7 @@ function handleDeleteClose() {
 }
 async function handleDeleteSubmit() {
   await useAsyncData("delete-mood", () =>
-    useExtendedFetch(`/coffee/${moodRef.value.id}`, {
+    $fetch(`/coffee/${moodRef.value.id}`, {
       method: "DELETE",
       credentials: "include",
     })

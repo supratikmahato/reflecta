@@ -50,7 +50,7 @@ const moods = ref<IMood[]>([]);
 onBeforeMount(async () => {
   loading.value = true;
   await useAsyncData("fetch-moods", () =>
-    useExtendedFetch<IRes>(`/user/${route.params.username}`, {
+    $fetch<IRes>(`/user/${route.params.username}`, {
       credentials: "include",
     }).then((res) => {
       moods.value = res.moods;

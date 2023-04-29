@@ -107,7 +107,7 @@ watch(success, () => {
 onBeforeMount(async () => {
   loading.value = true;
   await useAsyncData("fetch-moods", () =>
-    useExtendedFetch<IRes>("/coffee", {
+    $fetch<IRes>("/coffee", {
       credentials: "include",
     })
       .then((res) => {

@@ -135,7 +135,7 @@ async function submit() {
   try {
     const value = await schema.parseAsync(form.value);
     await useAsyncData("login", () =>
-      useExtendedFetch("/auth/login", {
+      $fetch("/auth/login", {
         method: "POST",
         credentials: "include",
         body: value,

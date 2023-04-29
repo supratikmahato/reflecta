@@ -11,7 +11,7 @@
 <script setup lang="ts">
 async function logout() {
   await useAsyncData(() =>
-    useExtendedFetch("/auth/logout", {
+    $fetch("/auth/logout", {
       method: "GET",
       credentials: "include",
     }).then(() => {

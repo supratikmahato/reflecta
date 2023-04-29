@@ -6,6 +6,14 @@
   </div>
 </template>
 
+<script setup lang="ts">
+import { ofetch } from "ofetch";
+
+const config = useRuntimeConfig();
+
+globalThis.$fetch = ofetch.create({ baseURL: config.public.baseUrl });
+</script>
+
 <style>
 .page-enter-active,
 .page-leave-active {

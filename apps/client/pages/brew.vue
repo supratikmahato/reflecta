@@ -171,7 +171,7 @@ async function submit() {
   try {
     const value = await schema.parseAsync(send.value);
     await useAsyncData("brew", () =>
-      useExtendedFetch("/coffee", {
+      $fetch("/coffee", {
         method: "POST",
         credentials: "include",
         body: value,

@@ -64,7 +64,7 @@ onBeforeMount(async () => {
     );
   }
   await useAsyncData(() =>
-    useExtendedFetch<IRes>("/auth/username", {
+    $fetch<IRes>("/auth/username", {
       credentials: "include",
     }).then((res) => {
       welcome.value = `Hello ${res.username}!`;
