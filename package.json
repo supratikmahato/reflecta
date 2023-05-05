@@ -6,7 +6,7 @@
     "apps/*",
     "packages/*"
   ],
-  "packageManager": "pnpm@8.3.1",
+  "packageManager": "pnpm@8.4.0",
   "engines": {
     "node": ">=18.0.0"
   },
@@ -26,8 +26,8 @@
     }
   },
   "devDependencies": {
-    "@commitlint/cli": "^17.6.1",
-    "@commitlint/config-conventional": "^17.6.1",
+    "@commitlint/cli": "^17.6.3",
+    "@commitlint/config-conventional": "^17.6.3",
     "@release-it/bumper": "^4.0.2",
     "@trivago/prettier-plugin-sort-imports": "^4.1.1",
     "commitizen": "^4.3.0",
