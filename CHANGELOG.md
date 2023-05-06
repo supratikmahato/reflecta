@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v8.8.11](https://github.com/TechGenius7777/coffee/compare/v8.8.10...v8.8.11) - 2023-05-02
+
+### Commits
+
+- chore: release v8.8.11 [`6f3e76d`](https://github.com/TechGenius7777/coffee/commit/6f3e76d9d3899daba290016ea499fd6118a67e8a)
+- docs(.release-it.json): bug fix related to hiding credit in `auto-changelog` [`bf6f768`](https://github.com/TechGenius7777/coffee/commit/bf6f76839e4f1c0d831c0fb2086a3906ba4ce251)
+- docs(.release-it.json): hide auto-changelog credits [`5cd4a44`](https://github.com/TechGenius7777/coffee/commit/5cd4a44bd4a64f9bdf9b5b3a1066d605b31b5e7a)
+
 ## [v8.8.10](https://github.com/TechGenius7777/coffee/compare/v8.8.9...v8.8.10) - 2023-05-02
 
 ### Commits
