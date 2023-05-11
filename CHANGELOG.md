@@ -5,6 +5,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v8.8.12](https://github.com/TechGenius7777/coffee/compare/v8.8.11...v8.8.12) - 2023-05-06
+
+### Commits
+
+- chore: dependency upgrades [`550aeee`](https://github.com/TechGenius7777/coffee/commit/550aeee3bf1881d2400759ace891cc2071c96b87)
+- chore: dependency upgrades and bumped pnpm version to `v8.4.0` [`d8a9526`](https://github.com/TechGenius7777/coffee/commit/d8a95263c0dc60ad8213ac6a947ace4d3487ae71)
+- chore: dependency upgrades [`8beedbf`](https://github.com/TechGenius7777/coffee/commit/8beedbfa1b4abbd053546f70f85d94cad43c8152)
+- chore: release v8.8.12 [`6108650`](https://github.com/TechGenius7777/coffee/commit/61086501ceb81d36212634e740a84bab32edeed1)
+
 ## [v8.8.11](https://github.com/TechGenius7777/coffee/compare/v8.8.10...v8.8.11) - 2023-05-02
 
 ### Commits
