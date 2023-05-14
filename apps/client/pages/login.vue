@@ -32,7 +32,7 @@
         </div>
       </div>
       <div class="hero-content flex-col lg:flex-row-reverse">
-        <div class="clay card w-full max-w-sm flex-shrink-0">
+        <div class="card bg-base-100 w-full max-w-sm flex-shrink-0 shadow-2xl">
           <div class="card-body">
             <form @submit.prevent="submit">
               <div class="form-control">
