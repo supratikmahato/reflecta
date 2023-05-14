@@ -23,7 +23,7 @@
                 class="card bg-accent flex flex-col items-center gap-2 overflow-visible p-4 shadow-xl"
               >
                 <div>
-                  <h2 class="font-extrabold">
+                  <h2 class="font-bold">
                     <i class="bx bxs-user mr-1 text-xl"></i>{{ user.username }}
                   </h2>
                 </div>
