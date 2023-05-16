@@ -7,7 +7,7 @@
       class="tooltip tooltip-right tooltip-primary hover:z-50"
       data-tip="Coffee"
     >
-      <h2 class="font-bold">
+      <h2 class="font-extrabold">
         <i class="bx bxs-coffee-bean mr-1 text-xl"></i>{{ moodRef.coffeeType }}
       </h2>
     </div>
