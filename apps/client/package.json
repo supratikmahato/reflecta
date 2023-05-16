@@ -1,6 +1,6 @@
 {
   "name": "client",
-  "version": "8.8.14",
+  "version": "8.8.15",
   "private": true,
   "scripts": {
     "build": "nuxt build",

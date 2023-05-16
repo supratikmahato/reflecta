@@ -5,6 +5,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v8.8.14](https://github.com/TechGenius7777/coffee/compare/v8.8.13...v8.8.14) - 2023-05-14
+
+### Commits
+
+- refactor(client/fonts): removed `Gilroy, Silk Flower and Sofia Pro` fonts in favour of `Euclid Flex` [`e9b1cd0`](https://github.com/TechGenius7777/coffee/commit/e9b1cd0f43385f8ae7ccee4037c32b4db4c75337)
+- chore: dependency upgrades [`e37698d`](https://github.com/TechGenius7777/coffee/commit/e37698d235805a9c1dff6318c2f5dd13ab0c2d4b)
+- chore: release v8.8.14 [`f3b321a`](https://github.com/TechGenius7777/coffee/commit/f3b321a7a1df29aa2bf11f5ca36f1c0f136a8adf)
+- refactor(client): changed default font from `Silk Flower` to the new `Euclid Flex` [`6cdec30`](https://github.com/TechGenius7777/coffee/commit/6cdec302a838be5dde0b6099ebb2097941180f58)
+
 ## [v8.8.13](https://github.com/TechGenius7777/coffee/compare/v8.8.12...v8.8.13) - 2023-05-11
 
 ### Commits
