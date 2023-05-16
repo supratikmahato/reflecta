@@ -7,14 +7,10 @@
 *,
 ::before,
 ::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+  @apply m-0 box-border p-0;
 }
 body {
-  font-family: "Gilroy", serif;
-  font-weight: 600;
-  @apply bg-base-200;
+  @apply font-gilroy bg-base-200 font-bold;
 }
 .clay {
   backdrop-filter: blur(5px);
