@@ -5,6 +5,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v8.8.15](https://github.com/TechGenius7777/coffee/compare/v8.8.14...v8.8.15) - 2023-05-16
+
+### Commits
+
+- chore: dependency upgrades and bumped pnpm to `v8.5.1` [`8ffaf30`](https://github.com/TechGenius7777/coffee/commit/8ffaf307000d17a43e185d39d33aebb6b9a5d6c8)
+- refactor(client/font): removed `Euclid Flex` in favour of `Gilroy` and changed the default font [`387c9d4`](https://github.com/TechGenius7777/coffee/commit/387c9d41fd20d395c94f008cd2e5a2de64dea5c8)
+- chore: release v8.8.15 [`c366329`](https://github.com/TechGenius7777/coffee/commit/c366329fb27c0877b840332e699f5d0353d799a0)
+- fix(client): fixed UI inconsistency in `login.vue` and `register.vue` [`79ed804`](https://github.com/TechGenius7777/coffee/commit/79ed804149af5307005f829fc0faef8678293da5)
+
 ## [v8.8.14](https://github.com/TechGenius7777/coffee/compare/v8.8.13...v8.8.14) - 2023-05-14
 
 ### Commits
