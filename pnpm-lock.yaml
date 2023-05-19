@@ -60,12 +60,6 @@ importers:
 
   apps/client:
     dependencies:
-      "@formkit/auto-animate":
-        specifier: ^1.0.0-beta.6
-        version: 1.0.0-beta.6
-      "@octokit/core":
-        specifier: ^4.2.1
-        version: 4.2.1
       daisyui:
         specifier: ^2.51.6
         version: 2.51.6(autoprefixer@10.4.14)(postcss@8.4.23)
@@ -1638,13 +1632,6 @@ packages:
     engines: { node: ^12.22.0 || ^14.17.0 || >=16.0.0 }
     dev: true
 
-  /@formkit/auto-animate@1.0.0-beta.6:
-    resolution:
-      {
-        integrity: sha512-PVDhLAlr+B4Xb7e+1wozBUWmXa6BFU8xUPR/W/E+TsQhPS1qkAdAsJ25keEnFrcePSnXHrOsh3tiFbEToOzV9w==,
-      }
-    dev: false
-
   /@humanwhocodes/config-array@0.11.8:
     resolution:
       {
@@ -2262,6 +2249,7 @@ packages:
     engines: { node: ">= 14" }
     dependencies:
       "@octokit/types": 9.0.0
+    dev: true
 
   /@octokit/core@4.2.1:
     resolution:
@@ -2279,6 +2267,7 @@ packages:
       universal-user-agent: 6.0.0
     transitivePeerDependencies:
       - encoding
+    dev: true
 
   /@octokit/endpoint@7.0.5:
     resolution:
@@ -2290,6 +2279,7 @@ packages:
       "@octokit/types": 9.0.0
       is-plain-object: 5.0.0
       universal-user-agent: 6.0.0
+    dev: true
 
   /@octokit/graphql@5.0.5:
     resolution:
@@ -2303,12 +2293,14 @@ packages:
       universal-user-agent: 6.0.0
     transitivePeerDependencies:
       - encoding
+    dev: true
 
   /@octokit/openapi-types@16.0.0:
     resolution:
       {
         integrity: sha512-JbFWOqTJVLHZSUUoF4FzAZKYtqdxWu9Z5m2QQnOyEa04fOFljvyh7D3GYKbfuaSWisqehImiVIMG4eyJeP5VEA==,
       }
+    dev: true
 
   /@octokit/plugin-paginate-rest@6.0.0(@octokit/core@4.2.1):
     resolution:
@@ -2358,6 +2350,7 @@ packages:
       "@octokit/types": 9.0.0
       deprecation: 2.3.1
       once: 1.4.0
+    dev: true
 
   /@octokit/request@6.2.3:
     resolution:
@@ -2374,6 +2367,7 @@ packages:
       universal-user-agent: 6.0.0
     transitivePeerDependencies:
       - encoding
+    dev: true
 
   /@octokit/rest@19.0.7:
     resolution:
@@ -2397,6 +2391,7 @@ packages:
       }
     dependencies:
       "@octokit/openapi-types": 16.0.0
+    dev: true
 
   /@phc/format@1.0.0:
     resolution:
@@ -4193,6 +4188,7 @@ packages:
       {
         integrity: sha512-NzUnlZexiaH/46WDhANlyR2bXRopNg4F/zuSA3OpZnllCUgRaOF2znDioDWrmbNVsuZk6l9pMquQB38cfBZwkQ==,
       }
+    dev: true
 
   /big-integer@1.6.51:
     resolution:
@@ -5849,6 +5845,7 @@ packages:
       {
         integrity: sha512-xmHIy4F3scKVwMsQ4WnVaS8bHOx0DmVwRywosKhaILI0ywMDWPtBSku2HNxRvF7jtwDRsoEwYQSfbxj8b7RlJQ==,
       }
+    dev: true
 
   /destr@1.2.2:
     resolution:
@@ -8731,6 +8728,7 @@ packages:
         integrity: sha512-VRSzKkbMm5jMDoKLbltAkFQ5Qr7VDiTFGXxYFXXowVj387GeGNOCsOH6Msy00SGZ3Fp84b1Naa1psqgcCIEP5Q==,
       }
     engines: { node: ">=0.10.0" }
+    dev: true
 
   /is-primitive@3.0.1:
     resolution:
@@ -14327,6 +14325,7 @@ packages:
       {
         integrity: sha512-isyNax3wXoKaulPDZWHQqbmIx1k2tb9fb3GGDBRxCscfYV2Ch7WxPArBsFEG8s/safwXTT7H4QGhaIkTp9447w==,
       }
+    dev: true
 
   /universalify@0.1.2:
     resolution:
