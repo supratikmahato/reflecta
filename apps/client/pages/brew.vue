@@ -4,7 +4,7 @@
       class="flex min-h-screen flex-col items-center justify-center gap-y-6 p-4"
     >
       <h1 class="text-5xl font-bold sm:text-6xl md:text-7xl lg:text-8xl">
-        Mood.
+        Brew.
       </h1>
       <div
         v-if="errors.length"
