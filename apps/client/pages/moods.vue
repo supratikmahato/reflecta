@@ -5,10 +5,7 @@
       <h1 class="mb-4 text-3xl font-bold md:text-4xl lg:text-5xl">
         Your Moods
       </h1>
-      <div
-        v-auto-animate
-        class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3"
-      >
+      <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
         <LogoutItem class="col-span-1 md:col-span-2 lg:col-span-3" />
         <NuxtLink
           to="/brew"
