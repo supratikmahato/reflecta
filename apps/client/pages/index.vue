@@ -2,6 +2,7 @@
   <div class="min-h-screen min-w-full bg-black">
     <video
       autoplay
+      playsinline
       muted
       loop
       class="fixed right-0 top-0 min-h-full min-w-full"

@@ -18,6 +18,15 @@ export default defineNuxtConfig({
       language: "en",
     },
   },
+  linkChecker: {
+    failOn404: true,
+  },
+  nitro: {
+    prerender: {
+      crawlLinks: true,
+      routes: ["/"],
+    },
+  },
   extends: ["nuxt-seo-kit"],
   css: ["~/assets/css/main.css", "~/assets/css/fonts.css"],
   app: {
