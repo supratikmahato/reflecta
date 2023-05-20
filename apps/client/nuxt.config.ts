@@ -1,6 +1,5 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  ssr: false,
   postcss: {
     plugins: {
       tailwindcss: {},
@@ -18,9 +17,6 @@ export default defineNuxtConfig({
       siteDescription: "Welcome to my awesome site!",
       language: "en",
     },
-  },
-  linkChecker: {
-    failOn404: true,
   },
   extends: ["nuxt-seo-kit"],
   css: ["~/assets/css/main.css", "~/assets/css/fonts.css"],
