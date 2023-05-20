@@ -12,7 +12,6 @@ module.exports = {
     extend: {
       fontFamily: {
         code: ["Space Mono", "monospace"],
-        gilroy: ["Gilroy", "sans-serif"],
       },
     },
   },
