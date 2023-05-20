@@ -5,6 +5,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v8.8.16](https://github.com/TechGenius7777/coffee/compare/v8.8.15...v8.8.16) - 2023-05-19
+
+### Commits
+
+- chore: dependency upgrades [`1283b93`](https://github.com/TechGenius7777/coffee/commit/1283b93110ee154b3f19385a3e4d37deaba4062c)
+- chore: dependency upgrades [`061b0cc`](https://github.com/TechGenius7777/coffee/commit/061b0cc9b1e947fad768d3965b8a68a3ac0ebeba)
+- perf(client): removed unused dependencies [`7ad889a`](https://github.com/TechGenius7777/coffee/commit/7ad889a1865df4f1ccf7f60842680813729b02bb)
+- chore: release v8.8.16 [`6139a9d`](https://github.com/TechGenius7777/coffee/commit/6139a9d2c4fcfd727b781d11dd97178eb0fe9539)
+- fix(client): removed auto animate plugin in order to fix SSR bug [`199d713`](https://github.com/TechGenius7777/coffee/commit/199d71390dfe3c8839496814302e78b79b538285)
+- refactor(tailwindcss): tailwindCSS refactoring [`6f19790`](https://github.com/TechGenius7777/coffee/commit/6f197902abc87961d6ae92e0473f2bcc390f38f5)
+- refactor(client): changed heading from `Mood.` to `Brew.` in `brew.vue` [`1efc995`](https://github.com/TechGenius7777/coffee/commit/1efc99528a17dea8208aa13452b69809401c3ed9)
+- feat(client): featuring SSR in place of client side rendering [`4b62552`](https://github.com/TechGenius7777/coffee/commit/4b625520e9c1e87412e693e81b685e8ef25be7fa)
+
 ## [v8.8.15](https://github.com/TechGenius7777/coffee/compare/v8.8.14...v8.8.15) - 2023-05-16
 
 ### Commits
