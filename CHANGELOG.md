@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v8.8.17](https://github.com/TechGenius7777/coffee/compare/v8.8.16...v8.8.17) - 2023-05-20
+
+### Commits
+
+- chore: dependency upgrades [`05dccdd`](https://github.com/TechGenius7777/coffee/commit/05dccdde9a24ba004eb89876332f2fb71ec0640d)
+- chore: release v8.8.17 [`363efd1`](https://github.com/TechGenius7777/coffee/commit/363efd109b6d939f945aeba04b42586b0a7b6e42)
+- fix(client): netlify SSR bug fix [`73ec263`](https://github.com/TechGenius7777/coffee/commit/73ec26393e093b5fa345133b258ac6116f4db10e)
+- fix(client): netlify SSR bug fix [`6c854b4`](https://github.com/TechGenius7777/coffee/commit/6c854b42615d9f5628fbd6dc1e235176afd44e3a)
+- feat(client): changed rendering pattern from `SSR` to `client side` [`99e800b`](https://github.com/TechGenius7777/coffee/commit/99e800b9ad0c91cc2473587ca0147d8897caad2f)
+
 ## [v8.8.16](https://github.com/TechGenius7777/coffee/compare/v8.8.15...v8.8.16) - 2023-05-19
 
 ### Commits
