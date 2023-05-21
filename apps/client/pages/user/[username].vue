@@ -31,6 +31,7 @@ interface IMood {
   coffeeType: string;
   content: string;
   createdAt: Date;
+  isEdited: Date;
 }
 interface IRes {
   success: boolean;

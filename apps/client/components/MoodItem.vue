@@ -7,7 +7,7 @@
       class="tooltip tooltip-right tooltip-primary hover:z-50"
       data-tip="Coffee"
     >
-      <h2 class="font-extrabold">
+      <h2 class="text-xl font-extrabold">
         <i class="bx bxs-coffee-bean mr-1 text-xl"></i>{{ moodRef.coffeeType }}
       </h2>
     </div>
@@ -27,7 +27,7 @@
         class="tooltip tooltip-primary w-full text-left hover:z-50"
         :data-tip="isSelf ? 'Your Mood' : `${username}'s Mood`"
       >
-        <p class="whitespace-pre-line break-words font-semibold">
+        <p class="whitespace-pre-line break-words">
           {{ moodRef.content }}
         </p>
       </div>
@@ -66,6 +66,12 @@
         {{ parseDate(moodRef.createdAt) }}
       </h3>
     </div>
+    <h3
+      v-if="moodRef.isEdited || triggerEdited"
+      class="bg-base-200 font-code rounded p-1 text-xs font-bold shadow-2xl"
+    >
+      edited
+    </h3>
     <div
       class="modal modal-bottom sm:modal-middle"
       :class="deleteOffset ? 'modal-open' : ''"
@@ -101,6 +107,7 @@ interface IMood {
   content: string;
   isPublic?: boolean;
   createdAt: Date;
+  isEdited: Date;
 }
 interface IError extends FetchError {
   data: {
@@ -122,6 +129,7 @@ const editOffset = ref(false);
 const deleteOffset = ref(false);
 const deleteConfirm = ref(false);
 const moodRef = ref(props.mood);
+const triggerEdited = ref(false);
 const send = ref({
   content: "",
 });
@@ -144,6 +152,7 @@ async function handleEditSubmit() {
       })
         .then(() => {
           moodRef.value.content = send.value.content;
+          triggerEdited.value = true;
           emit("success", true);
           handleEditClose();
         })

@@ -72,6 +72,7 @@ interface IMood {
   content: string;
   isPublic: boolean;
   createdAt: Date;
+  isEdited: Date;
 }
 interface IRes {
   success: boolean;

@@ -24,6 +24,7 @@ router.get("/:username", authenticate, (async (req, res) => {
             coffeeType: true,
             content: true,
             createdAt: true,
+            isEdited: true,
           },
           orderBy: {
             createdAt: "desc",

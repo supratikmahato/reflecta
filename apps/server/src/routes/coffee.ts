@@ -75,6 +75,7 @@ router.get("/", authenticate, (async (req, res) => {
             content: true,
             isPublic: true,
             createdAt: true,
+            isEdited: true,
           },
           orderBy: {
             createdAt: "desc",
@@ -115,6 +116,7 @@ router.patch("/:id", authenticate, (async (req, res) => {
         },
         data: {
           content: value.content,
+          isEdited: true,
         },
       });
       res.json({
