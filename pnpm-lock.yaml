@@ -55,8 +55,8 @@ importers:
         specifier: ^15.10.3
         version: 15.10.3
       turbo:
-        specifier: ^1.9.8
-        version: 1.9.8
+        specifier: ^1.9.9
+        version: 1.9.9
 
   apps/client:
     dependencies:
@@ -85,6 +85,9 @@ importers:
       "@nuxtjs/fontaine":
         specifier: ^0.2.5
         version: 0.2.5
+      "@nuxtjs/google-fonts":
+        specifier: ^3.0.1
+        version: 3.0.1
       "@types/lodash":
         specifier: ^4.14.194
         version: 4.14.194
@@ -262,8 +265,8 @@ importers:
         specifier: ^8.8.0
         version: 8.8.0(eslint@8.41.0)
       eslint-config-turbo:
-        specifier: ^1.9.8
-        version: 1.9.8(eslint@8.41.0)
+        specifier: ^1.9.9
+        version: 1.9.9(eslint@8.41.0)
 
   packages/tsconfig: {}
 
@@ -2237,6 +2240,20 @@ packages:
       ufo: 1.1.1
     transitivePeerDependencies:
       - encoding
+      - rollup
+      - supports-color
+    dev: true
+
+  /@nuxtjs/google-fonts@3.0.1:
+    resolution:
+      {
+        integrity: sha512-9W5jZhpJ4UTmiPebljdoxs+ju89rOBVD5gb0sPRe73BVXCUUv46lV2Q0ynPZPsnono5WlTB6nyZbOCECa7IWDQ==,
+      }
+    dependencies:
+      "@nuxt/kit": 3.5.1
+      google-fonts-helper: 3.3.0
+      pathe: 1.1.0
+    transitivePeerDependencies:
       - rollup
       - supports-color
     dev: true
@@ -6623,16 +6640,16 @@ packages:
       eslint-plugin-promise: 6.1.1(eslint@8.41.0)
     dev: true
 
-  /eslint-config-turbo@1.9.8(eslint@8.41.0):
+  /eslint-config-turbo@1.9.9(eslint@8.41.0):
     resolution:
       {
-        integrity: sha512-EaZ3EbWXo7bcnwRKZsV+ckcF5Cjdri9wRBXZd5j49E7mJ3EEPvGw70h77kWeeunu+jM3mxxfy8olmo1Udr7gvQ==,
+        integrity: sha512-OQLvRK9Ej/8HIEAW6e9hPu3nk1nCYWJ76voB4eOIaI2fYeIKC++0/r0zJPMOD8puo5V1DH+Gkd0XioKpL14ncg==,
       }
     peerDependencies:
       eslint: ">6.6.0"
     dependencies:
       eslint: 8.41.0
-      eslint-plugin-turbo: 1.9.8(eslint@8.41.0)
+      eslint-plugin-turbo: 1.9.9(eslint@8.41.0)
     dev: true
 
   /eslint-import-resolver-node@0.3.7:
@@ -6856,10 +6873,10 @@ packages:
       eslint: 8.41.0
     dev: true
 
-  /eslint-plugin-turbo@1.9.8(eslint@8.41.0):
+  /eslint-plugin-turbo@1.9.9(eslint@8.41.0):
     resolution:
       {
-        integrity: sha512-Alvv3zCkILFfwEJ2aiuUjzYFqZ12qX+2F14ahNOhC9BDwgGZkEh1w19TB2gOPMLeNx2+iBVAU9L+1FTBSOOAJA==,
+        integrity: sha512-BgtBMcgNd2YKiHbn1clRiEAmnlpSl19kt9yfIhFEsNIVPg2Gx0O1H++vWXGzMtT19mjHG4Unx0uIMRENKnDYLg==,
       }
     peerDependencies:
       eslint: ">6.6.0"
@@ -8027,6 +8044,18 @@ packages:
       {
         integrity: sha512-uHJgbwAMwNFf5mLst7IWLNg14x1CkeqglJb/K3doi4dw6q2IvAAmM/Y81kevy83wP+Sst+nutFTYOGg3d1lsxg==,
       }
+    dev: true
+
+  /google-fonts-helper@3.3.0:
+    resolution:
+      {
+        integrity: sha512-aFEVbmaavTY6wN3m6jZaWXQHfakMy6XNqdWN8YzHqHWCGpGma91zp8MiWsyb5i8gXQXYeGUWegb9ca/Jf/Q7Yw==,
+      }
+    dependencies:
+      deepmerge: 4.3.1
+      hookable: 5.5.3
+      ofetch: 1.0.1
+      ufo: 1.1.2
     dev: true
 
   /gopd@1.0.1:
@@ -14083,10 +14112,10 @@ packages:
       typescript: 5.0.4
     dev: true
 
-  /turbo-darwin-64@1.9.8:
+  /turbo-darwin-64@1.9.9:
     resolution:
       {
-        integrity: sha512-PkTdBjPfgpj/Dob/6SjkzP0BBP80/KmFjLEocXVEECCLJE6tHKbWLRdvc79B0N6SufdYdZ1uvvoU3KPtBokSPw==,
+        integrity: sha512-UDGM9E21eCDzF5t1F4rzrjwWutcup33e7ZjNJcW/mJDPorazZzqXGKEPIy9kXwKhamUUXfC7668r6ZuA1WXF2Q==,
       }
     cpu: [x64]
     os: [darwin]
@@ -14094,10 +14123,10 @@ packages:
     dev: true
     optional: true
 
-  /turbo-darwin-arm64@1.9.8:
+  /turbo-darwin-arm64@1.9.9:
     resolution:
       {
-        integrity: sha512-sLwqOx3XV57QCEoJM9GnDDnnqidG8wf29ytxssBaWHBdeJTjupyrmzTUrX+tyKo3Q+CjWvbPLyqVqxT4g5NuXQ==,
+        integrity: sha512-VyfkXzTJpYLTAQ9krq2myyEq7RPObilpS04lgJ4OO1piq76RNmSpX9F/t9JCaY9Pj/4TL7i0d8PM7NGhwEA5Ag==,
       }
     cpu: [arm64]
     os: [darwin]
@@ -14105,10 +14134,10 @@ packages:
     dev: true
     optional: true
 
-  /turbo-linux-64@1.9.8:
+  /turbo-linux-64@1.9.9:
     resolution:
       {
-        integrity: sha512-AMg6VT6sW7aOD1uOs5suxglXfTYz9T0uVyKGKokDweGOYTWmuTMGU5afUT1tYRUwQ+kVPJI+83Atl5Ob0oBsgw==,
+        integrity: sha512-Fu1MY29Odg8dHOqXcpIIGC3T63XLOGgnGfbobXMKdrC7JQDvtJv8TUCYciRsyknZYjyyKK1z6zKuYIiDjf3KeQ==,
       }
     cpu: [x64]
     os: [linux]
@@ -14116,10 +14145,10 @@ packages:
     dev: true
     optional: true
 
-  /turbo-linux-arm64@1.9.8:
+  /turbo-linux-arm64@1.9.9:
     resolution:
       {
-        integrity: sha512-tLnxFv+OIklwTjiOZ8XMeEeRDAf150Ry4BCivNwgTVFAqQGEqkFP6KGBy56hb5RRF1frPQpoPGipJNVm7c8m1w==,
+        integrity: sha512-50LI8NafPuJxdnMCBeDdzgyt1cgjQG7FwkyY336v4e95WJPUVjrHdrKH6jYXhOUyrv9+jCJxwX1Yrg02t5yJ1g==,
       }
     cpu: [arm64]
     os: [linux]
@@ -14127,10 +14156,10 @@ packages:
     dev: true
     optional: true
 
-  /turbo-windows-64@1.9.8:
+  /turbo-windows-64@1.9.9:
     resolution:
       {
-        integrity: sha512-r3pCjvXTMR7kq2E3iqwFlN1R7pFO/TOsuUjMhOSPP7HwuuUIinAckU4I9foM3q7ZCQd1XXScBUt3niDyHijAqQ==,
+        integrity: sha512-9IsTReoLmQl1IRsy3WExe2j2RKWXQyXujfJ4fXF+jp08KxjVF4/tYP2CIRJx/A7UP/7keBta27bZqzAjsmbSTA==,
       }
     cpu: [x64]
     os: [win32]
@@ -14138,10 +14167,10 @@ packages:
     dev: true
     optional: true
 
-  /turbo-windows-arm64@1.9.8:
+  /turbo-windows-arm64@1.9.9:
     resolution:
       {
-        integrity: sha512-CWzRbX2TM5IfHBC6uWM659qUOEDC4h0nn16ocG8yIq1IF3uZMzKRBHgGOT5m1BHom+R08V0NcjTmPRoqpiI0dg==,
+        integrity: sha512-CUu4hpeQo68JjDr0V0ygTQRLbS+/sNfdqEVV+Xz9136vpKn2WMQLAuUBVZV0Sp0S/7i+zGnplskT0fED+W46wQ==,
       }
     cpu: [arm64]
     os: [win32]
@@ -14149,20 +14178,20 @@ packages:
     dev: true
     optional: true
 
-  /turbo@1.9.8:
+  /turbo@1.9.9:
     resolution:
       {
-        integrity: sha512-dTouGZBm4a2fE0OPafcTQERCp4i3ZOow0Pr0JlOyxKmzJy0JRwXypH013kbZoK6k1ET5tS/g9rwUXIM/AmWXXQ==,
+        integrity: sha512-+ZS66LOT7ahKHxh6XrIdcmf2Yk9mNpAbPEj4iF2cs0cAeaDU3xLVPZFF0HbSho89Uxwhx7b5HBgPbdcjQTwQkg==,
       }
     hasBin: true
     requiresBuild: true
     optionalDependencies:
-      turbo-darwin-64: 1.9.8
-      turbo-darwin-arm64: 1.9.8
-      turbo-linux-64: 1.9.8
-      turbo-linux-arm64: 1.9.8
-      turbo-windows-64: 1.9.8
-      turbo-windows-arm64: 1.9.8
+      turbo-darwin-64: 1.9.9
+      turbo-darwin-arm64: 1.9.9
+      turbo-linux-64: 1.9.9
+      turbo-linux-arm64: 1.9.9
+      turbo-windows-64: 1.9.9
+      turbo-windows-arm64: 1.9.9
     dev: true
 
   /twemoji-parser@14.0.0:
