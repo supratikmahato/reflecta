@@ -5,6 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v8.9.0](https://github.com/TechGenius7777/coffee/compare/v8.8.17...v8.9.0) - 2023-05-21
+
+### Commits
+
+- feat: added a feature that shows whether a mood is edited or not [`1914dbd`](https://github.com/TechGenius7777/coffee/commit/1914dbd482e87d76ab72c62583ca3e87ab283d92)
+- chore: release v8.9.0 [`b585a2f`](https://github.com/TechGenius7777/coffee/commit/b585a2f8b91171e8ac0ca82e7618b4896094d114)
+- fix(client): netlify SSR bug fix [`1d7b1fb`](https://github.com/TechGenius7777/coffee/commit/1d7b1fb82caaec84580754df29fed2527fa761e3)
+- perf(client): fixed bug that doesn't allow `@nuxtjs/fontaine` to function properly [`b0a88e8`](https://github.com/TechGenius7777/coffee/commit/b0a88e8c37ddded04225ab85be23882185269de0)
+- refactor(client): fixed UI inconsistencies in `client` [`19bd068`](https://github.com/TechGenius7777/coffee/commit/19bd0687695a4f1709c8494a5322eb7b94cfc5aa)
+- refactor(root): added `db:generate` script for convenience [`660eeac`](https://github.com/TechGenius7777/coffee/commit/660eeac501c144899155edead2dcb90e6f9d4345)
+
 ## [v8.8.17](https://github.com/TechGenius7777/coffee/compare/v8.8.16...v8.8.17) - 2023-05-20
 
 ### Commits
@@ -325,7 +336,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Improved formatting [`ce5d5db`](https://github.com/TechGenius7777/coffee/commit/ce5d5db4b4cebad1e8f314dee144e121cdbd58dc)
 - Create README.md [`323fc8b`](https://github.com/TechGenius7777/coffee/commit/323fc8b77e2b09347b821c7af537f32e8d91bab5)
 
-## v6 - 2023-02-05
+## [v6](https://github.com/TechGenius7777/coffee/compare/v5.3...v6) - 2023-02-05
 
 ### Commits
 
@@ -343,3 +354,163 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Bug fix trial [`5f4b009`](https://github.com/TechGenius7777/coffee/commit/5f4b0091b477c73e364baf3b7a262a0c64955e34)
 - Test [`8beff54`](https://github.com/TechGenius7777/coffee/commit/8beff545890c8b9f6710eb4325552a459f5ac1a3)
 - Testing [`b738880`](https://github.com/TechGenius7777/coffee/commit/b73888027b07fd5a6de072abe92d76a427683d65)
+
+## [v5.3](https://github.com/TechGenius7777/coffee/compare/v5.2...v5.3) - 2023-01-12
+
+### Commits
+
+- Dependency updates! [`f8c383c`](https://github.com/TechGenius7777/coffee/commit/f8c383c5218ec7cbc88d45d676e4bb3f6701b1d1)
+
+## [v5.2](https://github.com/TechGenius7777/coffee/compare/v5.1...v5.2) - 2023-01-07
+
+### Commits
+
+- Bug fix and dependency upgrades! [`c53369e`](https://github.com/TechGenius7777/coffee/commit/c53369e3c48180805b3bc24359c927c9f17314cb)
+- Bug fix try [`43c14ce`](https://github.com/TechGenius7777/coffee/commit/43c14ceb033707455174a79411c6e6fc327cf359)
+- Bug fix try [`56b8e54`](https://github.com/TechGenius7777/coffee/commit/56b8e54a2c47b2819bf41da805e2be2fb09f2e86)
+- Bug fix try [`41f9452`](https://github.com/TechGenius7777/coffee/commit/41f94521d974b38bafe5f837294a60c6eb71a18f)
+- Bug fix try [`54a610a`](https://github.com/TechGenius7777/coffee/commit/54a610ad1fa2fbcfc61fd1168ed8b331cdeabfb4)
+- Bug fix try [`4043ca6`](https://github.com/TechGenius7777/coffee/commit/4043ca6dd270eddb7a9f92082f97939b44e94735)
+- Bug fix try [`371bca0`](https://github.com/TechGenius7777/coffee/commit/371bca009a0bd7e8163602b4cf8a6e9656420081)
+- Bug fix try [`6b00ddd`](https://github.com/TechGenius7777/coffee/commit/6b00ddda17ff70a6fb4612ca088f3cb057222f05)
+- Bug fix try [`9a37e7a`](https://github.com/TechGenius7777/coffee/commit/9a37e7a4cdb4659e4f7dcf28c88c1782fb81cfcf)
+- Bug fix try [`9e20f66`](https://github.com/TechGenius7777/coffee/commit/9e20f66e61c67b2115055427bb96011342581756)
+
+## [v5.1](https://github.com/TechGenius7777/coffee/compare/v5...v5.1) - 2023-01-02
+
+### Commits
+
+- Major improvements, new features and much more! [`8594b36`](https://github.com/TechGenius7777/coffee/commit/8594b36b8b66cffec79a57d694c87d856f749fa6)
+
+## [v5](https://github.com/TechGenius7777/coffee/compare/v4.6...v5) - 2022-12-30
+
+### Commits
+
+- Major improvements, fixes and dependency upgrades! [`ab04502`](https://github.com/TechGenius7777/coffee/commit/ab045028cdbd330af02ec4106db35008135c6dc9)
+- Minor updates [`c3fe57e`](https://github.com/TechGenius7777/coffee/commit/c3fe57e08d6490294acdd70b07e9b88cd540055a)
+
+## [v4.6](https://github.com/TechGenius7777/coffee/compare/v4.5...v4.6) - 2022-12-25
+
+### Commits
+
+- Updated packages [`b073078`](https://github.com/TechGenius7777/coffee/commit/b073078fdaccb66a8b0f6001f46515271db0f154)
+- Updated dependencies [`19be778`](https://github.com/TechGenius7777/coffee/commit/19be7787cea51b223c9c653692255be4c9d00ef3)
+- UI improvements and fixes [`7dc6049`](https://github.com/TechGenius7777/coffee/commit/7dc60499b22655a174348342699f58aef8402b05)
+- UI fixes [`ef04383`](https://github.com/TechGenius7777/coffee/commit/ef0438396a7ec1692c6693b716a0a055081cd2d6)
+- Updated client dependencies [`dea3175`](https://github.com/TechGenius7777/coffee/commit/dea3175fa06c6fbb1b5b7219a9418ee62239bfad)
+- Major breaking bug fix [`3f50a64`](https://github.com/TechGenius7777/coffee/commit/3f50a641dba3b09d9bccfee1048bdc9cc5a5906c)
+- Code reusability improved [`ede6a93`](https://github.com/TechGenius7777/coffee/commit/ede6a937e2c24d12721279685302d8284556a859)
+- UI improvements and fixes [`b6b5140`](https://github.com/TechGenius7777/coffee/commit/b6b5140b118bd2ad70efc7f8b9a6c9863507d3be)
+- Bug fix trial [`c605ecd`](https://github.com/TechGenius7777/coffee/commit/c605ecd7ee300bd857ee65b41353d5b89b916b37)
+- Bug fix trial [`f1038af`](https://github.com/TechGenius7777/coffee/commit/f1038af0aeb2e575e1d88c18ca1c9a842b5a6b68)
+- Minor UI fix [`d08a443`](https://github.com/TechGenius7777/coffee/commit/d08a443f4f772bd31acbb97e69685fe163a49336)
+- Minor improvements [`7858469`](https://github.com/TechGenius7777/coffee/commit/785846956326e8a542e6d4a6f066c119ebd9e6c1)
+- Success! [`e1c3a0c`](https://github.com/TechGenius7777/coffee/commit/e1c3a0c9ab64c9c033524e4850bee626f54f123c)
+- Bug fix trial [`f871c56`](https://github.com/TechGenius7777/coffee/commit/f871c56b7754e36e16dea74808dfe0de5903f525)
+- Testing [`d7b1d47`](https://github.com/TechGenius7777/coffee/commit/d7b1d4730dd02d308e42b81232f9d9081a55fc97)
+- Bug fix trial [`fd7774d`](https://github.com/TechGenius7777/coffee/commit/fd7774d90e4a0e3210c5b0f5554d3be546a375cb)
+- Bug fix trial [`4bd3041`](https://github.com/TechGenius7777/coffee/commit/4bd30412cad72151f0e054cc55f8ddb6e7366018)
+- Testing [`ab2a50d`](https://github.com/TechGenius7777/coffee/commit/ab2a50ddcedb4d0ec75e1dbcee8c68f33ba9f171)
+- Testing [`33180f9`](https://github.com/TechGenius7777/coffee/commit/33180f9422e7aac1b5c54c5bb5788fdac3f10f78)
+- Testing [`a55c05d`](https://github.com/TechGenius7777/coffee/commit/a55c05ddde61b7caf7aa93f71a2c186202895e99)
+- Unintended behaviour fixed [`09dfe83`](https://github.com/TechGenius7777/coffee/commit/09dfe83249829966f0ea876fdf5bbb6f32b6061f)
+- Create README.md [`7acbcfc`](https://github.com/TechGenius7777/coffee/commit/7acbcfca27101f5f395c4b5422184fc2eca9a87e)
+
+## [v4.5](https://github.com/TechGenius7777/coffee/compare/v4.4...v4.5) - 2022-12-17
+
+### Commits
+
+- Nuxt 3 bug fixes [`43eab06`](https://github.com/TechGenius7777/coffee/commit/43eab063b68f0e6e26df1bd1258321205c5cf169)
+- Merged conflicts! [`d264783`](https://github.com/TechGenius7777/coffee/commit/d2647835d416d4651100392984362807baebd30b)
+- Feat Nuxt 3 Stable and much more! [`0263119`](https://github.com/TechGenius7777/coffee/commit/026311996546da23c47e405d73f584126f2bf257)
+- Feat Nuxt 3 Stable and much more! [`2dc36c2`](https://github.com/TechGenius7777/coffee/commit/2dc36c22bd6e13a7413b89c866817b9410203f3f)
+
+## [v4.4](https://github.com/TechGenius7777/coffee/compare/v4.3...v4.4) - 2022-10-22
+
+### Commits
+
+- Featuring SSG! [`7fda5e8`](https://github.com/TechGenius7777/coffee/commit/7fda5e8fb41a22862d85054bb0a0213b3ab1622f)
+- No more SSR! [`d213fb2`](https://github.com/TechGenius7777/coffee/commit/d213fb26e65400ea9fbca948117614abed8c6424)
+
+## [v4.3](https://github.com/TechGenius7777/coffee/compare/v4.2...v4.3) - 2022-10-19
+
+### Commits
+
+- Introducing Edit-Delete feature and more! [`a86b8f0`](https://github.com/TechGenius7777/coffee/commit/a86b8f0363d085cd64203505b95af280025c60be)
+- Added divider between two buttons in moods.vue [`d2a4b5a`](https://github.com/TechGenius7777/coffee/commit/d2a4b5ad40a68af5fc0995b1bb7e7b5a86c0b2fc)
+
+## [v4.2](https://github.com/TechGenius7777/coffee/compare/v4.1...v4.2) - 2022-10-15
+
+### Commits
+
+- Favicon bug fix and more [`34fd203`](https://github.com/TechGenius7777/coffee/commit/34fd203f962952e32e225b24a84d899f07df6323)
+- Optimised! [`91bbe1b`](https://github.com/TechGenius7777/coffee/commit/91bbe1b5bb90281901e7beb9fcc8c8b3ad94b8bc)
+
+## [v4.1](https://github.com/TechGenius7777/coffee/compare/v4...v4.1) - 2022-10-14
+
+### Commits
+
+- Improved! [`7201a44`](https://github.com/TechGenius7777/coffee/commit/7201a44b217d1cfc578dfb1a512667f78e7c3372)
+- UI improvements [`f739158`](https://github.com/TechGenius7777/coffee/commit/f7391580fc118c8ddb2d9c13c64a55985d47574b)
+- Introducing Logout on server side and more! [`6b8baef`](https://github.com/TechGenius7777/coffee/commit/6b8baef5c6148abd6defaa9c181083c1330becda)
+- Major bug fixes [`e4bb098`](https://github.com/TechGenius7777/coffee/commit/e4bb0982b44b8444d83f238fc51945436f9bef74)
+
+## [v4](https://github.com/TechGenius7777/coffee/compare/v3...v4) - 2022-10-10
+
+### Commits
+
+- Server rewritten in TypeScript! [`e55176b`](https://github.com/TechGenius7777/coffee/commit/e55176bed0b37c77880c3c208537736f0e892170)
+- Introducing Husky! [`eff7fbc`](https://github.com/TechGenius7777/coffee/commit/eff7fbc27334ab05cc224b4aab00c336b8da367c)
+- Minor server changes! [`befb6ba`](https://github.com/TechGenius7777/coffee/commit/befb6ba2e16c7435b78ace684ebb47c922cc5133)
+- Deployment bug fixes [`4a099e9`](https://github.com/TechGenius7777/coffee/commit/4a099e9e02363d75b87782fc471f26464a731415)
+- Bug fixes [`2251deb`](https://github.com/TechGenius7777/coffee/commit/2251debb713dafd757b203d8ff71016a7a32cfbe)
+- Minor changes [`b0e7aa5`](https://github.com/TechGenius7777/coffee/commit/b0e7aa521f4e707d6abc4867c729bdfca9f10c91)
+- Bug fix [`ce359b7`](https://github.com/TechGenius7777/coffee/commit/ce359b725a0ac73295fd0ee46e869fb09770bb5b)
+- Minor bug fix [`cb032c1`](https://github.com/TechGenius7777/coffee/commit/cb032c1cf3a23ec8638dd1899074b512a74bf2d7)
+- Minor changes [`0c6257c`](https://github.com/TechGenius7777/coffee/commit/0c6257cdfbed18259900608011154a406ed7abcf)
+- Delete README.md [`8bcf0ec`](https://github.com/TechGenius7777/coffee/commit/8bcf0ec4354d3e5eaf7b16a1e028eb4d29273329)
+- Create README.md [`f8f9977`](https://github.com/TechGenius7777/coffee/commit/f8f9977d6e5522fe1bf9d18336ec3a90e3808d61)
+
+## [v3](https://github.com/TechGenius7777/coffee/compare/v2...v3) - 2022-10-01
+
+### Commits
+
+- Ready for Nuxt 3 [`39b1cce`](https://github.com/TechGenius7777/coffee/commit/39b1ccef27c89a6ce47815f5fde51541d53ef88d)
+- .DS_Store banished! [`b243c57`](https://github.com/TechGenius7777/coffee/commit/b243c5712c761fc18322cddf94ab4712035f1879)
+
+## [v2](https://github.com/TechGenius7777/coffee/compare/v1.2...v2) - 2022-05-13
+
+### Commits
+
+- Changed The Home Page and Much More [`3ee0c2b`](https://github.com/TechGenius7777/coffee/commit/3ee0c2b0ff44483edc0ba518ad407906abe80b8c)
+- Bug Fixes and Added Logout Feature [`4c22a85`](https://github.com/TechGenius7777/coffee/commit/4c22a8598e076a5e74ff5e314789a5dfedccd803)
+
+## [v1.2](https://github.com/TechGenius7777/coffee/compare/v1...v1.2) - 2022-05-12
+
+### Commits
+
+- UI Improvements and Bug Fixes [`57cdec5`](https://github.com/TechGenius7777/coffee/commit/57cdec5486ab72413190324015e7daa32e180053)
+- Bug Fixes [`06871b1`](https://github.com/TechGenius7777/coffee/commit/06871b1d3bea95c68888cfa693e12c2d91183bda)
+- Minor Text Changes [`d0c57b0`](https://github.com/TechGenius7777/coffee/commit/d0c57b097eae9aab69ef39a3131b666bbd65f6cf)
+- Small UI Improvement [`63af958`](https://github.com/TechGenius7777/coffee/commit/63af958a4cb77f6fa2c8a77ad1fcea6ca3a46e52)
+
+## v1 - 2022-05-07
+
+### Commits
+
+- Init [`de18250`](https://github.com/TechGenius7777/coffee/commit/de18250f3759413bd2699415f6cb81a54b4d2e4e)
+- Some More Additions [`072fed2`](https://github.com/TechGenius7777/coffee/commit/072fed2221c8752d6cb2bf31d4b32e37be4345d0)
+- UI Improvement [`0c03017`](https://github.com/TechGenius7777/coffee/commit/0c030171b44df34a5ca1f61439bc1d14a1b8233e)
+- UI Improvement and Bug Fixes [`39dc5b0`](https://github.com/TechGenius7777/coffee/commit/39dc5b009c2d22f31bbf60a5e8f681c4dc61a71e)
+- Success [`08a33d8`](https://github.com/TechGenius7777/coffee/commit/08a33d885a1435376eddbc6c3d6d2e0e1c967954)
+- UI Improvement [`3898fbc`](https://github.com/TechGenius7777/coffee/commit/3898fbc60f24d43ee394154a0504bb1c816d3312)
+- Bug Fix [`7a4077b`](https://github.com/TechGenius7777/coffee/commit/7a4077b72aec85fc46e53fe7f7988326cadfdf12)
+- CORS Error Fix [`4d66129`](https://github.com/TechGenius7777/coffee/commit/4d66129118cd04c25c8ac5fcd318b868ee59754d)
+- Bug Fixes [`cb654ec`](https://github.com/TechGenius7777/coffee/commit/cb654ec43a9cd160d4ee3a4589287f9b99aa600d)
+- UI Fixes [`7faebaa`](https://github.com/TechGenius7777/coffee/commit/7faebaa5d59897e8f5ed746831207f298ae91086)
+- Changed The Title Of The Website [`25167a1`](https://github.com/TechGenius7777/coffee/commit/25167a10e92969244958c213646632e7934d6b2a)
+- Added Mode Universal and Added SSG Again [`8fca139`](https://github.com/TechGenius7777/coffee/commit/8fca13986881561462e52a9602151c340b358e40)
+- Update nuxt.config.js [`d105a89`](https://github.com/TechGenius7777/coffee/commit/d105a8926dd1f721a0dcee6f8faf62de422e448b)
+- Some More Bug Fixes [`71ca8a2`](https://github.com/TechGenius7777/coffee/commit/71ca8a2d6bdec13ff19924698da8589a98f6d9d6)
+- Removed SSG [`424590b`](https://github.com/TechGenius7777/coffee/commit/424590b23614912af2e748db54c4b359b8ddb87b)
+- Made Target Static [`607a144`](https://github.com/TechGenius7777/coffee/commit/607a1443ca1e1d319123f0092c27ca7f274ae7e6)
