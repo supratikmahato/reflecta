@@ -1,0 +1,39 @@
+version: "3.9"
+services:
+  client:
+    restart: always
+    build:
+      context: .
+      dockerfile: ./apps/client/Dockerfile
+    ports:
+      - 3000:3000
+    environment:
+      BASE_URL: http://localhost:8000
+      NODE_ENV: production
+    depends_on:
+      - server
+  server:
+    restart: always
+    build:
+      context: .
+      dockerfile: ./apps/server/Dockerfile
+    environment:
+      SERVER_PORT: 8000
+      NODE_ENV: production
+      FRONTEND_URL: http://localhost:3000
+      DATABASE_URL: postgresql://postgres@db/postgres
+    ports:
+      - 8000:8000
+    depends_on:
+      - db
+    env_file:
+      - .env
+  db:
+    restart: always
+    image: postgres:alpine
+    volumes:
+      - db:/var/lib/postgresql/data
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: trust
+volumes:
+  db:
