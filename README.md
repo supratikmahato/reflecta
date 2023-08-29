@@ -1,8 +1,6 @@
 # Coffee
 
-## Local Development
-
-### Cloning the repository
+## Cloning the repository
 
 ```bash
 git clone git@github.com:TechGenius7777/coffee.git
@@ -12,12 +10,33 @@ git clone git@github.com:TechGenius7777/coffee.git
 cd coffee
 ```
 
+## Local development
+
 ### Installing packages
 
 At the root of the repository, run the following command:
 
 ```bash
 pnpm install
+```
+
+### Creating a Docker Postgresql database for development
+
+At the root of the repository, run the following command:
+
+```bash
+docker run --name coffee-db -e POSTGRES_PASSWORD=coffeeislife -d -p 5432:5432 postgres:alpine
+```
+
+### Adding a `.env` file
+
+At the root of the repository, create a `.env` file with the following contents:
+
+```env
+SERVER_PORT=8000
+DATABASE_URL="postgresql://postgres:coffeeislife@localhost:5432/postgres"
+ACCESS_TOKEN_SECRET=
+GITHUB_TOKEN=
 ```
 
 ### Migrating schemas to the database
@@ -38,11 +57,21 @@ pnpm db:generate
 
 ### Running the application
 
+At the root of the repository, run the following command:
+
 ```bash
 pnpm dev
 ```
 
 ## Docker
+
+### Adding a `.env` file
+
+At the root of the repository, create a `.env` file with the following contents:
+
+```env
+ACCESS_TOKEN_SECRET=
+```
 
 ### Building the image
 
