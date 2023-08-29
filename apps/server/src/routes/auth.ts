@@ -69,7 +69,7 @@ router.post("/login", (async (req, res) => {
         process.env.ACCESS_TOKEN_SECRET as string,
         {
           expiresIn: "60d",
-        }
+        },
       );
       res
         .cookie("accessToken", accessToken, {

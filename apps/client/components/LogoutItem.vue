@@ -20,7 +20,7 @@ async function logout() {
         maxAge: -1,
       }).value = "false";
       navigateTo("/");
-    })
+    }),
   );
 }
 </script>

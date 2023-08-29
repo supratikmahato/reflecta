@@ -56,7 +56,7 @@ onBeforeMount(async () => {
     }).then((res) => {
       moods.value = res.moods;
       loading.value = false;
-    })
+    }),
   );
 });
 </script>

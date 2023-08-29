@@ -7,7 +7,7 @@ import jwt from "jsonwebtoken";
 const authenticate = (
   req: Request,
   res: Response,
-  next: NextFunction
+  next: NextFunction,
 ): void => {
   const { accessToken, isAuthenticated } = req.cookies;
   if (accessToken && isAuthenticated === "true") {
@@ -43,7 +43,7 @@ const authenticate = (
             });
           }
         }
-      }
+      },
     );
   } else {
     res.status(401).json({
