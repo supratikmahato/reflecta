@@ -69,7 +69,7 @@ async function find() {
       },
     }).then((res) => {
       users.value = res.users;
-    })
+    }),
   );
   loading.value = false;
 }

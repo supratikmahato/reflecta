@@ -35,7 +35,7 @@
         <div>
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            class="h-6 w-6 flex-shrink-0 stroke-current"
+            class="h-6 w-6 shrink-0 stroke-current"
             fill="none"
             viewBox="0 0 24 24"
           >
@@ -197,7 +197,7 @@ async function submit() {
               errors.value = [error.data.error];
             }
           }
-        })
+        }),
     );
   } catch (error) {
     success.value = false;

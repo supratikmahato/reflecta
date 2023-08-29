@@ -193,7 +193,7 @@ async function submit() {
           if (e.data.error && e.data.success === false) {
             errors.value = [e.data.error];
           }
-        })
+        }),
     );
   } catch (error) {
     if (error instanceof ZodError) {

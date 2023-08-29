@@ -124,7 +124,7 @@ onBeforeMount(async () => {
           }).value = "false";
           navigateTo("/login");
         }
-      })
+      }),
   );
 });
 

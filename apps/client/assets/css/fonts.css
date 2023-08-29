@@ -1,7 +1,9 @@
 @font-face {
   font-family: "Gilroy";
   src: url("/fonts/gilroy/Gilroy-Regular.eot");
-  src: local("Gilroy Regular"), local("/fonts/gilroy/Gilroy-Regular"),
+  src:
+    local("Gilroy Regular"),
+    local("/fonts/gilroy/Gilroy-Regular"),
     url("/fonts/gilroy/Gilroy-Regular.eot?#iefix") format("embedded-opentype"),
     url("/fonts/gilroy/Gilroy-Regular.woff2") format("woff2"),
     url("/fonts/gilroy/Gilroy-Regular.woff") format("woff"),
@@ -13,7 +15,8 @@
 @font-face {
   font-family: "Gilroy";
   src: url("/fonts/gilroy/Gilroy-ExtraboldItalic.eot");
-  src: local("Gilroy Extrabold Italic"),
+  src:
+    local("Gilroy Extrabold Italic"),
     local("/fonts/gilroy/Gilroy-ExtraboldItalic"),
     url("/fonts/gilroy/Gilroy-ExtraboldItalic.eot?#iefix")
       format("embedded-opentype"),
@@ -27,7 +30,9 @@
 @font-face {
   font-family: "Gilroy";
   src: url("/fonts/gilroy/Gilroy-Bold.eot");
-  src: local("Gilroy Bold"), local("/fonts/gilroy/Gilroy-Bold"),
+  src:
+    local("Gilroy Bold"),
+    local("/fonts/gilroy/Gilroy-Bold"),
     url("/fonts/gilroy/Gilroy-Bold.eot?#iefix") format("embedded-opentype"),
     url("/fonts/gilroy/Gilroy-Bold.woff2") format("woff2"),
     url("/fonts/gilroy/Gilroy-Bold.woff") format("woff"),
@@ -39,7 +44,9 @@
 @font-face {
   font-family: "Gilroy";
   src: url("/fonts/gilroy/Gilroy-Black.eot");
-  src: local("Gilroy Black"), local("/fonts/gilroy/Gilroy-Black"),
+  src:
+    local("Gilroy Black"),
+    local("/fonts/gilroy/Gilroy-Black"),
     url("/fonts/gilroy/Gilroy-Black.eot?#iefix") format("embedded-opentype"),
     url("/fonts/gilroy/Gilroy-Black.woff2") format("woff2"),
     url("/fonts/gilroy/Gilroy-Black.woff") format("woff"),
@@ -51,7 +58,9 @@
 @font-face {
   font-family: "Gilroy";
   src: url("/fonts/gilroy/Gilroy-Light.eot");
-  src: local("Gilroy Light"), local("/fonts/gilroy/Gilroy-Light"),
+  src:
+    local("Gilroy Light"),
+    local("/fonts/gilroy/Gilroy-Light"),
     url("/fonts/gilroy/Gilroy-Light.eot?#iefix") format("embedded-opentype"),
     url("/fonts/gilroy/Gilroy-Light.woff2") format("woff2"),
     url("/fonts/gilroy/Gilroy-Light.woff") format("woff"),
@@ -63,7 +72,9 @@
 @font-face {
   font-family: "Gilroy";
   src: url("/fonts/gilroy/Gilroy-Semibold.eot");
-  src: local("Gilroy Semibold"), local("/fonts/gilroy/Gilroy-Semibold"),
+  src:
+    local("Gilroy Semibold"),
+    local("/fonts/gilroy/Gilroy-Semibold"),
     url("/fonts/gilroy/Gilroy-Semibold.eot?#iefix") format("embedded-opentype"),
     url("/fonts/gilroy/Gilroy-Semibold.woff2") format("woff2"),
     url("/fonts/gilroy/Gilroy-Semibold.woff") format("woff"),
@@ -75,7 +86,9 @@
 @font-face {
   font-family: "Gilroy";
   src: url("/fonts/gilroy/Gilroy-Medium.eot");
-  src: local("Gilroy Medium"), local("/fonts/gilroy/Gilroy-Medium"),
+  src:
+    local("Gilroy Medium"),
+    local("/fonts/gilroy/Gilroy-Medium"),
     url("/fonts/gilroy/Gilroy-Medium.eot?#iefix") format("embedded-opentype"),
     url("/fonts/gilroy/Gilroy-Medium.woff2") format("woff2"),
     url("/fonts/gilroy/Gilroy-Medium.woff") format("woff"),
@@ -87,7 +100,9 @@
 @font-face {
   font-family: "Gilroy";
   src: url("/fonts/gilroy/Gilroy-MediumItalic.eot");
-  src: local("Gilroy Medium Italic"), local("/fonts/gilroy/Gilroy-MediumItalic"),
+  src:
+    local("Gilroy Medium Italic"),
+    local("/fonts/gilroy/Gilroy-MediumItalic"),
     url("/fonts/gilroy/Gilroy-MediumItalic.eot?#iefix")
       format("embedded-opentype"),
     url("/fonts/gilroy/Gilroy-MediumItalic.woff2") format("woff2"),
@@ -100,7 +115,9 @@
 @font-face {
   font-family: "Gilroy";
   src: url("/fonts/gilroy/Gilroy-BlackItalic.eot");
-  src: local("Gilroy Black Italic"), local("/fonts/gilroy/Gilroy-BlackItalic"),
+  src:
+    local("Gilroy Black Italic"),
+    local("/fonts/gilroy/Gilroy-BlackItalic"),
     url("/fonts/gilroy/Gilroy-BlackItalic.eot?#iefix")
       format("embedded-opentype"),
     url("/fonts/gilroy/Gilroy-BlackItalic.woff2") format("woff2"),
@@ -113,7 +130,9 @@
 @font-face {
   font-family: "Gilroy";
   src: url("/fonts/gilroy/Gilroy-UltraLight.eot");
-  src: local("Gilroy UltraLight"), local("/fonts/gilroy/Gilroy-UltraLight"),
+  src:
+    local("Gilroy UltraLight"),
+    local("/fonts/gilroy/Gilroy-UltraLight"),
     url("/fonts/gilroy/Gilroy-UltraLight.eot?#iefix")
       format("embedded-opentype"),
     url("/fonts/gilroy/Gilroy-UltraLight.woff2") format("woff2"),
@@ -126,7 +145,8 @@
 @font-face {
   font-family: "Gilroy";
   src: url("/fonts/gilroy/Gilroy-RegularItalic.eot");
-  src: local("Gilroy Regular Italic"),
+  src:
+    local("Gilroy Regular Italic"),
     local("/fonts/gilroy/Gilroy-RegularItalic"),
     url("/fonts/gilroy/Gilroy-RegularItalic.eot?#iefix")
       format("embedded-opentype"),
@@ -140,7 +160,8 @@
 @font-face {
   font-family: "Gilroy";
   src: url("/fonts/gilroy/Gilroy-SemiboldItalic.eot");
-  src: local("Gilroy Semibold Italic"),
+  src:
+    local("Gilroy Semibold Italic"),
     local("/fonts/gilroy/Gilroy-SemiboldItalic"),
     url("/fonts/gilroy/Gilroy-SemiboldItalic.eot?#iefix")
       format("embedded-opentype"),
@@ -154,7 +175,9 @@
 @font-face {
   font-family: "Gilroy";
   src: url("/fonts/gilroy/Gilroy-HeavyItalic.eot");
-  src: local("Gilroy Heavy Italic"), local("/fonts/gilroy/Gilroy-HeavyItalic"),
+  src:
+    local("Gilroy Heavy Italic"),
+    local("/fonts/gilroy/Gilroy-HeavyItalic"),
     url("/fonts/gilroy/Gilroy-HeavyItalic.eot?#iefix")
       format("embedded-opentype"),
     url("/fonts/gilroy/Gilroy-HeavyItalic.woff2") format("woff2"),
@@ -167,7 +190,9 @@
 @font-face {
   font-family: "Gilroy";
   src: url("/fonts/gilroy/Gilroy-Extrabold.eot");
-  src: local("Gilroy Extrabold"), local("/fonts/gilroy/Gilroy-Extrabold"),
+  src:
+    local("Gilroy Extrabold"),
+    local("/fonts/gilroy/Gilroy-Extrabold"),
     url("/fonts/gilroy/Gilroy-Extrabold.eot?#iefix") format("embedded-opentype"),
     url("/fonts/gilroy/Gilroy-Extrabold.woff2") format("woff2"),
     url("/fonts/gilroy/Gilroy-Extrabold.woff") format("woff"),
@@ -179,7 +204,9 @@
 @font-face {
   font-family: "Gilroy";
   src: url("/fonts/gilroy/Gilroy-BoldItalic.eot");
-  src: local("Gilroy Bold Italic"), local("/fonts/gilroy/Gilroy-BoldItalic"),
+  src:
+    local("Gilroy Bold Italic"),
+    local("/fonts/gilroy/Gilroy-BoldItalic"),
     url("/fonts/gilroy/Gilroy-BoldItalic.eot?#iefix")
       format("embedded-opentype"),
     url("/fonts/gilroy/Gilroy-BoldItalic.woff2") format("woff2"),
@@ -192,7 +219,8 @@
 @font-face {
   font-family: "Gilroy";
   src: url("/fonts/gilroy/Gilroy-UltraLightItalic.eot");
-  src: local("Gilroy UltraLight Italic"),
+  src:
+    local("Gilroy UltraLight Italic"),
     local("/fonts/gilroy/Gilroy-UltraLightItalic"),
     url("/fonts/gilroy/Gilroy-UltraLightItalic.eot?#iefix")
       format("embedded-opentype"),
@@ -206,7 +234,9 @@
 @font-face {
   font-family: "Gilroy";
   src: url("/fonts/gilroy/Gilroy-LightItalic.eot");
-  src: local("Gilroy Light Italic"), local("/fonts/gilroy/Gilroy-LightItalic"),
+  src:
+    local("Gilroy Light Italic"),
+    local("/fonts/gilroy/Gilroy-LightItalic"),
     url("/fonts/gilroy/Gilroy-LightItalic.eot?#iefix")
       format("embedded-opentype"),
     url("/fonts/gilroy/Gilroy-LightItalic.woff2") format("woff2"),
@@ -219,7 +249,9 @@
 @font-face {
   font-family: "Gilroy";
   src: url("/fonts/gilroy/Gilroy-Heavy.eot");
-  src: local("Gilroy Heavy"), local("/fonts/gilroy/Gilroy-Heavy"),
+  src:
+    local("Gilroy Heavy"),
+    local("/fonts/gilroy/Gilroy-Heavy"),
     url("/fonts/gilroy/Gilroy-Heavy.eot?#iefix") format("embedded-opentype"),
     url("/fonts/gilroy/Gilroy-Heavy.woff2") format("woff2"),
     url("/fonts/gilroy/Gilroy-Heavy.woff") format("woff"),
@@ -231,7 +263,9 @@
 @font-face {
   font-family: "Gilroy";
   src: url("/fonts/gilroy/Gilroy-Thin.eot");
-  src: local("Gilroy Thin"), local("/fonts/gilroy/Gilroy-Thin"),
+  src:
+    local("Gilroy Thin"),
+    local("/fonts/gilroy/Gilroy-Thin"),
     url("/fonts/gilroy/Gilroy-Thin.eot?#iefix") format("embedded-opentype"),
     url("/fonts/gilroy/Gilroy-Thin.woff2") format("woff2"),
     url("/fonts/gilroy/Gilroy-Thin.woff") format("woff"),
@@ -243,7 +277,9 @@
 @font-face {
   font-family: "Gilroy";
   src: url("/fonts/gilroy/Gilroy-ThinItalic.eot");
-  src: local("Gilroy Thin Italic"), local("/fonts/gilroy/Gilroy-ThinItalic"),
+  src:
+    local("Gilroy Thin Italic"),
+    local("/fonts/gilroy/Gilroy-ThinItalic"),
     url("/fonts/gilroy/Gilroy-ThinItalic.eot?#iefix")
       format("embedded-opentype"),
     url("/fonts/gilroy/Gilroy-ThinItalic.woff2") format("woff2"),

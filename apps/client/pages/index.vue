@@ -61,7 +61,7 @@ onBeforeMount(async () => {
         }).value = `${res.city ? res.city : ""}${
           res.city && res.country_code ? ", " : ""
         }${res.country_code ? res.country_code : ""}`;
-      })
+      }),
     );
   }
   await useAsyncData(() =>
@@ -69,7 +69,7 @@ onBeforeMount(async () => {
       credentials: "include",
     }).then((res) => {
       welcome.value = `Hello ${res.username}!`;
-    })
+    }),
   );
 });
 </script>
@@ -78,7 +78,8 @@ onBeforeMount(async () => {
 .clay {
   backdrop-filter: blur(5px);
   background-color: rgba(255, 255, 255, 0.4);
-  box-shadow: 35px 35px 68px 0 rgba(145, 192, 255, 0.5),
+  box-shadow:
+    35px 35px 68px 0 rgba(145, 192, 255, 0.5),
     inset -8px -8px 16px 0 rgba(145, 192, 255, 0.6),
     inset 0 11px 28px 0 rgb(255, 255, 255);
 }

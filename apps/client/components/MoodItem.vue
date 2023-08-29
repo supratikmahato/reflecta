@@ -166,7 +166,7 @@ async function handleEditSubmit() {
               navigateTo("/login");
             }
           }
-        })
+        }),
     );
   } catch (error) {}
 }
@@ -184,7 +184,7 @@ async function handleIsPublicChange() {
       body: {
         isPublic: moodRef.value.isPublic,
       },
-    })
+    }),
   );
 }
 function handleDeleteStart() {
@@ -213,7 +213,7 @@ async function handleDeleteSubmit() {
             navigateTo("/login");
           }
         }
-      })
+      }),
   );
 }
 function parseDate(date: Date) {
