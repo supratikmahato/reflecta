@@ -32,22 +32,20 @@
         </div>
       </div>
       <div v-if="success" class="alert alert-success w-fit shadow-lg">
-        <div>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-6 w-6 shrink-0 stroke-current"
-            fill="none"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-            />
-          </svg>
-          <span>Successfully brewed your mood!</span>
-        </div>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6 shrink-0 stroke-current"
+          fill="none"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+          />
+        </svg>
+        <span>Successfully brewed your mood!</span>
       </div>
       <div class="card bg-base-100 w-full max-w-lg flex-shrink-0 shadow-2xl">
         <form @submit.prevent="submit">
@@ -92,8 +90,8 @@
               <button
                 type="submit"
                 class="text-md btn-accent btn normal-case sm:text-lg md:text-lg"
-                :class="loading ? 'loading' : ''"
               >
+                <span :class="loading ? 'loading' : ''"></span>
                 <i class="bx bx-coffee-togo mr-1 text-2xl"></i>Brew Your Mood
                 <div class="bg-secondary ml-2 flex rounded-xl p-1">
                   <kbd class="kbd kbd-xs">ctrl</kbd>
