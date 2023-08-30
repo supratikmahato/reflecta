@@ -81,11 +81,8 @@
                 </div>
               </div>
               <div class="form-control mt-6">
-                <button
-                  type="submit"
-                  class="btn-primary btn normal-case"
-                  :class="loading ? 'loading' : ''"
-                >
+                <button type="submit" class="btn-primary btn normal-case">
+                  <span :class="loading ? 'loading' : ''"></span>
                   Login
                 </button>
               </div>

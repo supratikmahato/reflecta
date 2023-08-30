@@ -44,17 +44,25 @@
       </label>
     </div>
     <div v-if="isSelf" class="grid grid-cols-2 gap-2">
-      <button v-if="editOffset" class="btn" @click.prevent="handleEditClose">
+      <button
+        v-if="editOffset"
+        class="btn btn-neutral"
+        @click.prevent="handleEditClose"
+      >
         <i class="bx bx-x text-3xl"></i>
       </button>
-      <button v-if="editOffset" class="btn" @click.prevent="handleEditSubmit">
+      <button
+        v-if="editOffset"
+        class="btn btn-neutral"
+        @click.prevent="handleEditSubmit"
+      >
         <i class="bx bx-check text-3xl"></i>
       </button>
       <template v-else>
         <button class="btn-error btn" @click.prevent="handleDeleteStart">
           <i class="bx bx-trash text-2xl"></i>
         </button>
-        <button class="btn" @click.prevent="handleEditStart">
+        <button class="btn btn-neutral" @click.prevent="handleEditStart">
           <i class="bx bx-edit-alt text-2xl"></i>
         </button>
       </template>
@@ -87,7 +95,10 @@
           >
             Yes
           </button>
-          <button class="btn normal-case" @click.prevent="handleDeleteClose">
+          <button
+            class="btn btn-neutral normal-case"
+            @click.prevent="handleDeleteClose"
+          >
             No
           </button>
         </div>
