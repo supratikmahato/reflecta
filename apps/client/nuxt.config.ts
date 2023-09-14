@@ -6,7 +6,13 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
-  modules: ["@vueuse/nuxt", "@nuxtjs/google-fonts", "@nuxtjs/fontaine"],
+  modules: [
+    "@vueuse/nuxt",
+    "@nuxtjs/google-fonts",
+    "@nuxtseo/module",
+    "@nuxtjs/fontaine",
+  ],
+  devtools: { enabled: true },
   runtimeConfig: {
     public: {
       baseUrl: process.env.BASE_URL || "http://localhost:8000",
@@ -24,7 +30,6 @@ export default defineNuxtConfig({
       "Space+Mono": [700],
     },
   },
-  extends: ["nuxt-seo-kit"],
   css: ["~/assets/css/main.css", "~/assets/css/fonts.css"],
   app: {
     head: {
