@@ -7,13 +7,13 @@
     "releaseName": null
   },
   "git": {
-    "commitArgs": ["--no-verify"],
+    "commitArgs": ["-n"],
     "commitMessage": "chore: release v${version}",
     "tagAnnotation": null,
-    "changelog": "npx auto-changelog --stdout --commit-limit false --unreleased --template https://raw.githubusercontent.com/release-it/release-it/main/templates/changelog-compact.hbs"
+    "changelog": "npx changelogen@latest --no-output"
   },
   "hooks": {
-    "after:bump": "npx auto-changelog --commit-limit false --hide-credit --template keepachangelog"
+    "after:bump": "npx changelogen@latest --output"
   },
   "plugins": {
     "@release-it/bumper": {
