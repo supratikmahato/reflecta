@@ -3,9 +3,9 @@
   "private": true,
   "main": "index.js",
   "devDependencies": {
-    "eslint": "^8.49.0",
+    "eslint": "^8.50.0",
     "eslint-config-prettier": "^9.0.0",
-    "eslint-config-turbo": "^1.10.13"
+    "eslint-config-turbo": "^1.10.15"
   },
   "publishConfig": {
     "access": "public"
