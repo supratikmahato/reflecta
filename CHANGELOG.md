@@ -1,5 +1,21 @@
 # Changelog
 
+## v8.11.0...main
+
+[compare changes](https://github.com/TechGenius7777/coffee/compare/v8.11.0...main)
+
+### 💅 Refactors
+
+- **.npmrc:** Set `auto-install-peers` to `true` ([1a067ee](https://github.com/TechGenius7777/coffee/commit/1a067ee))
+
+### 🎨 Styles
+
+- **package.json:** Added `--ignore-unknown` flag in order to fix a bug ([6bbf8b6](https://github.com/TechGenius7777/coffee/commit/6bbf8b6))
+
+### ❤️ Contributors
+
+- TechGenius7777 <supratikmahato7777@gmail.com>
+
 ## v8.10.0...main
 
 [compare changes](https://github.com/TechGenius7777/coffee/compare/v8.10.0...main)
