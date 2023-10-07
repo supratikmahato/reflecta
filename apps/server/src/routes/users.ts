@@ -3,8 +3,8 @@ import express, { type RequestHandler } from "express";
 
 const router = express.Router();
 
-router.get("/find", (async (req, res) => {
-  const { username } = req.query;
+router.get("/find", (async (request, response) => {
+  const { username } = request.query;
   const users = await prisma.user.findMany({
     where: {
       username: {
@@ -17,7 +17,7 @@ router.get("/find", (async (req, res) => {
       username: true,
     },
   });
-  res.json({
+  response.json({
     success: true,
     users,
   });

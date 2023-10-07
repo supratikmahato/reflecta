@@ -10,8 +10,8 @@ import { fromZodError } from "zod-validation-error";
 
 const router = express.Router();
 
-router.post("/register", (async (req, res) => {
-  const { email, username, password, confirmPassword } = req.body;
+router.post("/register", (async (request, response) => {
+  const { email, username, password, confirmPassword } = request.body;
   try {
     const value = await userRegisterValidation.parseAsync({
       email,
@@ -27,23 +27,23 @@ router.post("/register", (async (req, res) => {
         password: hash,
       },
     });
-    res.json({
+    response.json({
       success: true,
     });
   } catch (error) {
     if (error instanceof ZodError) {
-      res.status(400).json({
+      response.status(400).json({
         success: false,
         error: fromZodError(error),
       });
     } else if (error instanceof Prisma.PrismaClientKnownRequestError) {
-      res.status(400).json({
+      response.status(400).json({
         success: false,
         error: error.message,
       });
     } else {
       console.log(error);
-      res.status(500).json({
+      response.status(500).json({
         success: false,
       });
       throw error;
@@ -51,8 +51,8 @@ router.post("/register", (async (req, res) => {
   }
 }) as RequestHandler);
 
-router.post("/login", (async (req, res) => {
-  const { email, password } = req.body;
+router.post("/login", (async (request, response) => {
+  const { email, password } = request.body;
   try {
     const value = await userLoginValidation.parseAsync({
       email,
@@ -71,7 +71,7 @@ router.post("/login", (async (req, res) => {
           expiresIn: "60d",
         },
       );
-      res
+      response
         .cookie("accessToken", accessToken, {
           maxAge: 60 * 60 * 24 * 60 * 1000,
           httpOnly: true,
@@ -91,7 +91,7 @@ router.post("/login", (async (req, res) => {
           success: true,
         });
     } else {
-      res.status(400).json({
+      response.status(400).json({
         success: false,
         error: "Wrong password",
       });
@@ -99,23 +99,23 @@ router.post("/login", (async (req, res) => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {
     if (error instanceof ZodError) {
-      res.status(400).json({
+      response.status(400).json({
         success: false,
         error: fromZodError(error),
       });
     } else if (error instanceof Prisma.PrismaClientKnownRequestError) {
-      res.status(400).json({
+      response.status(400).json({
         success: false,
         error: error.message,
       });
     } else if (error.name === "NotFoundError") {
-      res.status(400).json({
+      response.status(400).json({
         success: false,
         error: "User not found",
       });
     } else {
       console.error(error.name);
-      res.status(500).json({
+      response.status(500).json({
         success: false,
       });
       throw error;
@@ -123,35 +123,35 @@ router.post("/login", (async (req, res) => {
   }
 }) as RequestHandler);
 
-router.get("/logout", (req, res) => {
-  res.clearCookie("accessToken").clearCookie("isAuthenticated").json({
+router.get("/logout", (request, response) => {
+  response.clearCookie("accessToken").clearCookie("isAuthenticated").json({
     success: true,
   });
 });
 
-router.get("/username", authenticate, (async (req, res) => {
-  const reqUser = req.user;
+router.get("/username", authenticate, (async (request, response) => {
+  const requestUser = request.user;
   try {
     const user = await prisma.user.findUniqueOrThrow({
       where: {
-        id: reqUser.id,
+        id: requestUser.id,
       },
       select: {
         username: true,
       },
     });
-    res.json({
+    response.json({
       success: true,
       username: user.username,
     });
   } catch (error) {
     if (error instanceof Prisma.PrismaClientKnownRequestError) {
-      res.status(400).json({
+      response.status(400).json({
         success: false,
         error: error.message,
       });
     } else {
-      res.status(500).json({
+      response.status(500).json({
         success: false,
       });
       throw error;

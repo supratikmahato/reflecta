@@ -13,9 +13,9 @@ import { fromZodError } from "zod-validation-error";
 
 const router = express.Router();
 
-router.post("/", authenticate, (async (req, res) => {
-  const { coffeeType, content } = req.body;
-  const reqUser = req.user;
+router.post("/", authenticate, (async (request, response) => {
+  const { coffeeType, content } = request.body;
+  const requestUser = request.user;
   try {
     const value = await coffeePostValidation.parseAsync({
       coffeeType,
@@ -23,7 +23,7 @@ router.post("/", authenticate, (async (req, res) => {
     });
     await prisma.user.update({
       where: {
-        id: reqUser.id,
+        id: requestUser.id,
       },
       data: {
         moods: {
@@ -34,22 +34,22 @@ router.post("/", authenticate, (async (req, res) => {
         },
       },
     });
-    res.json({
+    response.json({
       success: true,
     });
   } catch (error) {
     if (error instanceof ZodError) {
-      res.status(400).json({
+      response.status(400).json({
         success: false,
         error: fromZodError(error),
       });
     } else if (error instanceof Prisma.PrismaClientKnownRequestError) {
-      res.status(400).json({
+      response.status(400).json({
         success: false,
         error: error.message,
       });
     } else {
-      res.status(500).json({
+      response.status(500).json({
         success: false,
       });
       throw error;
@@ -57,12 +57,12 @@ router.post("/", authenticate, (async (req, res) => {
   }
 }) as RequestHandler);
 
-router.get("/", authenticate, (async (req, res) => {
-  const reqUser = req.user;
+router.get("/", authenticate, (async (request, response) => {
+  const requestUser = request.user;
   try {
     const user = await prisma.user.findUniqueOrThrow({
       where: {
-        id: reqUser.id,
+        id: requestUser.id,
       },
       select: {
         moods: {
@@ -83,18 +83,18 @@ router.get("/", authenticate, (async (req, res) => {
         },
       },
     });
-    res.json({
+    response.json({
       success: true,
       moods: parseCoffeeType(user.moods),
     });
   } catch (error) {
     if (error instanceof Prisma.PrismaClientKnownRequestError) {
-      res.status(400).json({
+      response.status(400).json({
         success: false,
         error: error.message,
       });
     } else {
-      res.status(500).json({
+      response.status(500).json({
         success: false,
       });
       throw error;
@@ -102,9 +102,9 @@ router.get("/", authenticate, (async (req, res) => {
   }
 }) as RequestHandler);
 
-router.patch("/:id", authenticate, (async (req, res) => {
-  const { id } = req.params;
-  const { content, isPublic } = req.body;
+router.patch("/:id", authenticate, (async (request, response) => {
+  const { id } = request.params;
+  const { content, isPublic } = request.body;
   try {
     if ((content !== undefined || null) && (isPublic === undefined || null)) {
       const value = await coffeePatchValidation.parseAsync({
@@ -119,7 +119,7 @@ router.patch("/:id", authenticate, (async (req, res) => {
           isEdited: true,
         },
       });
-      res.json({
+      response.json({
         success: true,
       });
     } else if (
@@ -137,28 +137,28 @@ router.patch("/:id", authenticate, (async (req, res) => {
           isPublic: value.isPublic,
         },
       });
-      res.json({
+      response.json({
         success: true,
       });
     } else {
-      res.status(400).json({
+      response.status(400).json({
         success: false,
         error: "Invalid request",
       });
     }
   } catch (error) {
     if (error instanceof ZodError) {
-      res.status(400).json({
+      response.status(400).json({
         success: false,
         error: fromZodError(error),
       });
     } else if (error instanceof Prisma.PrismaClientKnownRequestError) {
-      res.status(400).json({
+      response.status(400).json({
         success: false,
         error: error.message,
       });
     } else {
-      res.status(500).json({
+      response.status(500).json({
         success: false,
       });
       throw error;
@@ -166,8 +166,8 @@ router.patch("/:id", authenticate, (async (req, res) => {
   }
 }) as RequestHandler);
 
-router.delete("/:id", authenticate, (async (req, res) => {
-  const { id } = req.params;
+router.delete("/:id", authenticate, (async (request, response) => {
+  const { id } = request.params;
   try {
     await prisma.mood.update({
       where: {
@@ -177,17 +177,17 @@ router.delete("/:id", authenticate, (async (req, res) => {
         deletedAt: new Date(),
       },
     });
-    res.json({
+    response.json({
       success: true,
     });
   } catch (error) {
     if (error instanceof Prisma.PrismaClientKnownRequestError) {
-      res.status(400).json({
+      response.status(400).json({
         success: false,
         error: error.message,
       });
     } else {
-      res.status(500).json({
+      response.status(500).json({
         success: false,
       });
       throw error;

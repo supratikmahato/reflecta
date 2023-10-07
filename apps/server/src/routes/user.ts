@@ -6,8 +6,8 @@ import express, { type RequestHandler } from "express";
 
 const router = express.Router();
 
-router.get("/:username", authenticate, (async (req, res) => {
-  const { username } = req.params;
+router.get("/:username", authenticate, (async (request, response) => {
+  const { username } = request.params;
   try {
     const user = await prisma.user.findUniqueOrThrow({
       where: {
@@ -32,18 +32,18 @@ router.get("/:username", authenticate, (async (req, res) => {
         },
       },
     });
-    res.json({
+    response.json({
       success: true,
       moods: parseCoffeeType(user.moods),
     });
   } catch (error) {
     if (error instanceof Prisma.PrismaClientKnownRequestError) {
-      res.status(400).json({
+      response.status(400).json({
         success: false,
         error: error.message,
       });
     } else {
-      res.status(500).json({
+      response.status(500).json({
         success: false,
       });
       throw error;
@@ -51,8 +51,8 @@ router.get("/:username", authenticate, (async (req, res) => {
   }
 }) as RequestHandler);
 
-router.get("/search", (async (req, res) => {
-  const { username } = req.query;
+router.get("/search", (async (request, response) => {
+  const { username } = request.query;
   const users = await prisma.user.findMany({
     where: {
       username: {
@@ -64,7 +64,7 @@ router.get("/search", (async (req, res) => {
       username: true,
     },
   });
-  res.json(users);
+  response.json(users);
 }) as RequestHandler);
 
 export default router;

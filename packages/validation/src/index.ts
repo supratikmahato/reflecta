@@ -47,9 +47,9 @@ export const userRegisterValidation = z
     }),
     confirmPassword: z.string().trim(),
   })
-  .superRefine(({ confirmPassword, password }, ctx) => {
+  .superRefine(({ confirmPassword, password }, context) => {
     if (confirmPassword !== password) {
-      ctx.addIssue({
+      context.addIssue({
         code: "custom",
         message: "The passwords did not match",
       });

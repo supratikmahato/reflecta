@@ -1,3 +1,1 @@
-import parseCoffeeType from "./parseCoffeeType";
-
-export { parseCoffeeType };
+export { default as parseCoffeeType } from "./parse-coffee-type";
