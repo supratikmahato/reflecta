@@ -13,12 +13,13 @@
   },
   "scripts": {
     "build": "turbo run build",
+    "case-police": "case-police --fix",
     "cm": "cz",
     "db:generate": "dotenv -- turbo run 'database#db:generate'",
     "db:migrate:dev": "dotenv -- turbo run 'database#db:migrate:dev'",
     "dev": "dotenv -- turbo run dev --parallel",
     "format": "prettier --write .",
-    "lint": "turbo run lint",
+    "lint": "turbo run lint && pnpm case-police",
     "preinstall": "npx only-allow pnpm",
     "prepare": "husky install",
     "release": "dotenv release-it --"
@@ -33,6 +34,7 @@
     "@commitlint/config-conventional": "^17.7.0",
     "@release-it/bumper": "^5.1.0",
     "@trivago/prettier-plugin-sort-imports": "^4.2.0",
+    "case-police": "^0.6.1",
     "commitizen": "^4.3.0",
     "cz-conventional-changelog": "^3.3.0",
     "dotenv-cli": "^7.3.0",

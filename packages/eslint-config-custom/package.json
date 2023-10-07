@@ -3,9 +3,10 @@
   "private": true,
   "main": "index.js",
   "devDependencies": {
-    "eslint": "^8.50.0",
+    "eslint": "^8.51.0",
     "eslint-config-prettier": "^9.0.0",
-    "eslint-config-turbo": "^1.10.15"
+    "eslint-config-turbo": "^1.10.15",
+    "eslint-plugin-case-police": "^0.6.1"
   },
   "publishConfig": {
     "access": "public"
