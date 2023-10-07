@@ -1,3 +1,3 @@
 module.exports = {
-  extends: ["turbo", "prettier"],
+  extends: ["plugin:case-police/recommended", "turbo", "prettier"],
 };
