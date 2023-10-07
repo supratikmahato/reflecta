@@ -4,7 +4,11 @@
     "es2021": true,
     "node": true
   },
-  "extends": ["standard-with-typescript", "custom"],
+  "extends": [
+    "standard-with-typescript",
+    "plugin:unicorn/recommended",
+    "custom"
+  ],
   "overrides": [],
   "parserOptions": {
     "ecmaVersion": "latest",
@@ -12,6 +16,7 @@
     "project": "**/tsconfig.json"
   },
   "rules": {
-    "@typescript-eslint/strict-boolean-expressions": "off"
+    "@typescript-eslint/strict-boolean-expressions": "off",
+    "unicorn/no-null": "warn"
   }
 }
