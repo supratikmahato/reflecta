@@ -20,7 +20,7 @@ At the root of the repository, run the following command:
 pnpm install
 ```
 
-### Creating a Docker Postgresql database for development
+### Creating a Docker PostgreSQL database for development
 
 At the root of the repository, run the following command:
 
