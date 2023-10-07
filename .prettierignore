@@ -7,4 +7,3 @@ node_modules
 dist
 .DS_Store
 .husky
-.node-version
