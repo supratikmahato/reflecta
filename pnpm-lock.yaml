@@ -2237,7 +2237,7 @@ packages:
       "@unocss/preset-mini": 0.56.5
       "@unocss/reset": 0.56.5
       "@vueuse/core": 10.5.0(vue@3.3.4)
-      "@vueuse/integrations": 10.4.1(focus-trap@7.5.3)(fuse.js@6.6.2)(vue@3.3.4)
+      "@vueuse/integrations": 10.5.0(focus-trap@7.5.3)(fuse.js@6.6.2)(vue@3.3.4)
       "@vueuse/nuxt": 10.5.0(nuxt@3.7.4)(vue@3.3.4)
       defu: 6.1.2
       focus-trap: 7.5.3
@@ -2312,7 +2312,7 @@ packages:
       hookable: 5.5.3
       image-meta: 0.1.1
       is-installed-globally: 0.4.0
-      launch-editor: 2.6.0
+      launch-editor: 2.6.1
       local-pkg: 0.4.3
       magicast: 0.3.0
       nuxt: 3.7.4(@types/node@20.8.3)(eslint@8.51.0)(typescript@5.2.2)
@@ -2914,7 +2914,6 @@ packages:
     dependencies:
       is-glob: 4.0.3
       micromatch: 4.0.5
-      napi-wasm: 1.1.0
     dev: true
     bundledDependencies:
       - napi-wasm
@@ -3941,13 +3940,6 @@ packages:
       }
     dev: true
 
-  /@types/web-bluetooth@0.0.17:
-    resolution:
-      {
-        integrity: sha512-4p9vcSmxAayx72yn70joFoL44c9MO/0+iVEBIQXe3v2h2SiAsEIo/G5v6ObFWvNKRFjbrVadNf9LqEEZeQPzdA==,
-      }
-    dev: true
-
   /@types/web-bluetooth@0.0.18:
     resolution:
       {
@@ -4829,21 +4821,6 @@ packages:
       }
     dev: true
 
-  /@vueuse/core@10.4.1(vue@3.3.4):
-    resolution:
-      {
-        integrity: sha512-DkHIfMIoSIBjMgRRvdIvxsyboRZQmImofLyOHADqiVbQVilP8VVHDhBX2ZqoItOgu7dWa8oXiNnScOdPLhdEXg==,
-      }
-    dependencies:
-      "@types/web-bluetooth": 0.0.17
-      "@vueuse/metadata": 10.4.1
-      "@vueuse/shared": 10.4.1(vue@3.3.4)
-      vue-demi: 0.14.6(vue@3.3.4)
-    transitivePeerDependencies:
-      - "@vue/composition-api"
-      - vue
-    dev: true
-
   /@vueuse/core@10.5.0(vue@3.3.4):
     resolution:
       {
@@ -4859,10 +4836,10 @@ packages:
       - vue
     dev: true
 
-  /@vueuse/integrations@10.4.1(focus-trap@7.5.3)(fuse.js@6.6.2)(vue@3.3.4):
+  /@vueuse/integrations@10.5.0(focus-trap@7.5.3)(fuse.js@6.6.2)(vue@3.3.4):
     resolution:
       {
-        integrity: sha512-uRBPyG5Lxoh1A/J+boiioPT3ELEAPEo4t8W6Mr4yTKIQBeW/FcbsotZNPr4k9uz+3QEksMmflWloS9wCnypM7g==,
+        integrity: sha512-fm5sXLCK0Ww3rRnzqnCQRmfjDURaI4xMsx+T+cec0ngQqHx/JgUtm8G0vRjwtonIeTBsH1Q8L3SucE+7K7upJQ==,
       }
     peerDependencies:
       async-validator: "*"
@@ -4903,21 +4880,14 @@ packages:
       universal-cookie:
         optional: true
     dependencies:
-      "@vueuse/core": 10.4.1(vue@3.3.4)
-      "@vueuse/shared": 10.4.1(vue@3.3.4)
+      "@vueuse/core": 10.5.0(vue@3.3.4)
+      "@vueuse/shared": 10.5.0(vue@3.3.4)
       focus-trap: 7.5.3
       fuse.js: 6.6.2
       vue-demi: 0.14.6(vue@3.3.4)
     transitivePeerDependencies:
       - "@vue/composition-api"
       - vue
-    dev: true
-
-  /@vueuse/metadata@10.4.1:
-    resolution:
-      {
-        integrity: sha512-2Sc8X+iVzeuMGHr6O2j4gv/zxvQGGOYETYXEc41h0iZXIRnRbJZGmY/QP8dvzqUelf8vg0p/yEA5VpCEu+WpZg==,
-      }
     dev: true
 
   /@vueuse/metadata@10.5.0:
@@ -4945,18 +4915,6 @@ packages:
       - "@vue/composition-api"
       - rollup
       - supports-color
-      - vue
-    dev: true
-
-  /@vueuse/shared@10.4.1(vue@3.3.4):
-    resolution:
-      {
-        integrity: sha512-vz5hbAM4qA0lDKmcr2y3pPdU+2EVw/yzfRsBdu+6+USGa4PxqSQRYIUC9/NcT06y+ZgaTsyURw2I9qOFaaXHAg==,
-      }
-    dependencies:
-      vue-demi: 0.14.6(vue@3.3.4)
-    transitivePeerDependencies:
-      - "@vue/composition-api"
       - vue
     dev: true
 
@@ -6128,7 +6086,7 @@ packages:
       "@types/http-cache-semantics": 4.0.2
       get-stream: 6.0.1
       http-cache-semantics: 4.1.1
-      keyv: 4.5.3
+      keyv: 4.5.4
       mimic-response: 4.0.0
       normalize-url: 8.0.0
       responselike: 3.0.0
@@ -9033,7 +8991,7 @@ packages:
     engines: { node: ">=12.0.0" }
     dependencies:
       flatted: 3.2.9
-      keyv: 4.5.3
+      keyv: 4.5.4
       rimraf: 3.0.2
     dev: true
 
@@ -11079,10 +11037,10 @@ packages:
       safe-buffer: 5.2.1
     dev: false
 
-  /keyv@4.5.3:
+  /keyv@4.5.4:
     resolution:
       {
-        integrity: sha512-QCiSav9WaX1PgETJ+SpNnx2PRRapJ/oRSXM4VO5OGYGSjrxbKPVFVhB3l2OCbLCk329N8qyAtsJjSjvVBWzEug==,
+        integrity: sha512-oxVHkHR/EJf2CNXnWxRLW6mg7JyCCUcG0DtEGmL2ctUo1PNTin1PUil+r/+4r5MpVgC/fn1kjsx7mjSujKqIpw==,
       }
     dependencies:
       json-buffer: 3.0.1
@@ -11136,10 +11094,10 @@ packages:
       package-json: 8.1.1
     dev: true
 
-  /launch-editor@2.6.0:
+  /launch-editor@2.6.1:
     resolution:
       {
-        integrity: sha512-JpDCcQnyAAzZZaZ7vEiSqL690w7dAEyLao+KC96zBplnYbJS7TYNjvM3M7y3dGz+v7aIsJk3hllWuc0kWAjyRQ==,
+        integrity: sha512-eB/uXmFVpY4zezmGp5XtU21kwo7GBbKB+EQ+UZeWtGb9yAM5xt/Evk+lYH3eRNAtId+ej4u7TYPFZ07w4s7rRw==,
       }
     dependencies:
       picocolors: 1.0.0
@@ -12201,13 +12159,6 @@ packages:
     hasBin: true
     dev: true
 
-  /napi-wasm@1.1.0:
-    resolution:
-      {
-        integrity: sha512-lHwIAJbmLSjF9VDRm9GoVOy9AGp3aIvkjv+Kvz9h16QR3uSVYH78PNQUnT2U4X53mhlnV2M7wrhibQ3GHicDmg==,
-      }
-    dev: true
-
   /natural-compare@1.4.0:
     resolution:
       {
@@ -12767,7 +12718,7 @@ packages:
       fs-extra: 11.1.1
       globby: 13.2.2
       image-size: 1.0.2
-      launch-editor: 2.6.0
+      launch-editor: 2.6.1
       nuxt-site-config: 1.4.0(vue@3.3.4)
       nuxt-site-config-kit: 1.4.0(vue@3.3.4)
       nypm: 0.3.3
@@ -12780,7 +12731,7 @@ packages:
       satori-html: 0.3.2
       sirv: 2.0.3
       std-env: 3.4.3
-      svg2png-wasm: 1.4.0
+      svg2png-wasm: 1.4.1
       terminate: 2.6.1
       tinyws: 0.1.0(ws@8.14.2)
       twemoji: 14.0.2
@@ -15943,10 +15894,10 @@ packages:
       }
     dev: true
 
-  /svg2png-wasm@1.4.0:
+  /svg2png-wasm@1.4.1:
     resolution:
       {
-        integrity: sha512-UH6XzvHZvHzLrgjcjxX4BCOMalzF1Z8G6EJRsBo/+DLO2jhzdUBwhA8Hl8sn21Cn6N/jBbbdeqUhCzR/FL6xYw==,
+        integrity: sha512-ZFy1NtwZVAsslaTQoI+/QqX2sg0vjmgJ/jGAuLZZvYcRlndI54hLPiwLC9JzXlFBerfxN5JiS7kpEUG0mrXS3Q==,
       }
     dev: true
 
