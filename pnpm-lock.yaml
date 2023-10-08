@@ -111,11 +111,11 @@ importers:
         specifier: ^20.8.3
         version: 20.8.3
       "@vueuse/core":
-        specifier: ^10.4.1
-        version: 10.4.1(vue@3.3.4)
+        specifier: ^10.5.0
+        version: 10.5.0(vue@3.3.4)
       "@vueuse/nuxt":
-        specifier: ^10.4.1
-        version: 10.4.1(nuxt@3.7.4)(vue@3.3.4)
+        specifier: ^10.5.0
+        version: 10.5.0(nuxt@3.7.4)(vue@3.3.4)
       autoprefixer:
         specifier: ^10.4.16
         version: 10.4.16(postcss@8.4.31)
@@ -2236,9 +2236,9 @@ packages:
       "@unocss/preset-icons": 0.56.5
       "@unocss/preset-mini": 0.56.5
       "@unocss/reset": 0.56.5
-      "@vueuse/core": 10.4.1(vue@3.3.4)
+      "@vueuse/core": 10.5.0(vue@3.3.4)
       "@vueuse/integrations": 10.4.1(focus-trap@7.5.3)(fuse.js@6.6.2)(vue@3.3.4)
-      "@vueuse/nuxt": 10.4.1(nuxt@3.7.4)(vue@3.3.4)
+      "@vueuse/nuxt": 10.5.0(nuxt@3.7.4)(vue@3.3.4)
       defu: 6.1.2
       focus-trap: 7.5.3
       splitpanes: 3.1.5
@@ -3948,6 +3948,13 @@ packages:
       }
     dev: true
 
+  /@types/web-bluetooth@0.0.18:
+    resolution:
+      {
+        integrity: sha512-v/ZHEj9xh82usl8LMR3GarzFY1IrbXJw5L4QfQhokjRV91q+SelFqxQWSep1ucXEZ22+dSTwLFkXeur25sPIbw==,
+      }
+    dev: true
+
   /@typescript-eslint/eslint-plugin@6.7.4(@typescript-eslint/parser@6.7.4)(eslint@8.51.0)(typescript@5.2.2):
     resolution:
       {
@@ -4837,6 +4844,21 @@ packages:
       - vue
     dev: true
 
+  /@vueuse/core@10.5.0(vue@3.3.4):
+    resolution:
+      {
+        integrity: sha512-z/tI2eSvxwLRjOhDm0h/SXAjNm8N5ld6/SC/JQs6o6kpJ6Ya50LnEL8g5hoYu005i28L0zqB5L5yAl8Jl26K3A==,
+      }
+    dependencies:
+      "@types/web-bluetooth": 0.0.18
+      "@vueuse/metadata": 10.5.0
+      "@vueuse/shared": 10.5.0(vue@3.3.4)
+      vue-demi: 0.14.6(vue@3.3.4)
+    transitivePeerDependencies:
+      - "@vue/composition-api"
+      - vue
+    dev: true
+
   /@vueuse/integrations@10.4.1(focus-trap@7.5.3)(fuse.js@6.6.2)(vue@3.3.4):
     resolution:
       {
@@ -4898,18 +4920,25 @@ packages:
       }
     dev: true
 
-  /@vueuse/nuxt@10.4.1(nuxt@3.7.4)(vue@3.3.4):
+  /@vueuse/metadata@10.5.0:
     resolution:
       {
-        integrity: sha512-tJ25KCkozZaQEy0qli4Ta8WXlbMIjSD7gPnVfLScZ2DpSSgImMB5R66PQEkrbSg4GfFj0OuoYc4+vCHQ/FqTsw==,
+        integrity: sha512-fEbElR+MaIYyCkeM0SzWkdoMtOpIwO72x8WsZHRE7IggiOlILttqttM69AS13nrDxosnDBYdyy3C5mR1LCxHsw==,
+      }
+    dev: true
+
+  /@vueuse/nuxt@10.5.0(nuxt@3.7.4)(vue@3.3.4):
+    resolution:
+      {
+        integrity: sha512-x1mpjwcPB5DGA3cTM29Hf3bralslrma3Jr0fXm3Js3dbUHdadC/iVMf831W+sKPjZBhiZxR0S94B8gmGlvZ/1Q==,
       }
     peerDependencies:
       nuxt: ^3.0.0
     dependencies:
       "@nuxt/kit": 3.7.4
-      "@vueuse/core": 10.4.1(vue@3.3.4)
-      "@vueuse/metadata": 10.4.1
-      local-pkg: 0.4.3
+      "@vueuse/core": 10.5.0(vue@3.3.4)
+      "@vueuse/metadata": 10.5.0
+      local-pkg: 0.5.0
       nuxt: 3.7.4(@types/node@20.8.3)(eslint@8.51.0)(typescript@5.2.2)
       vue-demi: 0.14.6(vue@3.3.4)
     transitivePeerDependencies:
@@ -4923,6 +4952,18 @@ packages:
     resolution:
       {
         integrity: sha512-vz5hbAM4qA0lDKmcr2y3pPdU+2EVw/yzfRsBdu+6+USGa4PxqSQRYIUC9/NcT06y+ZgaTsyURw2I9qOFaaXHAg==,
+      }
+    dependencies:
+      vue-demi: 0.14.6(vue@3.3.4)
+    transitivePeerDependencies:
+      - "@vue/composition-api"
+      - vue
+    dev: true
+
+  /@vueuse/shared@10.5.0(vue@3.3.4):
+    resolution:
+      {
+        integrity: sha512-18iyxbbHYLst9MqU1X1QNdMHIjks6wC7XTVf0KNOv5es/Ms6gjVFCAAWTVP2JStuGqydg3DT+ExpFORUEi9yhg==,
       }
     dependencies:
       vue-demi: 0.14.6(vue@3.3.4)
@@ -11211,6 +11252,17 @@ packages:
     engines: { node: ">=14" }
     dev: true
 
+  /local-pkg@0.5.0:
+    resolution:
+      {
+        integrity: sha512-ok6z3qlYyCDS4ZEU27HaU6x/xZa9Whf8jD4ptH5UZTQYZVYeb9bnZ3ojVhiJNLiXK1Hfc0GNbLXcmZ5plLDDBg==,
+      }
+    engines: { node: ">=14" }
+    dependencies:
+      mlly: 1.4.2
+      pkg-types: 1.0.3
+    dev: true
+
   /locate-path@5.0.0:
     resolution:
       {
@@ -12657,7 +12709,7 @@ packages:
       "@nuxt/devtools-kit": 1.0.0-beta.0(nuxt@3.7.4)(vite@4.4.11)
       "@nuxt/devtools-ui-kit": 1.0.0-beta.0(@nuxt/devtools@1.0.0-beta.0)(fuse.js@6.6.2)(nuxt@3.7.4)(postcss@8.4.31)(vite@4.4.11)(vue@3.3.4)(webpack@5.88.2)
       "@nuxt/kit": 3.7.4
-      "@vueuse/core": 10.4.1(vue@3.3.4)
+      "@vueuse/core": 10.5.0(vue@3.3.4)
       chalk: 5.3.0
       cheerio: 1.0.0-rc.12
       diff: 5.1.0
