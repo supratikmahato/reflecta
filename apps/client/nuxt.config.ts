@@ -6,12 +6,7 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
-  modules: [
-    "@vueuse/nuxt",
-    "@nuxtjs/google-fonts",
-    "@nuxtseo/module",
-    "@nuxtjs/fontaine",
-  ],
+  modules: ["@vueuse/nuxt", "@nuxtjs/google-fonts", "@nuxtjs/fontaine"],
   devtools: { enabled: true },
   runtimeConfig: {
     public: {

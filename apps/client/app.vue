@@ -1,8 +1,5 @@
 <template>
-  <div>
-    <OgImageScreenshot />
-    <NuxtPage />
-  </div>
+  <NuxtPage />
 </template>
 
 <script setup lang="ts">
