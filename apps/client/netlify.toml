@@ -1,4 +1,4 @@
 [build]
 command = "turbo run build --filter=client"
 publish = "dist"
-environment = { NODE_VERSION = "20", NODE_OPTIONS = "-max_old_space_size=4096" }
+environment = { NODE_VERSION = "20", NODE_OPTIONS = "--max_old_space_size=4096" }
