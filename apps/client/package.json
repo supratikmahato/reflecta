@@ -19,7 +19,7 @@
     "zod-validation-error": "^1.5.0"
   },
   "devDependencies": {
-    "@nuxt/devtools": "1.0.0-beta.1",
+    "@nuxt/devtools": "1.0.0-beta.2",
     "@nuxtjs/eslint-config-typescript": "^12.1.0",
     "@nuxtjs/fontaine": "^0.4.1",
     "@nuxtjs/google-fonts": "^3.0.2",
