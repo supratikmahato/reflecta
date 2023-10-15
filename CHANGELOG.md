@@ -1,5 +1,52 @@
 # Changelog
 
+## v8.11.1...main
+
+[compare changes](https://github.com/TechGenius7777/coffee/compare/v8.11.1...main)
+
+### 🚀 Enhancements
+
+- **packages/eslint-config-custom:** Added `case-police` eslint plugin ([4ba35e6](https://github.com/TechGenius7777/coffee/commit/4ba35e6))
+
+### 🩹 Fixes
+
+- Fixed all errors issued by the new `eslint-plugin-unicorn` ([334a007](https://github.com/TechGenius7777/coffee/commit/334a007))
+- **client:** Error caused on deploying client to Netlify ([7683cd1](https://github.com/TechGenius7777/coffee/commit/7683cd1))
+- **client:** Typo in `NODE_OPTIONS` environment variable ([aa67cca](https://github.com/TechGenius7777/coffee/commit/aa67cca))
+
+### 🏡 Chore
+
+- Dependency upgrades and added `case-police` ([bc08abb](https://github.com/TechGenius7777/coffee/commit/bc08abb))
+- **package.json:** Updated node version to `>=20` in `package.json` ([81c5d8f](https://github.com/TechGenius7777/coffee/commit/81c5d8f))
+- **package.json:** Removed `engines` property in `package.json` ([d4ec3d7](https://github.com/TechGenius7777/coffee/commit/d4ec3d7))
+- Set node version to `20` ([c12be9b](https://github.com/TechGenius7777/coffee/commit/c12be9b))
+- Fixed `format` and `lint` scripts and added `eslint-plugin-unicorn` ([08048df](https://github.com/TechGenius7777/coffee/commit/08048df))
+- Added `eslint-plugin-unicorn` in various `.eslintrc.json` files ([d85bd24](https://github.com/TechGenius7777/coffee/commit/d85bd24))
+- **.husky/pre-commit:** Renamed `npm run lint` to `pnpm lint` ([f568ba0](https://github.com/TechGenius7777/coffee/commit/f568ba0))
+- Added `taze` and dependency upgrades ([a0e0f08](https://github.com/TechGenius7777/coffee/commit/a0e0f08))
+- **client:** Dependency upgrade ([031eb27](https://github.com/TechGenius7777/coffee/commit/031eb27))
+- **pnpm-lock.yaml:** Updated `pnpm-lock.yaml` ([ddc6bb2](https://github.com/TechGenius7777/coffee/commit/ddc6bb2))
+- **client:** Removed `nuxtseo` module ([cc67bb6](https://github.com/TechGenius7777/coffee/commit/cc67bb6))
+- **client:** No more `SSR` ([22caa67](https://github.com/TechGenius7777/coffee/commit/22caa67))
+- Dependency upgrades and bumped pnpm version to `v8.9.0` ([5194f76](https://github.com/TechGenius7777/coffee/commit/5194f76))
+- **package.json:** Fix bug in format script ([20f2bc3](https://github.com/TechGenius7777/coffee/commit/20f2bc3))
+- **.github/dependabot.yml:** Add `versioning-strategy` property in order to fix a bug ([c72369b](https://github.com/TechGenius7777/coffee/commit/c72369b))
+- Dependency upgrades ([0a6a649](https://github.com/TechGenius7777/coffee/commit/0a6a649))
+- **client:** Dependency upgrade ([03429d7](https://github.com/TechGenius7777/coffee/commit/03429d7))
+- Dependency upgrades ([7a31b7e](https://github.com/TechGenius7777/coffee/commit/7a31b7e))
+- Dependency upgrades ([7928b6c](https://github.com/TechGenius7777/coffee/commit/7928b6c))
+- Dependency upgrades ([b9d08dc](https://github.com/TechGenius7777/coffee/commit/b9d08dc))
+
+### 🎨 Styles
+
+- **.prettierrc:** Now using the default prettier configuration ([d815fc4](https://github.com/TechGenius7777/coffee/commit/d815fc4))
+- **readme.md:** Fix case typo ([ed25d9f](https://github.com/TechGenius7777/coffee/commit/ed25d9f))
+
+### ❤️ Contributors
+
+- Tech Genius <supratikmahato7777@gmail.com>
+- TechGenius7777 <supratikmahato7777@gmail.com>
+
 ## v8.11.0...main
 
 [compare changes](https://github.com/TechGenius7777/coffee/compare/v8.11.0...main)
