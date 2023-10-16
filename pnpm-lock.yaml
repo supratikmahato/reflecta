@@ -59,8 +59,8 @@ importers:
         specifier: ^16.2.1
         version: 16.2.1(typescript@5.2.2)
       taze:
-        specifier: ^0.11.3
-        version: 0.11.3
+        specifier: ^0.11.4
+        version: 0.11.4
       turbo:
         specifier: ^1.10.15
         version: 1.10.15
@@ -1036,34 +1036,6 @@ packages:
       "@commitlint/types": 17.4.4
     dev: true
 
-  /@commitlint/load@17.7.2:
-    resolution:
-      {
-        integrity: sha512-XA7WTnsjHZ4YH6ZYsrnxgLdXzriwMMq+utZUET6spbOEEIPBCDLdOQXS26P+v3TTO4hUHOEhzUquaBv3jbBixw==,
-      }
-    engines: { node: ">=v14" }
-    requiresBuild: true
-    dependencies:
-      "@commitlint/config-validator": 17.6.7
-      "@commitlint/execute-rule": 17.4.0
-      "@commitlint/resolve-extends": 17.6.7
-      "@commitlint/types": 17.4.4
-      "@types/node": 20.5.1
-      chalk: 4.1.2
-      cosmiconfig: 8.3.6(typescript@5.2.2)
-      cosmiconfig-typescript-loader: 4.4.0(@types/node@20.5.1)(cosmiconfig@8.3.6)(ts-node@10.9.1)(typescript@5.2.2)
-      lodash.isplainobject: 4.0.6
-      lodash.merge: 4.6.2
-      lodash.uniq: 4.5.0
-      resolve-from: 5.0.0
-      ts-node: 10.9.1(@types/node@20.5.1)(typescript@5.2.2)
-      typescript: 5.2.2
-    transitivePeerDependencies:
-      - "@swc/core"
-      - "@swc/wasm"
-    dev: true
-    optional: true
-
   /@commitlint/load@17.8.0:
     resolution:
       {
@@ -2012,12 +1984,12 @@ packages:
       - supports-color
     dev: true
 
-  /@npmcli/config@6.4.0:
+  /@npmcli/config@8.0.0:
     resolution:
       {
-        integrity: sha512-/fQjIbuNVIT/PbXvw178Tm97bxV0E0nVUFKHivMKtSI2pcs8xKdaWkHJxf9dTI0G/y5hp/KuCvgcUu5HwAtI1w==,
+        integrity: sha512-a2ybqstXSCAbP7QghgGcOvLTBlaR3wWQyAmTfWXJld6qP6+vKQabTZQwzRPs00kKi870beNZHhV4Fvlca2l/uA==,
       }
-    engines: { node: ^14.17.0 || ^16.13.0 || >=18.0.0 }
+    engines: { node: ^16.14.0 || >=18.0.0 }
     dependencies:
       "@npmcli/map-workspaces": 3.0.4
       ci-info: 3.9.0
@@ -6016,7 +5988,7 @@ packages:
       longest: 2.0.1
       word-wrap: 1.2.5
     optionalDependencies:
-      "@commitlint/load": 17.7.2
+      "@commitlint/load": 17.8.0
     transitivePeerDependencies:
       - "@swc/core"
       - "@swc/wasm"
@@ -14254,15 +14226,15 @@ packages:
       mkdirp: 1.0.4
       yallist: 4.0.0
 
-  /taze@0.11.3:
+  /taze@0.11.4:
     resolution:
       {
-        integrity: sha512-8VbKvowHtj9aO2/NYIHXv48bD1ysBHBbHS1YuAm6Zi0WndblZdzDCVoOwKaX0eN23BHX5Q/Y8FE6kqDf/sWmdA==,
+        integrity: sha512-X7Dob7+n77GOHO7UUQ+Bn2gZXjRK1NLffb/lMGy41uyGUCh3zOZVlQ+M7IrntXmSsNy0DDKpdzSe40mQK5NTVw==,
       }
     hasBin: true
     dependencies:
       "@antfu/ni": 0.21.8
-      "@npmcli/config": 6.4.0
+      "@npmcli/config": 8.0.0
       cli-progress: 3.12.0
       deepmerge: 4.3.1
       detect-indent: 7.0.1
