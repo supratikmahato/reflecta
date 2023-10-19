@@ -19,12 +19,12 @@
     "zod-validation-error": "^1.5.0"
   },
   "devDependencies": {
-    "@nuxt/devtools": "1.0.0-beta.3",
+    "@nuxt/devtools": "1.0.0",
     "@nuxtjs/eslint-config-typescript": "^12.1.0",
     "@nuxtjs/fontaine": "^0.4.1",
     "@nuxtjs/google-fonts": "^3.0.2",
-    "@types/lodash": "^4.14.199",
-    "@types/node": "^20.8.6",
+    "@types/lodash": "^4.14.200",
+    "@types/node": "^20.8.7",
     "@vueuse/core": "^10.5.0",
     "@vueuse/nuxt": "^10.5.0",
     "autoprefixer": "^10.4.16",
