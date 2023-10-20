@@ -32,7 +32,7 @@
   },
   "devDependencies": {
     "@commitlint/cli": "^17.8.0",
-    "@commitlint/config-conventional": "^17.8.0",
+    "@commitlint/config-conventional": "^18.0.0",
     "@release-it/bumper": "^5.1.0",
     "@trivago/prettier-plugin-sort-imports": "^4.2.0",
     "case-police": "^0.6.1",
