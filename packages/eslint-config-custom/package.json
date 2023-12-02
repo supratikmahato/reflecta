@@ -3,7 +3,7 @@
   "private": true,
   "main": "index.js",
   "devDependencies": {
-    "eslint": "^8.53.0",
+    "eslint": "^8.55.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-config-turbo": "^1.10.16",
     "eslint-plugin-case-police": "^0.6.1"
