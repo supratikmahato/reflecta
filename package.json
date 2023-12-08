@@ -47,7 +47,7 @@
     "prettier-plugin-sh": "0.13.1",
     "prettier-plugin-tailwindcss": "0.5.6",
     "prettier-plugin-toml": "1.0.0",
-    "release-it": "^16.3.0",
+    "release-it": "^17.0.1",
     "taze": "^0.13.0",
     "turbo": "^1.10.16"
   },
