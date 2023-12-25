@@ -11,7 +11,7 @@
     "preview": "nuxt preview"
   },
   "dependencies": {
-    "daisyui": "^4.4.17",
+    "daisyui": "^4.4.24",
     "lodash": "^4.17.21",
     "ofetch": "^1.3.3",
     "validation": "workspace:*",
