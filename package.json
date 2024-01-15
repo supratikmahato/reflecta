@@ -41,7 +41,7 @@
     "dotenv-cli": "^7.3.0",
     "eslint-config-custom": "workspace:*",
     "husky": "^8.0.3",
-    "prettier": "3.0.3",
+    "prettier": "3.2.2",
     "prettier-plugin-pkg": "0.18.0",
     "prettier-plugin-prisma": "5.0.0",
     "prettier-plugin-sh": "0.13.1",
