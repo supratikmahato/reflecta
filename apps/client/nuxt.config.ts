@@ -14,7 +14,7 @@ export default defineNuxtConfig({
       siteUrl:
         process.env.NUXT_PUBLIC_SITE_URL ||
         "https://techgenius-coffee.netlify.app",
-      siteName: "Coffee",
+      siteName: "Reflecta",
       siteDescription: "Welcome to my awesome site!",
       language: "en",
     },
