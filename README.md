@@ -3,11 +3,11 @@
 ## Cloning the repository
 
 ```bash
-git clone git@github.com:TechGenius7777/coffee.git
+git@github.com:supratikmahato/reflecta.git
 ```
 
 ```bash
-cd coffee
+cd reflecta
 ```
 
 ## Local development
