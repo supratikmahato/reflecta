@@ -3,7 +3,7 @@
 ## Cloning the repository
 
 ```bash
-git@github.com:supratikmahato/reflecta.git
+git clone git@github.com:supratikmahato/reflecta.git
 ```
 
 ```bash
